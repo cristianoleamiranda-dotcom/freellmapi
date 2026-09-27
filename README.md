@@ -1,5 +1,4 @@
-FreeLLMAPI
-7.4 billion tokens per month. 34 free LLM providers. 635 free model endpoints. One OpenAI-compatible endpoint.
+FreeLLMAPI 7.4 billion tokens per month. 34 free LLM providers. 635 free model endpoints. One OpenAI-compatible endpoint.
 
 Aggregate free tiers from dozens of providers, plus custom OpenAI-compatible chat, embedding, image, and audio endpoints, behind a single /v1 API. Keys are stored encrypted. A router picks the best available model for each request, falls over to the next provider when one is rate-limited, and tracks per-key usage so you stay under every free-tier cap.
 
@@ -15,28 +14,9 @@ FreeLLMAPI dashboard — Models page with the monthly token budget
 
 Your router updates its own model catalog from a signed feed: new free models, quota changes, and compatibility fixes land without a git pull. Free installs get the monthly snapshot, so a model reaches them 30 days after it joins the live feed; premium routers get it the same day. Go live at freellmapi.co ($19/yr, cancel anytime).
 
-Contents
-Why this exists
-Supported providers
-Compatible CLIs & coding agents
-How it compares
-Features
-Quick start
-Desktop app
-Works with OpenAI-compatible clients
-Languages
-Premium (live catalog)
-Using the API
-Screenshots
-How it works
-FAQ
-Limitations
-Contributing
-Disclaimer
-Guides: Install & deploy · API reference · Clients & coding agents · Prompt compression · Architecture & internals · Documentation index · Contributor guide
+Contents Why this exists Supported providers Compatible CLIs & coding agents How it compares Features Quick start Desktop app Works with OpenAI-compatible clients Languages Premium (live catalog) Using the API Screenshots How it works FAQ Limitations Contributing Disclaimer Guides: Install & deploy · API reference · Clients & coding agents · Prompt compression · Architecture & internals · Documentation index · Contributor guide
 
-Why this exists
-Every serious AI lab now offers a free tier, a few million tokens a month, a few thousand requests a day. On its own each tier is a toy. Stacked together, they add up to roughly 7.4 billion tokens per month of working inference capacity, across 474 model families / 635 provider endpoints from small-and-fast to reasonably capable.
+Why this exists Every serious AI lab now offers a free tier, a few million tokens a month, a few thousand requests a day. On its own each tier is a toy. Stacked together, they add up to roughly 7.4 billion tokens per month of working inference capacity, across 474 model families / 635 provider endpoints from small-and-fast to reasonably capable.
 
 The problem is that stacking them by hand is painful: thirty-four different SDKs, thirty-four different rate limits, thirty-four places a request can fail. FreeLLMAPI collapses that into one OpenAI-compatible endpoint. Point any OpenAI client library at your local server, and it routes transparently across whichever providers you've added keys for.
 
@@ -44,92 +24,29 @@ And the free-tier landscape shifts weekly: providers launch models, retire them,
 
 The free tier, stacked — ~7.4B tokens of free inference per month across 34 providers
 
-Supported providers
-Google
-Google	Groq
-Groq	Cerebras
-Cerebras	OpenCode Zen
-OpenCode Zen
-Mistral
-Mistral	OpenRouter
-OpenRouter	Cloudflare
-Cloudflare	Cohere
-Cohere
-Z.ai (Zhipu)
-Z.ai (Zhipu)	NVIDIA
-NVIDIA	HuggingFace
-HuggingFace
-ModelScope
-Qwen3 · DeepSeek V4 · GLM-5 (needs Aliyun cn binding)
-… and 22 more free providers
+Supported providers Google Google Groq Groq Cerebras Cerebras OpenCode Zen OpenCode Zen Mistral Mistral OpenRouter OpenRouter Cloudflare Cloudflare Cohere Cohere Z.ai (Zhipu) Z.ai (Zhipu) NVIDIA NVIDIA HuggingFace HuggingFace ModelScope Qwen3 · DeepSeek V4 · GLM-5 (needs Aliyun cn binding) … and 22 more free providers
 
 Plus a custom provider — point chat, embedding, image, or audio models at any OpenAI-compatible endpoint (llama.cpp, LM Studio, vLLM, a local Ollama, or a remote gateway) from the Keys page.
 
 The full, always-current list lives at freellmapi.co/models with per-model rate limits, context windows, and free-token budgets.
 
-Compatible CLIs & coding agents
-Claude Code
-Claude Code	Codex CLI
-Codex CLI	Gemini CLI
-Gemini CLI	Aider
-Aider
-Cline
-Cline	Roo Code
-Roo Code	Continue
-Continue	OpenCode
-OpenCode
-Goose
-Goose	Qwen Code
-Qwen Code	Kilo Code
-Kilo Code	Crush
-Crush
-Cursor
-Cursor	Zed
-Zed	JetBrains AI
-JetBrains AI	DeepSeek Harness
-DeepSeek Harness
-AtomCode
-AtomCode	OpenClaw
-OpenClaw	Hermes Agent
-Hermes Agent
-… plus any OpenAI-compatible client, Anthropic SDK, Gemini SDK, or Ollama-capable app
+Compatible CLIs & coding agents Claude Code Claude Code Codex CLI Codex CLI Gemini CLI Gemini CLI Aider Aider Cline Cline Roo Code Roo Code Continue Continue OpenCode OpenCode Goose Goose Qwen Code Qwen Code Kilo Code Kilo Code Crush Crush Cursor Cursor Zed Zed JetBrains AI JetBrains AI DeepSeek Harness DeepSeek Harness AtomCode AtomCode OpenClaw OpenClaw Hermes Agent Hermes Agent … plus any OpenAI-compatible client, Anthropic SDK, Gemini SDK, or Ollama-capable app
 
 Most of these configure themselves with one command — npx freellmapi setup-claude, setup-codex, setup-aider, setup-dsh (DeepSeek Harness), and eleven more generators that fetch your live catalog, back up existing config, and never clobber what's already there. Claude Code and Codex also get zero-persistence launchers (freellmapi launch, freellmapi launch-codex) that inject credentials into the child process only. Zed and JetBrains AI connect through the opt-in Ollama emulation; Gemini CLI speaks its native wire on /v1beta.
 
 Per-tool recipes, the setup CLI reference, revocable URL tokens for headerless clients, and the MCP server all live in Clients & coding agents →
 
-How it compares
-Feature comparison against OpenRouter, LiteLLM, and Portkey
+How it compares Feature comparison against OpenRouter, LiteLLM, and Portkey
 
 Based on public documentation, July 2026 — corrections welcome.
 
-Features
-Feature overview
+Features Feature overview
 
-Every OpenAI-style surface — /v1/chat/completions, /v1/responses (what Codex CLI needs), /v1/completions (editor ghost-text autocomplete), /v1/images/generations, /v1/videos/generations, /v1/audio/speech, /v1/audio/transcriptions, /v1/embeddings, and /v1/models — streaming and non-streaming, from the official SDKs or any OpenAI-compatible client. API reference →
-Anthropic Messages API — /v1/messages speaks Anthropic's wire format over the same router, so Claude Code and the official Anthropic SDKs run against your free pool. Details →
-Native Gemini + Ollama surfaces — Gemini CLI can use /v1beta (generateContent, streaming, token counting, models), while opt-in Ollama emulation serves NDJSON chat/generate, tags, metadata, and embeddings for Zed, JetBrains, and other local-model clients.
-Fusion (multi-model synthesis) — request the virtual fusion model and the router fans your prompt out to a panel of diverse free models in parallel, then a judge model synthesizes one answer from the drafts. Details →
-Image, video & speech generation — /v1/images/generations, /v1/videos/generations, and /v1/audio/speech route across the providers that serve media models; images and speech also accept custom OpenAI-compatible media endpoints. Video jobs are normalized across synchronous and queued providers and return a completed MP4.
-Tool calling & structured outputs — OpenAI-style tools round-trip across providers (plain-text tool calls are rescued into real tool_calls), plus response_format, seed, logprobs, penalties, and the rest of the sampling params passed through per provider.
-Smart routing, six strategies — live per-model speed/capability/reliability scores rank your chain; automatic fallover retries the next model on 429/5xx with cooldowns and key rotation. Routing in detail →
-Unified models & profiles — the same model on several providers collapses into one entry with strict in-group failover; named fallback-chain profiles (a coding chain, a vision chain) switch from the dashboard or per request via auto:<profile>.
-Per-key rate tracking — RPM/RPD/TPM/TPD counters per (platform, model, key) that learn providers' reported ceilings, so routing always stays under every cap.
-Self-updating model catalog — the router syncs a signed catalog from freellmapi.co twice a day: new models, quota changes, and provider quirk fixes land automatically. Free installs track the monthly snapshot, which each model joins 30 days after it lands in the live feed; premium routers get it same-day. Premium →
-Sticky sessions & context handoff — conversations stay on one model for 30 minutes; an optional compact handoff note keeps the thread coherent when a mid-chat switch does happen. Details →
-Prompt compression (opt-in) — a shared, fail-open request pipeline can deduplicate prompts, filter tool output, compact repeated JSON, and trim stale context before cache lookup and routing. Details →
-Encrypted keys, one token out — provider keys are AES-256-GCM encrypted in SQLite and decrypted in-memory per request; your apps only ever see a single unified freellmapi-… bearer token.
-Admin dashboard & analytics — React UI to manage keys, reorder the chain, run a playground, and read p50/p95/TTFT analytics over 24h–90d windows; login-gated, dark/light themes, 60 languages.
-MCP server & interactive docs — agents can introspect usable models, provider health, and routing strategy over /mcp; a dependency-free OpenAPI viewer lives at /v1/docs. Coding agents →
-Ops niceties — opt-in response cache, encrypted DB backups, periodic key health checks, bulk key import/export, declarative startup config. Install & deploy →
-Runs anywhere Node 20+ runs — Windows, macOS, Linux servers, or a small ARM SBC (Raspberry Pi included). ~40 MB RSS at idle behind PM2 / systemd / whatever supervisor you prefer.
-The scope is deliberately narrow — see what's not supported yet.
+Every OpenAI-style surface — /v1/chat/completions, /v1/responses (what Codex CLI needs), /v1/completions (editor ghost-text autocomplete), /v1/images/generations, /v1/videos/generations, /v1/audio/speech, /v1/audio/transcriptions, /v1/embeddings, and /v1/models — streaming and non-streaming, from the official SDKs or any OpenAI-compatible client. API reference → Anthropic Messages API — /v1/messages speaks Anthropic's wire format over the same router, so Claude Code and the official Anthropic SDKs run against your free pool. Details → Native Gemini + Ollama surfaces — Gemini CLI can use /v1beta (generateContent, streaming, token counting, models), while opt-in Ollama emulation serves NDJSON chat/generate, tags, metadata, and embeddings for Zed, JetBrains, and other local-model clients. Fusion (multi-model synthesis) — request the virtual fusion model and the router fans your prompt out to a panel of diverse free models in parallel, then a judge model synthesizes one answer from the drafts. Details → Image, video & speech generation — /v1/images/generations, /v1/videos/generations, and /v1/audio/speech route across the providers that serve media models; images and speech also accept custom OpenAI-compatible media endpoints. Video jobs are normalized across synchronous and queued providers and return a completed MP4. Tool calling & structured outputs — OpenAI-style tools round-trip across providers (plain-text tool calls are rescued into real tool_calls), plus response_format, seed, logprobs, penalties, and the rest of the sampling params passed through per provider. Smart routing, six strategies — live per-model speed/capability/reliability scores rank your chain; automatic fallover retries the next model on 429/5xx with cooldowns and key rotation. Routing in detail → Unified models & profiles — the same model on several providers collapses into one entry with strict in-group failover; named fallback-chain profiles (a coding chain, a vision chain) switch from the dashboard or per request via auto:. Per-key rate tracking — RPM/RPD/TPM/TPD counters per (platform, model, key) that learn providers' reported ceilings, so routing always stays under every cap. Self-updating model catalog — the router syncs a signed catalog from freellmapi.co twice a day: new models, quota changes, and provider quirk fixes land automatically. Free installs track the monthly snapshot, which each model joins 30 days after it lands in the live feed; premium routers get it same-day. Premium → Sticky sessions & context handoff — conversations stay on one model for 30 minutes; an optional compact handoff note keeps the thread coherent when a mid-chat switch does happen. Details → Prompt compression (opt-in) — a shared, fail-open request pipeline can deduplicate prompts, filter tool output, compact repeated JSON, and trim stale context before cache lookup and routing. Details → Encrypted keys, one token out — provider keys are AES-256-GCM encrypted in SQLite and decrypted in-memory per request; your apps only ever see a single unified freellmapi-… bearer token. Admin dashboard & analytics — React UI to manage keys, reorder the chain, run a playground, and read p50/p95/TTFT analytics over 24h–90d windows; login-gated, dark/light themes, 60 languages. MCP server & interactive docs — agents can introspect usable models, provider health, and routing strategy over /mcp; a dependency-free OpenAPI viewer lives at /v1/docs. Coding agents → Ops niceties — opt-in response cache, encrypted DB backups, periodic key health checks, bulk key import/export, declarative startup config. Install & deploy → Runs anywhere Node 20+ runs — Windows, macOS, Linux servers, or a small ARM SBC (Raspberry Pi included). ~40 MB RSS at idle behind PM2 / systemd / whatever supervisor you prefer. The scope is deliberately narrow — see what's not supported yet.
 
-Quick start
-One-liner (Docker required — sets up ~/freellmapi, generates an encryption key, pulls the image, and starts the container):
+Quick start One-liner (Docker required — sets up ~/freellmapi, generates an encryption key, pulls the image, and starts the container):
 
-curl -fsSL https://freellmapi.co/install.sh | bash
-Prefer to read before you pipe to bash? The script is here. Re-running it is safe: your .env (and encryption key) is preserved and the container updates to :latest.
+curl -fsSL https://freellmapi.co/install.sh | bash Prefer to read before you pipe to bash? The script is here. Re-running it is safe: your .env (and encryption key) is preserved and the container updates to :latest.
 
 Open http://localhost:3001, add your provider keys on the Keys page, reorder the Fallback Chain to taste, and grab your unified API key from the Keys page header. That unified key is what you point your OpenAI SDK at.
 
@@ -137,8 +54,7 @@ On Windows, the easiest path is the desktop .exe installer from Releases (below)
 
 Everything else — Docker Compose, local development, declarative startup config, production builds, LAN access, and backups — is in docs/en/install/01-install.md.
 
-Desktop app
-A native menu-bar app lives in desktop/: the entire router + dashboard running locally from your tray, with a glass popover showing live request stats.
+Desktop app A native menu-bar app lives in desktop/: the entire router + dashboard running locally from your tray, with a glass popover showing live request stats.
 
 FreeLLMAPI desktop app
 
@@ -146,34 +62,15 @@ Download from Releases — the macOS .dmg and the Windows .exe installer are att
 
 For macOS 12 Monterey or later, choose arm64 (Apple Silicon) or x64 (Intel). Both Mac builds also include a ZIP download.
 
-Works with OpenAI-compatible clients
-Anything that can target an OpenAI-compatible base URL works: set it to http://localhost:3001/v1 with the unified key from the dashboard. Claude Code, Codex CLI, Cline / Roo Code, Continue (including inline autocomplete), Aider, opencode, and Cursor each have a short recipe in docs/en/clients/01-agent-clients.md — and the router doubles as an MCP server your agents can introspect mid-session.
+Works with OpenAI-compatible clients Anything that can target an OpenAI-compatible base URL works: set it to http://localhost:3001/v1 with the unified key from the dashboard. Claude Code, Codex CLI, Cline / Roo Code, Continue (including inline autocomplete), Aider, opencode, and Cursor each have a short recipe in docs/en/clients/01-agent-clients.md — and the router doubles as an MCP server your agents can introspect mid-session.
 
 The fastest setup is generated from the models available on your live server:
 
-npx freellmapi setup-claude --url http://localhost:3001 --api-key <unified-key>
-Every generator supports --dry-run, creates a timestamped backup before changing an existing file, and merges into the user's configuration. Launchers keep credentials out of config files entirely: npx freellmapi launch for Claude Code and npx freellmapi launch-codex for Codex.
+npx freellmapi setup-claude --url http://localhost:3001 --api-key Every generator supports --dry-run, creates a timestamped backup before changing an existing file, and merges into the user's configuration. Launchers keep credentials out of config files entirely: npx freellmapi launch for Claude Code and npx freellmapi launch-codex for Codex.
 
-Agent	Automated setup	Base URL
-Claude Code	setup-claude	root
-Codex CLI	setup-codex	/v1
-Cline	setup-cline	/v1
-Continue	setup-continue	/v1
-Aider	setup-aider	/v1
-OpenCode	setup-opencode	/v1
-Goose	setup-goose	/v1
-Qwen Code	setup-qwen	/v1 (or native /v1beta)
-Roo / Kilo / Crush	setup-roo / setup-kilo / setup-crush	/v1
-DeepSeek Harness	setup-dsh	/v1
-MiMo Code	setup-mimo	/v1
-AtomCode	setup-atomcode	/v1
-OpenClaw	setup-openclaw	/v1
-Hermes Agent	setup-hermes	/v1
-Cursor	setup-cursor guide	public /v1 URL
-FreeLLMAPI is local-first and single-user by design. Your provider keys stay in your SQLite database, encrypted at rest, and requests go from your machine to the upstream providers you enabled.
+Agent Automated setup Base URL Claude Code setup-claude root Codex CLI setup-codex /v1 Cline setup-cline /v1 Continue setup-continue /v1 Aider setup-aider /v1 OpenCode setup-opencode /v1 Goose setup-goose /v1 Qwen Code setup-qwen /v1 (or native /v1beta) Roo / Kilo / Crush setup-roo / setup-kilo / setup-crush /v1 DeepSeek Harness setup-dsh /v1 MiMo Code setup-mimo /v1 AtomCode setup-atomcode /v1 OpenClaw setup-openclaw /v1 Hermes Agent setup-hermes /v1 Cursor setup-cursor guide public /v1 URL FreeLLMAPI is local-first and single-user by design. Your provider keys stay in your SQLite database, encrypted at rest, and requests go from your machine to the upstream providers you enabled.
 
-Languages
-The dashboard ships in 60 languages (the desktop tray menu in 6). The UI auto-detects your browser/system language on first load and you can switch any time from ⋯ → Settings; the choice is remembered. Right-to-left languages (العربية, עברית, فارسی, اردو) flip the whole layout automatically, and only the active language's dictionary is loaded — the rest never touch your bandwidth.
+Languages The dashboard ships in 60 languages (the desktop tray menu in 6). The UI auto-detects your browser/system language on first load and you can switch any time from ⋯ → Settings; the choice is remembered. Right-to-left languages (العربية, עברית, فارسی, اردو) flip the whole layout automatically, and only the active language's dictionary is loaded — the rest never touch your bandwidth.
 
 United States China Spain France Brazil Italy India Saudi Arabia Bangladesh Russia Pakistan Indonesia Germany Japan Kenya Türkiye Vietnam South Korea Iran Thailand Poland Ukraine Myanmar Romania Netherlands Malaysia Philippines Nigeria Ethiopia Uzbekistan Azerbaijan Sri Lanka Nepal Cambodia Greece Czechia Hungary Sweden Israel Denmark Finland Norway Slovakia Bulgaria Croatia Serbia Lithuania Taiwan Portugal Georgia
 
@@ -183,8 +80,7 @@ The original six locales are human-reviewed; the newer ones are machine- transla
 
 Translations live in client/src/i18n/locales/ as flat JSON files. To fix a string, edit the value in the locale's JSON file. To add a language, copy en.json, translate the values, and register the locale in client/src/i18n/locale-config.ts (and desktop/src/i18n.ts for the tray strings); npm test checks every locale for key/placeholder parity — PRs welcome.
 
-Premium (live catalog)
-The router keeps its model catalog fresh on its own: it pulls a signed catalog from freellmapi.co twice a day and applies new models, quota changes, and provider quirk fixes to your local DB. Your own enable/disable choices and custom providers are never touched, and every download is verified against a pinned Ed25519 key before it is applied.
+Premium (live catalog) The router keeps its model catalog fresh on its own: it pulls a signed catalog from freellmapi.co twice a day and applies new models, quota changes, and provider quirk fixes to your local DB. Your own enable/disable choices and custom providers are never touched, and every download is verified against a pinned Ed25519 key before it is applied.
 
 The catalog currently tracks 34 providers, 474 model families, 635 free provider/model endpoints (584 chat, 41 embeddings, 7 transcription, 3 video), and roughly 7.4 billion tokens per month of listed free-tier capacity. Browse the full set at freellmapi.co/models.
 
@@ -194,85 +90,54 @@ Premium keeps that signed catalog live on every router you run. When a provider 
 
 Go live at freellmapi.co →
 
-$19/year or $49 once, lifetime. Stripe checkout; cancel anytime, self-serve.
-One fla_ key covers every router you run: desktop, homelab, Raspberry Pi.
-Activate in the dashboard under Premium; cancel or manage billing self-serve at freellmapi.co/manage.
-The router itself stays MIT-licensed and fully free, forever. Premium is only the live feed, and it's what funds the daily model testing and catalog maintenance that keeps the catalog working.
-The catalog server never sees your prompts, completions, or provider keys — the router stays fully self-hosted either way.
+$19/year or $49 once, lifetime. Stripe checkout; cancel anytime, self-serve. One fla_ key covers every router you run: desktop, homelab, Raspberry Pi. Activate in the dashboard under Premium; cancel or manage billing self-serve at freellmapi.co/manage. The router itself stays MIT-licensed and fully free, forever. Premium is only the live feed, and it's what funds the daily model testing and catalog maintenance that keeps the catalog working. The catalog server never sees your prompts, completions, or provider keys — the router stays fully self-hosted either way.
 
-Using the API
-from openai import OpenAI
+Using the API from openai import OpenAI
 
-client = OpenAI(
-    base_url="http://localhost:3001/v1",
-    api_key="freellmapi-your-unified-key",
-)
+client = OpenAI( base_url="http://localhost:3001/v1", api_key="freellmapi-your-unified-key", )
 
-resp = client.chat.completions.create(
-    model="auto",  # let the router pick; or "auto:fast", "auto:smart", a profile, or a model id
-    messages=[{"role": "user", "content": "Summarise the fall of Rome in one sentence."}],
-)
-print(resp.choices[0].message.content)
-print("Routed via:", resp.headers.get("x-routed-via"))
-Streaming, the auto:* routing strategies, tool calling, vision input, Gemini Google Search grounding, embeddings, and the Anthropic Messages surface — with curl and Python examples for each — are all in docs/en/api/01-rest-api.md. Every response carries an X-Routed-Via: <platform>/<model> header so you can see which provider actually served it.
+resp = client.chat.completions.create( model="auto", # let the router pick; or "auto:fast", "auto:smart", a profile, or a model id messages=[{"role": "user", "content": "Summarise the fall of Rome in one sentence."}], ) print(resp.choices[0].message.content) print("Routed via:", resp.headers.get("x-routed-via")) Streaming, the auto:* routing strategies, tool calling, vision input, Gemini Google Search grounding, embeddings, and the Anthropic Messages surface — with curl and Python examples for each — are all in docs/en/api/01-rest-api.md. Every response carries an X-Routed-Via: / header so you can see which provider actually served it.
 
-Screenshots
-Models
-Pick a routing strategy and watch the monthly token budget fill across the whole provider fleet. Every model shows live reliability, speed, and intelligence scores — the order below is how requests route right now.
+Screenshots Models Pick a routing strategy and watch the monthly token budget fill across the whole provider fleet. Every model shows live reliability, speed, and intelligence scores — the order below is how requests route right now.
 
 Models page
 
-Keys
-Manage provider credentials and grab the unified API key your apps connect with. Each key shows a status dot and when it was last health-checked.
+Keys Manage provider credentials and grab the unified API key your apps connect with. Each key shows a status dot and when it was last health-checked.
 
 Keys page
 
-Playground
-Send a chat completion through the router and see which provider served it, with the model ID and latency printed right on the message. Attach files by button, drag-and-drop, or paste: images (PNG/JPEG/WebP/GIF) are downscaled in the browser and sent as image content parts to a vision-capable model, and text files (TXT/MD/CSV/JSON/LOG) are inlined into the prompt as fenced blocks.
+Playground Send a chat completion through the router and see which provider served it, with the model ID and latency printed right on the message. Attach files by button, drag-and-drop, or paste: images (PNG/JPEG/WebP/GIF) are downscaled in the browser and sent as image content parts to a vision-capable model, and text files (TXT/MD/CSV/JSON/LOG) are inlined into the prompt as fenced blocks.
 
 Playground page
 
-Analytics
-Request volume, success rate, tokens in and out, average latency, and per-provider breakdowns over 24h / 7d / 30d / 90d windows.
+Analytics Request volume, success rate, tokens in and out, average latency, and per-provider breakdowns over 24h / 7d / 30d / 90d windows.
 
 Analytics page
 
-How it works
-One request in, the best free model out — the fallback chain with live scores, cooldowns, and quota tracking
+How it works One request in, the best free model out — the fallback chain with live scores, cooldowns, and quota tracking
 
 One request in, the best free model out: the router picks the highest-priority model with a healthy key that's under all its rate limits, decrypts the key in memory, and calls the provider — on a 429/5xx it cools that key down and retries the next model in your chain. The component walkthrough, routing internals, and operational details live in docs/en/architecture/00-high-level-index.md.
 
-FAQ
-Do I need a password? Not for the desktop app — the dashboard signs itself in with a hidden local account, so there is nothing to set up and nothing to forget. Open it from the tray icon → Open Dashboard. Server installs (Docker, one-liner, npm run dev) do have an email + password account.
+FAQ Do I need a password? Not for the desktop app — the dashboard signs itself in with a hidden local account, so there is nothing to set up and nothing to forget. Open it from the tray icon → Open Dashboard. Server installs (Docker, one-liner, npm run dev) do have an email + password account.
 
 I forgot the password on a server install. Click Forgot password? on the login page. There is no email to send a link to, so the one-time code is printed to the server log — read it with docker compose logs -f freellmapi (or in the terminal running the server, or in the desktop log file), then enter it on the reset form. The code lasts 15 minutes.
 
-Where are the logs? In the container log for Docker, in the terminal for a source run, and in <data dir>/logs/freeapi.log for the desktop app — reachable from the tray menu's Open Logs Folder.
+Where are the logs? In the container log for Docker, in the terminal for a source run, and in /logs/freeapi.log for the desktop app — reachable from the tray menu's Open Logs Folder.
 
-How do I uninstall? Remove the app (Trash on macOS, Settings → Apps on Windows, docker compose down -v for Docker), then delete the data directory: %APPDATA%\FreeLLMAPI\, ~/Library/Application Support/FreeLLMAPI/, or ~/.config/FreeLLMAPI/. Uninstalling never touches that folder on its own.
+How do I uninstall? Remove the app (Trash on macOS, Settings → Apps on Windows, docker compose down -v for Docker), then delete the data directory: %APPDATA%\FreeLLMAPI, ~/Library/Application Support/FreeLLMAPI/, or ~/.config/FreeLLMAPI/. Uninstalling never touches that folder on its own.
 
 Longer answers, per install method: docs/en/install/01-install.md#faq-passwords-logs-uninstall.
 
-Limitations
-Stacking free tiers has real trade-offs: no frontier models, variable latency, no SLA — and the effective intelligence of the endpoint dips late in the day as top models hit their daily caps, then resets at UTC midnight. Read the honest list in docs/en/architecture/00-high-level-index.md#limitations before building anything real on this.
+Limitations Stacking free tiers has real trade-offs: no frontier models, variable latency, no SLA — and the effective intelligence of the endpoint dips late in the day as top models hit their daily caps, then resets at UTC midnight. Read the honest list in docs/en/architecture/00-high-level-index.md#limitations before building anything real on this.
 
-Contributing
-Contributors very welcome! See CONTRIBUTING.md for the dev loop, PR expectations, and the policy on AI/LLM-assisted contributions (short version: welcome, same quality bar as any other PR). Good first PRs:
+Contributing Contributors very welcome! See CONTRIBUTING.md for the dev loop, PR expectations, and the policy on AI/LLM-assisted contributions (short version: welcome, same quality bar as any other PR). Good first PRs:
 
-Add a provider — copy server/src/providers/openai-compat.ts as a template, wire it into server/src/providers/index.ts, seed its models in server/src/db/index.ts, add a test in server/src/__tests__/providers/.
-Add an endpoint — moderations and other OpenAI-compatible surfaces. The provider base class can grow new methods; adapters declare which they support.
-Improve the router — cost-aware routing (cheapest-healthy-fastest tradeoffs), better latency-weighted priority, regional pinning.
-Dashboard polish — charts on the Analytics page, key rotation UX, batch import of keys from .env.
-Docs — more examples, client library snippets for Go/Rust/etc., a deployment recipe for Docker or Fly.
-npm install && npm run dev gets you the server on :3001 and the dashboard on :5173, both with HMR. For a repeatable setup, use ./scripts/dev-bootstrap.sh on Bash or .\scripts\dev-bootstrap.ps1 on PowerShell; each preserves an existing .env. PRs should include a test, keep the existing suite green (npm test), and match the .editorconfig / tsconfig defaults already in the repo. Database migration workflow and the full contributor loop are in CONTRIBUTING.md.
+Add a provider — copy server/src/providers/openai-compat.ts as a template, wire it into server/src/providers/index.ts, seed its models in server/src/db/index.ts, add a test in server/src/tests/providers/. Add an endpoint — moderations and other OpenAI-compatible surfaces. The provider base class can grow new methods; adapters declare which they support. Improve the router — cost-aware routing (cheapest-healthy-fastest tradeoffs), better latency-weighted priority, regional pinning. Dashboard polish — charts on the Analytics page, key rotation UX, batch import of keys from .env. Docs — more examples, client library snippets for Go/Rust/etc., a deployment recipe for Docker or Fly. npm install && npm run dev gets you the server on :3001 and the dashboard on :5173, both with HMR. For a repeatable setup, use ./scripts/dev-bootstrap.sh on Bash or .\scripts\dev-bootstrap.ps1 on PowerShell; each preserves an existing .env. PRs should include a test, keep the existing suite green (npm test), and match the .editorconfig / tsconfig defaults already in the repo. Database migration workflow and the full contributor loop are in CONTRIBUTING.md.
 
-Contributors
-@moaaz12-web @lukasulc @VinhPhamAI @deadc @zhangyu1324 @kentpan @stephenzwj @chongjiazhen @vjsai @long2ice @sadesguy @hodlmybeer69-bit @phoenixikkifullstack @jtbrennan-git @praveenkumarpranjal @nordbyte @mybropro @danscMax @jhash @JammyJames1234 @coffcoe @Sumit4codes @meliani @thedavidweng @bharvey42 @yuvrxj-afk @Tushar49 @nicyoong @Aldo-f @Tazrif-Raim @m1nuzz @suantea @OhOkThisIsFine @LoneRifle @ita333 @barbotkonv @Naster17 @StealthTensor @EmranAhmed @itsfuad @RobinHoodO @hmm183 @duemilionidieuro-bot @cagedbird043 @jasnoorgill @Joey9024 @AskingConical @ProAlit @hjhhoni @immanuelsavio @Slyker @wells1013 @evgkrsk @aaronjmars @Robs87 @dashitongzhi @QingJ01 @3215 @saifulaiub123 @PietFourie @mhmdkrmabd @DemeulemeesterxMaxime @HoodBlah @SeanPedersen @andersmmg @chirag127 @allababbot @johan-droid @redenfire @itzpingcat @kairwang01 @gongjurenzhangwei @jsonring @1029734570 @86TheCactus @AmiroKD @ecryptomillionaire-dev @4riful @fix2015 @iisyw @xsfhacg @noobix @nandukmelath @NirvanaCh7 @Mohamed3nan @Arman-Espiar @MetaMysteries8 @lujun880726 @qq97693453 @emv33 @ousamabenyounes @yfdyh000 @s-uryansh @arsalanyavari @RoboMWM @gaurang-py @ddy4633 @UrbsKali @hb-0 @xyblue135 @Icesenator @ZER0-auto @tashdroid @Patrickleondev @hiiamwaffledev @w0fv1 @oppih @n3dhir @ksp2000 @quabynahdavis @qinghuanandejiangshi @qatcod @CooperSheroy @shahidbeig-a11y @Kaban15 @efcunha @sukaimi @rome-xi @bsi-bcp @rodion-gudz
+Contributors @moaaz12-web @lukasulc @VinhPhamAI @deadc @zhangyu1324 @kentpan @stephenzwj @chongjiazhen @vjsai @long2ice @sadesguy @hodlmybeer69-bit @phoenixikkifullstack @jtbrennan-git @praveenkumarpranjal @nordbyte @mybropro @danscMax @jhash @JammyJames1234 @coffcoe @Sumit4codes @meliani @thedavidweng @bharvey42 @yuvrxj-afk @Tushar49 @nicyoong @Aldo-f @Tazrif-Raim @m1nuzz @suantea @OhOkThisIsFine @LoneRifle @ita333 @barbotkonv @Naster17 @StealthTensor @EmranAhmed @itsfuad @RobinHoodO @hmm183 @duemilionidieuro-bot @cagedbird043 @jasnoorgill @Joey9024 @AskingConical @ProAlit @hjhhoni @immanuelsavio @Slyker @wells1013 @evgkrsk @aaronjmars @Robs87 @dashitongzhi @QingJ01 @3215 @saifulaiub123 @PietFourie @mhmdkrmabd @DemeulemeesterxMaxime @HoodBlah @SeanPedersen @andersmmg @chirag127 @allababbot @johan-droid @redenfire @itzpingcat @kairwang01 @gongjurenzhangwei @jsonring @1029734570 @86TheCactus @AmiroKD @ecryptomillionaire-dev @4riful @fix2015 @iisyw @xsfhacg @noobix @nandukmelath @NirvanaCh7 @Mohamed3nan @Arman-Espiar @MetaMysteries8 @lujun880726 @qq97693453 @emv33 @ousamabenyounes @yfdyh000 @s-uryansh @arsalanyavari @RoboMWM @gaurang-py @ddy4633 @UrbsKali @hb-0 @xyblue135 @Icesenator @ZER0-auto @tashdroid @Patrickleondev @hiiamwaffledev @w0fv1 @oppih @n3dhir @ksp2000 @quabynahdavis @qinghuanandejiangshi @qatcod @CooperSheroy @shahidbeig-a11y @Kaban15 @efcunha @sukaimi @rome-xi @bsi-bcp @rodion-gudz
 
-Disclaimer
-This project is for personal experimentation and learning, not production. Free tiers exist so developers can prototype against them; they aren't a stable, supported inference substrate and shouldn't be treated as one. If you build something real on top of FreeLLMAPI, swap in a paid API before you ship. Your relationship with each upstream provider is governed by the terms you accepted when you created your account — those terms still apply when the traffic is proxied through this project, and you're responsible for complying with them.
+Disclaimer This project is for personal experimentation and learning, not production. Free tiers exist so developers can prototype against them; they aren't a stable, supported inference substrate and shouldn't be treated as one. If you build something real on top of FreeLLMAPI, swap in a paid API before you ship. Your relationship with each upstream provider is governed by the terms you accepted when you created your account — those terms still apply when the traffic is proxied through this project, and you're responsible for complying with them.
 
 How each provider's ToS views a personal, single-user proxy — reviewed provider by provider in May 2026 — is in docs/en/architecture/00-high-level-index.md#terms-of-service-review.
 
-License
-MIT
+License MIT
