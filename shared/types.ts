@@ -68,6 +68,33 @@ export type Platform =
   // monthly when a payment method is attached; usage beyond the grant is
   // pay-as-you-go. Background polling is required for its flex-only models.
   | 'sail'
+  // Responses-only gateway; a shared monthly free allowance, not per model.
+  | 'aclide'
+  // OpenAI-compatible chat and embeddings; one shared $1 monthly allowance.
+  | 'speka'
+  // Decision-only JEV adapter; promotional availability is catalog-managed.
+  | 'beatapi'
+  // Free-category chat and decisions share one weighted daily allowance.
+  | 'apinex'
+  // OpenAI-compatible gateway; free models share a 30-calls/5-hour account
+  // allowance on top of a site-wide pool (issue #1460).
+  | 'onomeo'
+  // Ongoing free research API for chat and speech recognition; catalog only.
+  | 'typhoon'
+  // Permanent free chat aliases, shared fair-use quota; signed catalog only.
+  | 'plugsky'
+  // Catalog-only free chat gateways; shared monthly/daily account allowances.
+  | 'inferbase'
+  | 'simplellm'
+  // Selected zero-priced routes have daily/rolling quotas without a top-up;
+  // signed catalog only. The public roster also includes paid/promotional IDs.
+  | 'llmtr'
+  // Catalog-managed free routes: monthly request quota / ongoing $0 models.
+  | 'gizmo'
+  | 'blockrun'
+  // Hosted vision API: $5/workspace in recurring monthly credits, shared
+  // across models. Signed catalog only; no bundled model seeds.
+  | 'moondream'
   // Hosted gateways; model rows are delivered by the signed catalog only.
   // ElectronHub renews weekly credits; Experiential renews monthly credits.
   | 'electronhub'
@@ -77,6 +104,9 @@ export type Platform =
   | 'septor'
   | 'clod'
   | 'speechify'
+  // Self-hosted TTS: shared 30K tokens/day and 1K API requests/month, no card.
+  // Model rows arrive only through the signed, freshness-gated catalog.
+  | 'freeai'
   | 'blaze'
   // Lucidity Composite, Api.Airforce and DreamPrompting expose daily free
   // allowances; Waterfall and Logfare publish community / fair-use tiers.
@@ -101,8 +131,17 @@ export type Platform =
   | 'mistral'
   | 'sambanova'
   | 'openrouter'
-  | 'github'
   | 'cohere'
+  // Web search APIs (#1174), not chat providers. Their keys serve POST
+  // /v1/search (and the agents' web_search tools) through the catalog's
+  // searchEngines registry; chat calls to them are rejected. See
+  // SEARCH_PLATFORMS below.
+  | 'tavily'
+  | 'exa'
+  | 'firecrawl'
+  | 'linkup'
+  | 'parallel'
+  | 'serpsearch'
   | 'cloudflare'
   | 'zhipu'
   | 'ollama'
@@ -178,11 +217,13 @@ export type Platform =
   // in the hosted catalog (premium now, free after the 30-day model-age gate).
   | 'xkiro'
   // ModelScope (魔搭社区, Alibaba) — OpenAI-compatible inference API
-  // (api-inference.modelscope.cn/v1). Free tier is 2000 requests/day
-  // account-wide, but calls only work after the ModelScope account is bound to
-  // an Alibaba Cloud CHINA-site (cn) account with Chinese real-name
-  // verification — tokens mint without binding, then every call 401s. Catalog
-  // rows land after community testing confirms per-model behavior (#581).
+  // (api-inference.modelscope.cn/v1). Free tier moved to magic-grain (魔粒)
+  // metering in 2026-08: ~250 魔粒/day account-wide at ~2 魔粒 per request
+  // (observed 2026-08-14) ≈ 125 requests/day, but calls only work after the
+  // ModelScope account is bound to an Alibaba Cloud CHINA-site (cn) account
+  // with Chinese real-name verification — tokens mint without binding, then
+  // every call 401s. Catalog rows land after community testing confirms
+  // per-model behavior (#581).
   | 'modelscope'
   // ── Chinese domestic providers (#922/#923/#924) ────────────────────────────
   // All four need Chinese real-name verification (实名认证) on the cloud account
@@ -227,6 +268,17 @@ export type Platform =
   // Ollama, any base_url). The endpoint URL lives on the api_keys row; see #117.
   | 'custom';
 
+/** Platforms whose keys serve web search (POST /v1/search and the agents'
+ *  web_search tools), never chat. Search engine rows arrive through the
+ *  catalog's `searchEngines` registry. The server keeps its own runtime copy in
+ *  server/src/lib/search-platforms.ts (shared is type-only on the server). */
+export const SEARCH_PLATFORMS = ['tavily', 'exa', 'firecrawl', 'linkup', 'parallel', 'serpsearch'] as const;
+export type SearchPlatform = (typeof SEARCH_PLATFORMS)[number];
+
+export function isSearchPlatform(platform: string): platform is SearchPlatform {
+  return (SEARCH_PLATFORMS as readonly string[]).includes(platform);
+}
+
 export interface Model {
   id: number;
   platform: Platform;
@@ -244,7 +296,9 @@ export interface Model {
   enabled: boolean;
   supportsVision: boolean;
   supportsTools: boolean;
-  source?: 'catalog' | 'custom';
+  /** 'discovered': fetched from a built-in provider's own /models because the
+   *  catalog carries no models for it (#1348). */
+  source?: 'catalog' | 'custom' | 'discovered';
   keyId?: number | null;
   endpointScope?: string | null;
 }
@@ -301,22 +355,50 @@ export interface ApiKey {
   label: string;
   maskedKey: string;
   baseUrl: string | null;
+  /** Optional custom-endpoint group label (#1176); null = legacy single
+   *  "Custom" group. Only set on platform='custom' rows. */
+  groupLabel?: string | null;
   status: KeyStatus;
   enabled: boolean;
+  /** This row is the anonymous sentinel of a key-optional platform: there is
+   *  no credential to copy, scope or reveal. */
   keyless: boolean;
+  /** The platform works with or without a key (Kilo, OVH, AI Horde), so a key
+   *  can be added to or left off this row (#1331). */
+  keyOptional?: boolean;
   /** Whether an export file would actually contain this row. The server decides
    *  it so the dialog's "will export N keys" cannot drift from the export. */
   exportable: boolean;
   createdAt: string;
   lastCheckedAt: string | null;
+  /** Last time the key was proven to work — a valid probe verdict or a served
+   *  live request (#1493). Unlike lastCheckedAt, a transport error does not
+   *  refresh it, so "checked recently but never worked" is visible. */
+  lastHealthyAt?: string | null;
   lastHealthError: string | null;
   /** Model ids this key is limited to; null = serves every model of its
    *  platform (#657). */
   modelScope?: string[] | null;
+  /** Per-key monthly request cap (0 = unlimited, #1158). */
+  monthlyRequestCap?: number;
+  /** Per-key monthly token cap (0 = unlimited, #1158). */
+  monthlyTokenCap?: number;
+  /** Current UTC month's successful usage against the caps above, with the
+   *  ISO time of the next monthly reset. */
+  monthlyUsage?: { requests: number; tokens: number; resetsAt: string };
   /** The per-key proxy override with its password masked (#590); '' = none. */
   maskedProxyUrl?: string;
   models?: ApiKeyModel[];
   cooldowns?: ApiKeyCooldown[];
+  /** True for a built-in provider key whose platform the catalog carries no
+   *  models for, so the dashboard offers Fetch models on it (#1348). */
+  modelDiscovery?: boolean;
+  /** False for a provider that forbids automated key checks (LLMTR, #1459):
+   *  its keys turn healthy on their first served request, not on a probe. */
+  autoHealthCheck?: boolean;
+  /** Only sent when autoHealthCheck is false: how many of the provider's
+   *  models this install can route to (0 = nothing to serve yet). */
+  modelsAvailable?: number;
 }
 
 export interface ApiKeyCreate {
