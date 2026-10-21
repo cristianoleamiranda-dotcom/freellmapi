@@ -58,7 +58,19 @@ También responde `/health` para comprobar que está vivo.
 La portada `index.html` de esta carpeta redirige a `preview/`, así que la URL de la carpeta
 ya funciona sola.
 
-**4. Kit para descargar.** `scripts/publicar.sh` arma `dist/abyss-historia-15s-kit.zip` (visor
+**4. Vercel** (sitio estático, `vercel.json` ya incluido):
+
+```bash
+npm install --global vercel@latest
+export VERCEL_TOKEN=...          # https://vercel.com/account/tokens
+scripts/deploy-vercel.sh         # equipo team_ddoZ4KbyQ3Q2C5HHqp0z6YaK
+```
+
+El script comprueba la salida a `api.vercel.com`, valida el token contra el equipo y
+despliega en producción. `.vercelignore` deja fuera `src/`, `research/`, `work/` y `render/`,
+así que solo suben el visor, la portada y los mp4. Queda `https://<proyecto>.vercel.app/preview/`.
+
+**5. Kit para descargar.** `scripts/publicar.sh` arma `dist/abyss-historia-15s-kit.zip` (visor
 + los tres mp4 + portadas + README) y, si el entorno tiene acceso a `uploads.github.com`,
 intenta publicarlo como release. En este sandbox esa subida está bloqueada, por eso el zip
 se entrega como archivo local.
@@ -112,6 +124,11 @@ python3 src/render.py     # 900 frames + mux + derivadas + piezas
 
 Sin After Effects, sin Premiere y sin assets de pago: todo el render es reproducible
 desde los archivos del repo.
+
+> **Si el entorno se reinicia:** las herramientas de Arena no persisten carpetas llamadas
+> `out/`. Los entregables están versionados, así que se recuperan en un paso:
+> `git restore --source=HEAD abyss-historia-15s/out`. Después verifica con
+> `python3 - <<'P'` o comparando contra `out/manifest.json` (peso y SHA-256 de cada archivo).
 
 ## Estructura
 
