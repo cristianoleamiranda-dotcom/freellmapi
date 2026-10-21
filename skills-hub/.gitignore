@@ -1,0 +1,5 @@
+# Caché de clones (se reconstruye con npm run sync)
+.cache/
+# Paquetes generados
+dist/
+node_modules/

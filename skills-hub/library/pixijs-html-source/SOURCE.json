@@ -1,0 +1,26 @@
+{
+  "slug": "pixijs-html-source",
+  "name": "pixijs-html-source",
+  "description": "Use this skill when rendering live HTML/DOM elements (or frozen snapshots of them) as PixiJS v8 textures via the EXPERIMENTAL HTML-in-Canvas browser APIs. Covers the pixi.js/html-source import, feature detection with canvas.requestPaint, HTMLSource for a live, repainting, still-interactive element (autoLayout/autoUpdate/autoRequestPaint, requestPaint, isReady, HTMLSource.defaultOptions, the direct-child-of-canvas + layoutsubtree requirement), ElementImageSource for an immutable captureElementImage() snapshot (autoClose, ready immediately), using the source on a Sprite/Texture/Mesh, fallback-only auto-detection via Texture.from at priority -10, uploader error messages, and destroy/cleanup. Triggers on: HTMLSource, ElementImageSource, ElementImage, HTML in canvas, render DOM to texture, render HTML to texture, texElementImage2D, copyElementImageToTexture, HTMLSourceOptions, ElementImageSourceOptions, HTMLSourceCanvas.\"",
+  "license": "MIT",
+  "category": "pixijs",
+  "tags": [
+    "pixijs",
+    "webgl",
+    "webgpu",
+    "canvas"
+  ],
+  "status": "ok",
+  "originalName": "pixijs-html-source",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/pixijs-html-source/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-html-source/SKILL.md"
+  },
+  "notes": [],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 13657,
+  "importedAt": "2026-10-21T20:39:18.317Z"
+}

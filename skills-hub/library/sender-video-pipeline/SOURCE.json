@@ -1,0 +1,29 @@
+{
+  "slug": "sender-video-pipeline",
+  "name": "sender-video-pipeline",
+  "description": "Pipeline ffmpeg para video e imagen web: GOP corto y faststart para que el scrub sea barato, presupuestos de peso por tipo de video, Ken Burns desde foto real y verificación con probe. Úsala al preparar backs de video, loops o derivados de imagen.",
+  "license": null,
+  "category": "video",
+  "tags": [
+    "ffmpeg",
+    "scrub",
+    "gop",
+    "video"
+  ],
+  "status": "fixed",
+  "originalName": null,
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/sender-design-ops",
+    "path": "sender-design-ops/skills/SKILL-video-pipeline.md",
+    "commit": "639aed9b21eb54a0c8a1a007d0d21d1a6512bd91",
+    "url": "https://github.com/cristianoleamiranda-dotcom/sender-design-ops/tree/639aed9b21eb54a0c8a1a007d0d21d1a6512bd91/sender-design-ops/skills/SKILL-video-pipeline.md"
+  },
+  "notes": [
+    "sin frontmatter en el origen: se generó",
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 1128,
+  "importedAt": "2026-10-21T20:39:17.911Z"
+}

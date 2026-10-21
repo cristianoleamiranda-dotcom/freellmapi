@@ -1,0 +1,27 @@
+{
+  "slug": "rea-tool-design",
+  "name": "rea-tool-design",
+  "description": "Design or change REA investigation tools, CLI/MCP contracts, provider capabilities, and Evidence semantics.",
+  "license": null,
+  "category": "reverse-engineering",
+  "tags": [
+    "rea",
+    "reverse-engineering",
+    "evidencia"
+  ],
+  "status": "ok",
+  "originalName": "rea-tool-design",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/rea-tool-design/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/rea-tool-design/SKILL.md"
+  },
+  "notes": [
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 1168,
+  "importedAt": "2026-10-21T20:39:18.344Z"
+}

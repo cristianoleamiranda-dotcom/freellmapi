@@ -1,0 +1,28 @@
+{
+  "slug": "abyss-video-image-studio",
+  "name": "abyss-video-image-studio",
+  "description": "Suite integrada de edición profesional de video, imagen, color, tipografía cinética y sonido publicitario para Abyss Tattoo Studio (José Joaquín Pérez 528, San Bernardo). Aplica auditoría y curaduría previa al montaje, conversión HDR HLG 10-bit -> BT.709, rig de cámara virtual 3D sub-píxel (zooms ópticos, tiros de cámara, perspectiva 3D, speed ramps, whip pans), tipografía editorial en zonas seguras 9:16 y masterización H.264 + AAC 48 kHz.",
+  "license": null,
+  "category": "video",
+  "tags": [
+    "video",
+    "color",
+    "ffmpeg",
+    "abyss"
+  ],
+  "status": "ok",
+  "originalName": "abyss-video-image-studio",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/abysstattoo",
+    "path": ".agents/skills/abyss-video-image-studio",
+    "commit": "ccda3b8511b28eada5f4613fdf10d51e44543d77",
+    "url": "https://github.com/cristianoleamiranda-dotcom/abysstattoo/tree/ccda3b8511b28eada5f4613fdf10d51e44543d77/.agents/skills/abyss-video-image-studio"
+  },
+  "notes": [
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 3889,
+  "importedAt": "2026-10-21T20:39:18.812Z"
+}

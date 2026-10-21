@@ -1,0 +1,27 @@
+{
+  "slug": "text-to-lottie",
+  "name": "text-to-lottie",
+  "description": "Create, edit, or fix Lottie/Bodymovin JSON animations for the local Skia Skottie player. Use for text-to-Lottie, SVG/logo/type animation, loaders/icons, state feedback, UI microinteractions, lower thirds, diagrams, data/stat/chart animations, product promos, scene/camera motion, visual effects, scene edits, slots/controls, and Skottie debugging.",
+  "license": null,
+  "category": "motion",
+  "tags": [
+    "lottie",
+    "animacion",
+    "svg"
+  ],
+  "status": "ok",
+  "originalName": "text-to-lottie",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/text-to-lottie/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/text-to-lottie/SKILL.md"
+  },
+  "notes": [
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 23,
+  "bytes": 143548,
+  "importedAt": "2026-10-21T20:39:18.353Z"
+}

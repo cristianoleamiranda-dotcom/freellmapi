@@ -1,0 +1,31 @@
+{
+  "slug": "sender-immersive-web-department",
+  "name": "sender-immersive-web-department",
+  "description": "Skill de departamento completo (dirección creativa, motion, 3D, editorial, film, performance, QA y awards) para diseñar, construir y auditar webs inmersivas editoriales scroll-driven. Úsala al briefar, construir o auditar sitios premium con GSAP/Three.js/film-scrub, o al preparar submissions Awwwards.",
+  "license": null,
+  "category": "diseno-web",
+  "tags": [
+    "departamento",
+    "inmersivo",
+    "scroll",
+    "gsap",
+    "threejs",
+    "editorial",
+    "awwwards"
+  ],
+  "status": "ok",
+  "originalName": "sender-immersive-web-department",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/sender-motion-kit",
+    "path": "SKILL.md",
+    "commit": "c2fa4b70ffc5ff60602109930d04449d221050e6",
+    "url": "https://github.com/cristianoleamiranda-dotcom/sender-motion-kit/tree/c2fa4b70ffc5ff60602109930d04449d221050e6/SKILL.md"
+  },
+  "notes": [
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 11,
+  "bytes": 51293,
+  "importedAt": "2026-10-21T20:39:17.488Z"
+}

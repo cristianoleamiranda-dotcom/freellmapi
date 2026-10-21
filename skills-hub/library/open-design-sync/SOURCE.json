@@ -1,0 +1,28 @@
+{
+  "slug": "open-design-sync",
+  "name": "open-design-sync",
+  "description": "Flujo de trabajo para integrar artefactos de Open-Design al proyecto local",
+  "license": null,
+  "category": "flujo-trabajo",
+  "tags": [
+    "open-design",
+    "tokens",
+    "componentes"
+  ],
+  "status": "fixed",
+  "originalName": "Open-Design Sync",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/webopen",
+    "path": ".opencode/skills/design-sync/SKILL.md",
+    "commit": "a2a87e5e5e2546f3f0462c0b8bcaac41c9cb3bcf",
+    "url": "https://github.com/cristianoleamiranda-dotcom/webopen/tree/a2a87e5e5e2546f3f0462c0b8bcaac41c9cb3bcf/.opencode/skills/design-sync/SKILL.md"
+  },
+  "notes": [
+    "renombrada de «Open-Design Sync» a «open-design-sync»",
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 798,
+  "importedAt": "2026-10-21T20:39:19.207Z"
+}

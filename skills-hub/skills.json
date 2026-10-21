@@ -1,0 +1,863 @@
+{
+  "owner": "cristianoleamiranda-dotcom",
+  "generatedAt": "2026-10-21T20:39:19.762Z",
+  "count": 43,
+  "skills": [
+    {
+      "name": "abyss-video-image-studio",
+      "description": "Suite integrada de edición profesional de video, imagen, color, tipografía cinética y sonido publicitario para Abyss Tattoo Studio (José Joaquín Pérez 528, San Bernardo). Aplica auditoría y curaduría previa al montaje, conversión HDR HLG 10-bit -> BT.709, rig de cámara virtual 3D sub-píxel (zooms ópticos, tiros de cámara, perspectiva 3D, speed ramps, whip pans), tipografía editorial en zonas seguras 9:16 y masterización H.264 + AAC 48 kHz.",
+      "category": "video",
+      "tags": [
+        "video",
+        "color",
+        "ffmpeg",
+        "abyss"
+      ],
+      "license": null,
+      "status": "ok",
+      "path": "library/abyss-video-image-studio",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/abysstattoo",
+        "path": ".agents/skills/abyss-video-image-studio",
+        "commit": "ccda3b8511b28eada5f4613fdf10d51e44543d77",
+        "url": "https://github.com/cristianoleamiranda-dotcom/abysstattoo/tree/ccda3b8511b28eada5f4613fdf10d51e44543d77/.agents/skills/abyss-video-image-studio"
+      }
+    },
+    {
+      "name": "motion-design",
+      "description": "Applies motion design principles to create emotionally-driven, technically sound animations and transitions. Provides timing, easing, choreography, and Disney animation principles adapted for UI. Use when creating animations, transitions, micro-interactions, loading states, page transitions, scroll-triggered effects, or any motion work. Works with CSS, Framer Motion, GSAP, Lottie, Spring, or any animation system.",
+      "category": "motion",
+      "tags": [
+        "motion",
+        "ui",
+        "animacion"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/motion-design",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/motion-design/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/motion-design/SKILL.md"
+      }
+    },
+    {
+      "name": "multi-git-workflow",
+      "description": "Habilidad para hacer commits estandarizados y empujar tanto a GitHub como a GitLab.",
+      "category": "flujo-trabajo",
+      "tags": [
+        "git",
+        "github",
+        "gitlab",
+        "commits"
+      ],
+      "license": null,
+      "status": "fixed",
+      "path": "library/multi-git-workflow",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/webopen",
+        "path": ".opencode/skills/git-workflow/SKILL.md",
+        "commit": "a2a87e5e5e2546f3f0462c0b8bcaac41c9cb3bcf",
+        "url": "https://github.com/cristianoleamiranda-dotcom/webopen/tree/a2a87e5e5e2546f3f0462c0b8bcaac41c9cb3bcf/.opencode/skills/git-workflow/SKILL.md"
+      }
+    },
+    {
+      "name": "open-design-sync",
+      "description": "Flujo de trabajo para integrar artefactos de Open-Design al proyecto local",
+      "category": "flujo-trabajo",
+      "tags": [
+        "open-design",
+        "tokens",
+        "componentes"
+      ],
+      "license": null,
+      "status": "fixed",
+      "path": "library/open-design-sync",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/webopen",
+        "path": ".opencode/skills/design-sync/SKILL.md",
+        "commit": "a2a87e5e5e2546f3f0462c0b8bcaac41c9cb3bcf",
+        "url": "https://github.com/cristianoleamiranda-dotcom/webopen/tree/a2a87e5e5e2546f3f0462c0b8bcaac41c9cb3bcf/.opencode/skills/design-sync/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs",
+      "description": "Use this skill first for ANY PixiJS v8 task; it routes to the right specialized skill for the job. Covers the full PixiJS surface: Application setup, the scene graph (Container, Sprite, Graphics, Text, Mesh, ParticleContainer, DOMContainer, GifSprite), rendering (WebGL/WebGPU/Canvas, render loop, custom shaders, filters, blend modes), assets, events, color, math, ticker, accessibility, performance, environments, migration from v7, and project scaffolding. Triggers on: pixi, pixi.js, pixijs, PixiJS, v8, Application, app.init, Sprite, Container, Graphics, Text, Mesh, ParticleContainer, DOMContainer, GifSprite, Assets, Ticker, renderer, WebGL, WebGPU, scene graph, filter, shader, blend mode, texture, 3D texture, depth slice, layer, storage texture, BitmapText, create-pixi, how do I draw, how do I render, how do I animate in pixi.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-accessibility",
+      "description": "Use this skill when adding screen reader and keyboard navigation to PixiJS v8 apps. Covers AccessibilitySystem options (enabledByDefault, debug, activateOnTab, deactivateOnMouseMove), per-container accessibility properties, shadow DOM overlay, mobile touch-hook activation. Triggers on: accessibility, a11y, screen reader, ARIA, keyboard navigation, tab order, AccessibilitySystem, accessibleTitle, accessibleHint, tabIndex, accessibleChildren.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-accessibility",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-accessibility/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-accessibility/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-application",
+      "description": "Use this skill when creating and configuring a PixiJS v8 Application. Covers new Application() + async app.init() options (width, height, background, antialias, resolution, autoDensity, preference, resizeTo, autoStart, sharedTicker, canvas, useBackBuffer, powerPreference, eventFeatures, accessibilityOptions, gcActive, bezierSmoothness, webgl/webgpu/canvasOptions per-renderer overrides), app.stage/renderer/canvas/screen/domContainerRoot access, ResizePlugin, TickerPlugin, CullerPlugin (cullable, cullArea), custom ApplicationPlugin via ExtensionType.Application, start/stop lifecycle, and app.destroy() with releaseGlobalResources. Triggers on: Application, app.init, app.stage, app.renderer, app.canvas, app.screen, app.domContainerRoot, ApplicationOptions, ApplicationPlugin, ExtensionType.Application, resizeTo, sharedTicker, skipExtensionImports, preferWebGLVersion, preserveDrawingBuffer, cullable, CullerPlugin, app.start, app.stop, app.destroy, releaseGlobalResources.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-application",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-application/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-application/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-assets",
+      "description": "Use this skill when loading and managing resources in PixiJS v8. Covers Assets.init, Assets.load/add/unload, bundles, manifests, background loading, onProgress, caching, spritesheets, video textures, web fonts, bitmap fonts, animated GIFs, compressed textures, SVG as texture or Graphics, resolution detection, per-asset data options, and forcing a specific loader with the parser field (for extension-less URLs). Triggers on: Assets, Assets.load, Assets.init, loadBundle, manifest, backgroundLoad, Spritesheet, Cache, LoadOptions, unload, parser, loadParser, loadWebFont, loadBitmapFont, loadVideoTextures, GifSource, VideoSourceOptions.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-assets",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-assets/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-assets/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-blend-modes",
+      "description": "Use this skill when compositing display objects with blend modes in PixiJS v8. Covers standard modes (normal, add, multiply, screen, erase, min, max), advanced modes via pixi.js/advanced-blend-modes (color-burn, overlay, hard-light, etc.), batch-friendly ordering. Triggers on: blendMode, additive, multiply, screen, overlay, color-burn, color-dodge, advanced-blend-modes, glow, erase.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-blend-modes",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-blend-modes/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-blend-modes/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-color",
+      "description": "Use this skill when creating, converting, or manipulating colors in PixiJS v8. Covers Color class input formats (hex, CSS names, RGB/HSL objects, arrays, Uint8Array), conversion methods (toHex, toNumber, toArray, toRgba), component access, setAlpha/multiply/premultiply, Color.shared singleton. Triggers on: Color, ColorSource, hex, rgb, hsl, tint, premultiply, Color.shared, color conversion.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-color",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-color/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-color/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-core-concepts",
+      "description": "Use this skill when understanding how PixiJS v8 renders frames: the systems-and-pipes renderer, the render loop, and how the library adapts to different environments. Covers WebGLRenderer/WebGPURenderer/CanvasRenderer selection, renderer.render() pipeline, environment detection, rendering into RenderTextures and RenderTargets (flipY, mipLevel, layer, bind/push/pop, copyDepthTexture), WebGL context loss and WebGPU device loss recovery, and pointers to per-topic deep dives. Triggers on: renderer, WebGL, WebGPU, Canvas, render loop, render pipeline, systems, environments, autoDetectRenderer, RenderTexture, RenderTarget, render to texture, flipY, mipLevel, layer, 3D texture, depth slice, renderTarget.bind, copyToTexture, copyDepthTexture, depth-only, WebGLLoader, WebGPULoader, CanvasLoader, RendererLoader, lazy-load renderer systems, code splitting, context lost, webglcontextlost, device lost, GPUDevice.lost.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-core-concepts",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-core-concepts/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-core-concepts/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-create",
+      "description": "Use this skill when scaffolding a new PixiJS v8 project with the create-pixi CLI or adding PixiJS to an existing project. Covers npm/yarn/pnpm/bun create commands, interactive vs non-interactive flows, bundler vs creation template categories, available template presets (bundler-vite, bundler-webpack, bundler-esbuild, bundler-import-map, creation-web, framework-react, extension-default), Node version requirements, `npm install pixi.js` for existing projects, TypeScript 5/6/7 tsconfig setup (moduleResolution, @webgpu/types, @types/web), post-scaffold dev flow, and the Vite top-level-await production-build gotcha. Triggers on: create pixi.js, npm create, npm install pixi.js, scaffold, template, bundler-vite, bundler-webpack, creation-web, framework-react, new project, existing project, getting started, quick start, TypeScript, tsconfig, moduleResolution, @webgpu/types, @types/web, Cannot find name GPUTextureUsage.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-create",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-create/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-create/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-custom-rendering",
+      "description": "Use this skill when writing custom shaders, uniforms, filters, batchers, or low-level draw code in PixiJS v8. Covers Shader.from({gl, gpu, resources}), GlProgram/GpuProgram, UniformGroup with typed uniforms (f32, vec2, mat4x4), UBO mode, textures as resources, TextureView for depth sampling, 3D and array textures (depth, arrayLayerCount, sampler3D, texture_3d), WebGPU storage textures (storage: true), WGSL override constants, custom bind group layouts (gpuLayout), partial buffer updates (Buffer.update), Geometry.vertexCount/indexCount, TexturePool scratch textures, State winding and culling (clockwiseFrontFace, cullMode), WebGPU render bundles, custom Filter via Filter.from, GLSL ES 3.0 conventions (finalColor), uBackTexture sampling, pixi.js/unsafe-eval for strict CSP, custom Batcher and InstructionPipe.destroyInstructionSet via extensions. Triggers on: Shader, GLSL, WGSL, uniform, custom shader, blendRequired, ShaderOverrides, bind group layout, depth texture, 3D texture, sampler3D, texture_3d …",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "fixed",
+      "path": "library/pixijs-custom-rendering",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-custom-rendering/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-custom-rendering/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-environments",
+      "description": "Use this skill when running PixiJS v8 outside a standard browser: Web Workers, OffscreenCanvas, Node/SSR, or CSP-restricted contexts. Covers DOMAdapter.set, BrowserAdapter, WebWorkerAdapter, custom Adapter interface, pixi.js/unsafe-eval for strict CSP. Triggers on: DOMAdapter, BrowserAdapter, WebWorkerAdapter, Web Worker, OffscreenCanvas, Node, headless, SSR, CSP, unsafe-eval, Adapter.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-environments",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-environments/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-environments/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-events",
+      "description": "Use this skill when handling pointer, mouse, touch, or wheel input in PixiJS v8. Covers eventMode (none, passive, auto, static, dynamic), FederatedEvent types, propagation and capture phase, hitArea, interactiveChildren, cursor and cursorStyles, global move events for drag, eventFeatures config. Triggers on: eventMode, FederatedPointerEvent, pointerdown, click, tap, globalpointermove, drag, hitArea, cursor, stopPropagation, persistentDeviceId, contextmenu, rightclick.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-events",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-events/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-events/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-filters",
+      "description": "Use this skill when applying visual effects to PixiJS v8 containers via the filter pipeline. Covers built-in filters (AlphaFilter, BlurFilter, ColorMatrixFilter, DisplacementFilter, NoiseFilter), custom Filter.from() with GLSL/WGSL, options (resolution, padding, antialias, blendRequired), filterArea optimization, pixi-filters community package. Triggers on: filters, BlurFilter, ColorMatrixFilter, DisplacementFilter, NoiseFilter, Filter.from, GLSL filter, pixi-filters, filterArea.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-filters",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-filters/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-filters/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-html-source",
+      "description": "Use this skill when rendering live HTML/DOM elements (or frozen snapshots of them) as PixiJS v8 textures via the EXPERIMENTAL HTML-in-Canvas browser APIs. Covers the pixi.js/html-source import, feature detection with canvas.requestPaint, HTMLSource for a live, repainting, still-interactive element (autoLayout/autoUpdate/autoRequestPaint, requestPaint, isReady, HTMLSource.defaultOptions, the direct-child-of-canvas + layoutsubtree requirement), ElementImageSource for an immutable captureElementImage() snapshot (autoClose, ready immediately), using the source on a Sprite/Texture/Mesh, fallback-only auto-detection via Texture.from at priority -10, uploader error messages, and destroy/cleanup. Triggers on: HTMLSource, ElementImageSource, ElementImage, HTML in canvas, render DOM to texture, render HTML to texture, texElementImage2D, copyElementImageToTexture, HTMLSourceOptions, ElementImageSourceOptions, HTMLSourceCanvas.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-html-source",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-html-source/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-html-source/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-math",
+      "description": "Use this skill when working with coordinates, vectors, matrices, shapes, hit testing, or layout rectangles in PixiJS v8. Covers Point/ObservablePoint, Matrix (2D affine, decompose (including mirrored/negative-scale matrices), apply, applyInverse), shapes (Rectangle, Circle, Ellipse, Polygon, RoundedRectangle, Triangle), Rectangle layout helpers (pad, fit, enlarge, ceil, scale, getBounds), strokeContains hit tests, Polygon isClockwise/containsPolygon, toGlobal/toLocal, PointData/PointLike/Size types, DEG_TO_RAD, and pixi.js/math-extras vector and intersection helpers. Triggers on: Point, ObservablePoint, Matrix, Rectangle, Circle, Polygon, Triangle, RoundedRectangle, toGlobal, toLocal, hitArea, strokeContains, pad, fit, enlarge, ceil, getBounds, containsRect, intersects, isClockwise, math-extras, lineIntersection, segmentIntersection, DEG_TO_RAD, PointData, decompose, mirror, flip, negative scale, setFromMatrix.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-math",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-math/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-math/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-migration-v8",
+      "description": "Use this skill when upgrading to PixiJS v8 from v7 or diagnosing broken v7 code after an upgrade. Covers async app.init, single pixi.js package (deprecated @pixi/* sub-packages), Graphics shape-then-fill, BaseTexture → TextureSource, shader/uniform rework, ParticleContainer+Particle, constructor options objects, DisplayObject removal, settings/utils removal, Ticker signature, events rewrite. Triggers on: migrate v7, v8 breaking changes, @pixi/ import, DisplayObject, beginFill, endFill, cacheAsBitmap, BaseTexture, deprecated.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-migration-v8",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-migration-v8/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-migration-v8/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-performance",
+      "description": "Use this skill when profiling or optimizing a PixiJS v8 app for FPS, draw calls, or GPU memory. Covers destroy patterns (cacheAsTexture(false), releaseGlobalResources), GCSystem and TextureGCSystem, PrepareSystem, object pooling, batching rules, BitmapText for dynamic text, culling (Culler, CullerPlugin, cullable, cullArea), resolution/antialias tradeoffs, low-level wins (transient MSAA render textures, render bundles, partial buffer updates). Triggers on: FPS, jank, draw calls, batching, object pool, GCSystem, PrepareSystem, Culler, cacheAsTexture, memory leak, destroy patterns, render bundle, transient, MSAA, Buffer.update, WebGPU performance, TexturePool, repeatEdgePixels, bind group.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-performance",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-performance/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-performance/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-scene-container",
+      "description": "Use this skill when grouping, positioning, or transforming display objects in PixiJS v8. Covers Container constructor options (isRenderGroup, sortableChildren, boundsArea), addChild/removeChild/addChildAt/swapChildren/setChildIndex, position/scale/rotation/pivot/skew/alpha/tint, getBounds/getGlobalPosition/toLocal/toGlobal, zIndex sorting, cullable, onRender per-frame callback, destroy. Triggers on: Container, addChild, removeChild, addChildAt, swapChildren, sortableChildren, zIndex, position, scale, rotation, pivot, getBounds, toGlobal, toLocal, onRender, destroy, constructor options, ContainerOptions.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-scene-container",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-scene-container/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-scene-container/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-scene-core-concepts",
+      "description": "Use this skill when reasoning about the PixiJS v8 scene graph as a whole: how containers, leaves, transforms, and render order fit together. Covers leaf vs container distinction, local/world coordinates, culling, render groups, sortable children, masking, RenderLayer, constructor options shared by every scene node, and which leaf skill covers which display object. Triggers on: scene graph, display list, Container, Sprite, Graphics, Text, Mesh, ParticleContainer, DOMContainer, GifSprite, masking, render group, RenderLayer, world transform, constructor options, ContainerOptions.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-scene-core-concepts",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-scene-core-concepts/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-scene-core-concepts/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-scene-dom-container",
+      "description": "Use this skill when overlaying HTML elements on the PixiJS v8 canvas. Covers DOMContainer with element, anchor, and scene-graph-driven CSS transforms, the pixi.js/dom side-effect import, DOMPipe registration, visibility sync, pointer-events handling. Triggers on: DOMContainer, pixi.js/dom, DOMPipe, HTML overlay, input on canvas, iframe overlay, DOMContainerOptions, element, anchor, constructor options.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-scene-dom-container",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-scene-dom-container/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-scene-dom-container/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-scene-gif",
+      "description": "Use this skill when displaying animated GIFs in PixiJS v8. Covers the pixi.js/gif side-effect import, Assets.load returning a GifSource, GifSprite playback (play/stop/currentFrame/animationSpeed), autoPlay/loop options, onComplete/onLoop/onFrameChange callbacks, GifSource sharing, clone, destroy. Triggers on: GifSprite, GifSource, pixi.js/gif, animationSpeed, currentFrame, autoPlay, onComplete, onFrameChange, constructor options, GifSpriteOptions.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-scene-gif",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-scene-gif/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-scene-gif/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-scene-graphics",
+      "description": "Use this skill when drawing vector shapes and paths in PixiJS v8. Covers the Graphics API: shape-then-fill methods (rect/circle/ellipse/poly/roundRect/star/regularPoly/roundPoly/roundShape/fil\\ letRect/chamferRect), path methods (moveTo/lineTo/bezierCurveTo/quadraticCurveTo/arc/arcTo/arcToSvg/closePath), fill/stroke/cut, holes, FillGradient (linear/radial), FillPattern, GraphicsContext sharing, svg import/export, containsPoint hit testing, cloning, clearing, bounds, fillStyle/strokeStyle, draw-time transforms (rotateTransform/scaleTransform/translateTransform/setTransform/save/restore), default styles, GraphicsPath reuse. Triggers on: Graphics, GraphicsContext, rect, circle, poly, roundRect, fill, stroke, cut, hole, beginHole, FillGradient, FillPattern, moveTo, bezierCurveTo, svg, graphicsContextToSvg, svg export, GraphicsOptions, containsPoint, clone, clear, bounds, rotateTransform, translateTransform, setFillStyle, setStrokeStyle, GraphicsPath.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-scene-graphics",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-scene-graphics/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-scene-graphics/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-scene-mesh",
+      "description": "Use this skill when rendering custom geometry in PixiJS v8. Covers Mesh with MeshGeometry (positions, uvs, indices, topology), MeshSimple for per-frame vertex animation, MeshPlane for subdivided deformation, MeshRope for path-following textures, PerspectiveMesh for 2.5D corners. Triggers on: Mesh, MeshGeometry, MeshSimple, MeshPlane, MeshRope, PerspectiveMesh, positions, uvs, indices, topology, setCorners, constructor options, MeshOptions, MeshPlaneOptions, MeshRopeOptions, SimpleMeshOptions, PerspectivePlaneOptions.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-scene-mesh",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-scene-mesh/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-scene-mesh/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-scene-particle-container",
+      "description": "Use this skill when rendering thousands of lightweight sprites in PixiJS v8. Covers ParticleContainer with Particle instances, addParticle/removeParticle, particleChildren array, dynamicProperties (vertex, position, rotation, uvs, color), boundsArea, roundPixels, update, inherited alpha/tint/blendMode from ancestors. Triggers on: ParticleContainer, Particle, IParticle, addParticle, particleChildren, dynamicProperties, boundsArea, particle effects, particle alpha, particle tint, fade particles, constructor options, ParticleContainerOptions, ParticleOptions.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-scene-particle-container",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-scene-particle-container/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-scene-particle-container/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-scene-sprite",
+      "description": "Use this skill when drawing images in PixiJS v8. Covers Sprite with anchor/tint/texture, AnimatedSprite for frame animation, NineSliceSprite for resizable UI panels, TilingSprite for scrolling/repeating backgrounds. Triggers on: Sprite, AnimatedSprite, NineSliceSprite, TilingSprite, Sprite.from, anchor, tint, tilePosition, animationSpeed, gotoAndPlay, leftWidth, topHeight, constructor options, SpriteOptions, AnimatedSpriteOptions, NineSliceSpriteOptions, TilingSpriteOptions.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-scene-sprite",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-scene-sprite/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-scene-sprite/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-scene-text",
+      "description": "Use this skill when rendering text in PixiJS v8. Covers Text for canvas-quality styled labels, BitmapText for cheap per-frame updates via glyph atlas, HTMLText for HTML/CSS markup via SVG, SplitText and SplitBitmapText for per-character animation, TextStyle, tagStyles, constructor options, TextOptions, HTMLTextOptions, BitmapText, SplitTextOptions, SplitBitmapTextOptions. Triggers on: Text, BitmapText, HTMLText, SplitText, SplitBitmapText, TextStyle, HTMLTextStyle, BitmapFont.install, tagStyles, fontFamily, wordWrap.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-scene-text",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-scene-text/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-scene-text/SKILL.md"
+      }
+    },
+    {
+      "name": "pixijs-ticker",
+      "description": "Use this skill when running per-frame logic or controlling the PixiJS v8 render loop. Covers Ticker.add/addOnce/remove, deltaTime vs deltaMS vs elapsedMS, UPDATE_PRIORITY ordering, maxFPS/minFPS capping, speed scaling, Ticker.shared vs new instances, per-object onRender hook, manual rendering. Triggers on: Ticker, UPDATE_PRIORITY, deltaTime, deltaMS, elapsedMS, onRender, app.ticker, maxFPS, minFPS, Ticker.shared.\"",
+      "category": "pixijs",
+      "tags": [
+        "pixijs",
+        "webgl",
+        "webgpu",
+        "canvas"
+      ],
+      "license": "MIT",
+      "status": "ok",
+      "path": "library/pixijs-ticker",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/pixijs-ticker/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-ticker/SKILL.md"
+      }
+    },
+    {
+      "name": "rea-changelog-update",
+      "description": "Prepare or rewrite REA release changelogs and GitHub release notes from pinned Git history, with verified contributor thanks and Release Please synchronization.",
+      "category": "reverse-engineering",
+      "tags": [
+        "rea",
+        "reverse-engineering",
+        "evidencia"
+      ],
+      "license": null,
+      "status": "ok",
+      "path": "library/rea-changelog-update",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/rea-changelog-update/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/rea-changelog-update/SKILL.md"
+      }
+    },
+    {
+      "name": "rea-ci-tests-audit",
+      "description": "Audit REA CI and test suites for correctness, fixture drift, false passes, and measured performance; use for suite or workflow investigations and efficiency changes, rather than ordinary feature testing or a single test failure.",
+      "category": "reverse-engineering",
+      "tags": [
+        "rea",
+        "reverse-engineering",
+        "evidencia"
+      ],
+      "license": null,
+      "status": "ok",
+      "path": "library/rea-ci-tests-audit",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/rea-ci-tests-audit/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/rea-ci-tests-audit/SKILL.md"
+      }
+    },
+    {
+      "name": "rea-tool-design",
+      "description": "Design or change REA investigation tools, CLI/MCP contracts, provider capabilities, and Evidence semantics.",
+      "category": "reverse-engineering",
+      "tags": [
+        "rea",
+        "reverse-engineering",
+        "evidencia"
+      ],
+      "license": null,
+      "status": "ok",
+      "path": "library/rea-tool-design",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/rea-tool-design/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/rea-tool-design/SKILL.md"
+      }
+    },
+    {
+      "name": "reverse-engineer-anything",
+      "description": "Reverse engineer native, managed, Electron/JavaScript, packaged, firmware, and browser targets with REA. Use shipped-artifact or requested runtime evidence to explain features, compare versions, decompile code, or guide a reconstruction. Skip REA for ordinary source-repository architecture analysis.",
+      "category": "reverse-engineering",
+      "tags": [
+        "rea",
+        "reverse-engineering",
+        "evidencia"
+      ],
+      "license": null,
+      "status": "ok",
+      "path": "library/reverse-engineer-anything",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/reverse-engineer-anything/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/reverse-engineer-anything/SKILL.md"
+      }
+    },
+    {
+      "name": "scroll-craft",
+      "description": "Método y stack del sitio SENDER scroll-driven de scroll-craft (React 19 + Vite + GSAP + Lenis + Three.js): una sola narrativa, el scroll como cámara, WebGL solo en escritorio con puntero fino, datos reales sin inventar, i18n ES/EN completo y verificación con npm run build y npm run qa. Úsala como referencia al construir o auditar un sitio inmersivo con este stack.",
+      "category": "diseno-web",
+      "tags": [
+        "scroll",
+        "gsap",
+        "lenis",
+        "threejs",
+        "i18n"
+      ],
+      "license": "MIT",
+      "status": "generated",
+      "path": "library/scroll-craft",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/scroll-craft",
+        "path": "curated/scroll-craft",
+        "commit": "b9c8e5b6c5da42c6c95dd96cb3b557850b80d3e9",
+        "url": "https://github.com/cristianoleamiranda-dotcom/scroll-craft/tree/b9c8e5b6c5da42c6c95dd96cb3b557850b80d3e9/"
+      }
+    },
+    {
+      "name": "scrollcraft-arena",
+      "description": "Flujo ScrollCraft-Arena para construir landings premium scroll-driven/3D: entrevista obligatoria antes de codificar, principios anti-template, scroll como interfaz, assets reales, verificación previa a entregar y feedback por rondas. Úsala al iniciar un sitio nuevo o un rediseño inmersivo.",
+      "category": "diseno-web",
+      "tags": [
+        "scrollcraft",
+        "entrevista",
+        "landing",
+        "scroll"
+      ],
+      "license": null,
+      "status": "fixed",
+      "path": "library/scrollcraft-arena",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/sender-design-ops",
+        "path": "AGENTS.md",
+        "commit": "639aed9b21eb54a0c8a1a007d0d21d1a6512bd91",
+        "url": "https://github.com/cristianoleamiranda-dotcom/sender-design-ops/tree/639aed9b21eb54a0c8a1a007d0d21d1a6512bd91/AGENTS.md"
+      }
+    },
+    {
+      "name": "sender-design-system",
+      "description": "Sistema de diseño «Broadcast Editorial» para landings premium: tokens antes que componentes, ritmo de actos papel/oscuro, hairlines en vez de sombras, mono para metadatos y paleta innegociable. Úsala al definir o auditar la capa visual de un sitio Sender.",
+      "category": "diseno-web",
+      "tags": [
+        "design-system",
+        "tokens",
+        "editorial"
+      ],
+      "license": null,
+      "status": "fixed",
+      "path": "library/sender-design-system",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/sender-design-ops",
+        "path": "sender-design-ops/skills/SKILL-design-system.md",
+        "commit": "639aed9b21eb54a0c8a1a007d0d21d1a6512bd91",
+        "url": "https://github.com/cristianoleamiranda-dotcom/sender-design-ops/tree/639aed9b21eb54a0c8a1a007d0d21d1a6512bd91/sender-design-ops/skills/SKILL-design-system.md"
+      }
+    },
+    {
+      "name": "sender-immersive-web-department",
+      "description": "Skill de departamento completo (dirección creativa, motion, 3D, editorial, film, performance, QA y awards) para diseñar, construir y auditar webs inmersivas editoriales scroll-driven. Úsala al briefar, construir o auditar sitios premium con GSAP/Three.js/film-scrub, o al preparar submissions Awwwards.",
+      "category": "diseno-web",
+      "tags": [
+        "departamento",
+        "inmersivo",
+        "scroll",
+        "gsap",
+        "threejs",
+        "editorial",
+        "awwwards"
+      ],
+      "license": null,
+      "status": "ok",
+      "path": "library/sender-immersive-web-department",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/sender-motion-kit",
+        "path": "SKILL.md",
+        "commit": "c2fa4b70ffc5ff60602109930d04449d221050e6",
+        "url": "https://github.com/cristianoleamiranda-dotcom/sender-motion-kit/tree/c2fa4b70ffc5ff60602109930d04449d221050e6/SKILL.md"
+      }
+    },
+    {
+      "name": "sender-motion-scroll",
+      "description": "Reglas de motion scroll-driven para sitios Sender: todo movimiento nace del scroll (scrub), lerp propio para video, un movimiento firma por sitio, rAF solo cuando el elemento es visible y apagado total con reduced-motion. Úsala al implementar o revisar animaciones ligadas al scroll.",
+      "category": "motion",
+      "tags": [
+        "scroll",
+        "scrub",
+        "lerp",
+        "reduced-motion"
+      ],
+      "license": null,
+      "status": "fixed",
+      "path": "library/sender-motion-scroll",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/sender-design-ops",
+        "path": "sender-design-ops/skills/SKILL-motion.md",
+        "commit": "639aed9b21eb54a0c8a1a007d0d21d1a6512bd91",
+        "url": "https://github.com/cristianoleamiranda-dotcom/sender-design-ops/tree/639aed9b21eb54a0c8a1a007d0d21d1a6512bd91/sender-design-ops/skills/SKILL-motion.md"
+      }
+    },
+    {
+      "name": "sender-qa-verify",
+      "description": "Protocolo de QA duro antes de publicar: curl a producción con tag BUILD, conteo de marcadores, parse check de JS, rescates git sin force-push y CI con html-validate + Lighthouse. Úsala antes de anunciar o empujar un cambio.",
+      "category": "diseno-web",
+      "tags": [
+        "qa",
+        "lighthouse",
+        "ci",
+        "verificacion"
+      ],
+      "license": null,
+      "status": "fixed",
+      "path": "library/sender-qa-verify",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/sender-design-ops",
+        "path": "sender-design-ops/skills/SKILL-qa-verify.md",
+        "commit": "639aed9b21eb54a0c8a1a007d0d21d1a6512bd91",
+        "url": "https://github.com/cristianoleamiranda-dotcom/sender-design-ops/tree/639aed9b21eb54a0c8a1a007d0d21d1a6512bd91/sender-design-ops/skills/SKILL-qa-verify.md"
+      }
+    },
+    {
+      "name": "sender-video-pipeline",
+      "description": "Pipeline ffmpeg para video e imagen web: GOP corto y faststart para que el scrub sea barato, presupuestos de peso por tipo de video, Ken Burns desde foto real y verificación con probe. Úsala al preparar backs de video, loops o derivados de imagen.",
+      "category": "video",
+      "tags": [
+        "ffmpeg",
+        "scrub",
+        "gop",
+        "video"
+      ],
+      "license": null,
+      "status": "fixed",
+      "path": "library/sender-video-pipeline",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/sender-design-ops",
+        "path": "sender-design-ops/skills/SKILL-video-pipeline.md",
+        "commit": "639aed9b21eb54a0c8a1a007d0d21d1a6512bd91",
+        "url": "https://github.com/cristianoleamiranda-dotcom/sender-design-ops/tree/639aed9b21eb54a0c8a1a007d0d21d1a6512bd91/sender-design-ops/skills/SKILL-video-pipeline.md"
+      }
+    },
+    {
+      "name": "text-to-lottie",
+      "description": "Create, edit, or fix Lottie/Bodymovin JSON animations for the local Skia Skottie player. Use for text-to-Lottie, SVG/logo/type animation, loaders/icons, state feedback, UI microinteractions, lower thirds, diagrams, data/stat/chart animations, product promos, scene/camera motion, visual effects, scene edits, slots/controls, and Skottie debugging.",
+      "category": "motion",
+      "tags": [
+        "lottie",
+        "animacion",
+        "svg"
+      ],
+      "license": null,
+      "status": "ok",
+      "path": "library/text-to-lottie",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/Rae",
+        "path": "agent/skills/text-to-lottie/SKILL.md",
+        "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+        "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/text-to-lottie/SKILL.md"
+      }
+    },
+    {
+      "name": "ultimate-web-designer",
+      "description": "Reglas maestras de diseño UI/UX para crear sitios web premium con React y Tailwind CSS.",
+      "category": "diseno-web",
+      "tags": [
+        "ui",
+        "ux",
+        "tailwind",
+        "react"
+      ],
+      "license": null,
+      "status": "fixed",
+      "path": "library/ultimate-web-designer",
+      "source": {
+        "repo": "cristianoleamiranda-dotcom/webopen",
+        "path": ".opencode/skills/ultimate-web-designer/SKILL.md",
+        "commit": "a2a87e5e5e2546f3f0462c0b8bcaac41c9cb3bcf",
+        "url": "https://github.com/cristianoleamiranda-dotcom/webopen/tree/a2a87e5e5e2546f3f0462c0b8bcaac41c9cb3bcf/.opencode/skills/ultimate-web-designer/SKILL.md"
+      }
+    }
+  ]
+}

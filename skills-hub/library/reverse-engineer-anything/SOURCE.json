@@ -1,0 +1,27 @@
+{
+  "slug": "reverse-engineer-anything",
+  "name": "reverse-engineer-anything",
+  "description": "Reverse engineer native, managed, Electron/JavaScript, packaged, firmware, and browser targets with REA. Use shipped-artifact or requested runtime evidence to explain features, compare versions, decompile code, or guide a reconstruction. Skip REA for ordinary source-repository architecture analysis.",
+  "license": null,
+  "category": "reverse-engineering",
+  "tags": [
+    "rea",
+    "reverse-engineering",
+    "evidencia"
+  ],
+  "status": "ok",
+  "originalName": "reverse-engineer-anything",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/reverse-engineer-anything/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/reverse-engineer-anything/SKILL.md"
+  },
+  "notes": [
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 7,
+  "bytes": 62979,
+  "importedAt": "2026-10-21T20:39:18.347Z"
+}

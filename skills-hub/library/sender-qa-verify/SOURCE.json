@@ -1,0 +1,29 @@
+{
+  "slug": "sender-qa-verify",
+  "name": "sender-qa-verify",
+  "description": "Protocolo de QA duro antes de publicar: curl a producción con tag BUILD, conteo de marcadores, parse check de JS, rescates git sin force-push y CI con html-validate + Lighthouse. Úsala antes de anunciar o empujar un cambio.",
+  "license": null,
+  "category": "diseno-web",
+  "tags": [
+    "qa",
+    "lighthouse",
+    "ci",
+    "verificacion"
+  ],
+  "status": "fixed",
+  "originalName": null,
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/sender-design-ops",
+    "path": "sender-design-ops/skills/SKILL-qa-verify.md",
+    "commit": "639aed9b21eb54a0c8a1a007d0d21d1a6512bd91",
+    "url": "https://github.com/cristianoleamiranda-dotcom/sender-design-ops/tree/639aed9b21eb54a0c8a1a007d0d21d1a6512bd91/sender-design-ops/skills/SKILL-qa-verify.md"
+  },
+  "notes": [
+    "sin frontmatter en el origen: se generó",
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 1285,
+  "importedAt": "2026-10-21T20:39:17.910Z"
+}

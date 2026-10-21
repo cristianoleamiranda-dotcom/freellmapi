@@ -1,0 +1,36 @@
+name: Skills hub
+
+on:
+  push:
+    paths:
+      - 'skills-hub/**'
+  pull_request:
+    paths:
+      - 'skills-hub/**'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: skills-hub
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Sincronizar desde los repos de origen
+        run: node src/sync.mjs
+      - name: Validar la biblioteca
+        run: node src/validate.mjs
+      - name: Empaquetar
+        run: node src/pack.mjs
+      - name: Publicar reportes como artefacto
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skills-hub-reports
+          path: |
+            skills-hub/reports/
+            skills-hub/dist/
