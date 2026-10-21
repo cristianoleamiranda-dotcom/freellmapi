@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ABYSS — CTA</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Cinzel";
+          src: url("assets/fonts/cinzel-latin-700-normal.woff2") format("woff2");
+          font-weight: 700;
+          font-display: block;
+        }
+        @font-face {
+          font-family: "Montserrat";
+          src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2");
+          font-weight: 600;
+          font-display: block;
+        }
+
+        #root {
+          --ink: #14100d;
+          --cream: #eae3dd;
+          --cream-dim: #c6b7ab;
+          --sage: #9ec4ba;
+          --serif: "Cinzel", serif;
+          --sans: "Montserrat", sans-serif;
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ink);
+          color: var(--cream);
+          font-family: var(--sans);
+        }
+
+        .bg {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .bg video {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: grayscale(0.35) contrast(1.04) brightness(0.72);
+        }
+        .scrim {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(ellipse at 50% 46%, rgba(20, 16, 13, 0.35) 0%, rgba(20, 16, 13, 0.86) 72%),
+            linear-gradient(to bottom, rgba(20, 16, 13, 0.82) 0%, rgba(20, 16, 13, 0.42) 40%, rgba(20, 16, 13, 0.96) 100%);
+        }
+
+        .center {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 0 96px;
+          gap: 20px;
+        }
+
+        .logo {
+          width: 132px;
+          height: 132px;
+          object-fit: contain;
+          filter: grayscale(1) brightness(1.5);
+          opacity: 0.92;
+        }
+
+        .kicker {
+          font-size: 20px;
+          font-weight: 600;
+          letter-spacing: 0.44em;
+          text-transform: uppercase;
+          color: var(--sage);
+        }
+
+        .h {
+          font-family: var(--serif);
+          font-weight: 700;
+          font-size: 118px;
+          line-height: 0.98;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+          color: var(--cream);
+        }
+        .h .dim {
+          color: rgba(234, 227, 221, 0.4);
+        }
+
+        .rule {
+          width: 132px;
+          height: 2px;
+          background: var(--sage);
+          transform-origin: center;
+        }
+
+        .cta {
+          margin-top: 6px;
+          padding: 26px 52px;
+          border: 1px solid rgba(158, 196, 186, 0.55);
+          border-radius: 999px;
+          font-size: 26px;
+          font-weight: 600;
+          letter-spacing: 0.26em;
+          text-transform: uppercase;
+          color: var(--cream);
+          background: rgba(20, 16, 13, 0.42);
+        }
+
+        .handle {
+          font-size: 24px;
+          font-weight: 600;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--cream-dim);
+        }
+        .handle .sage {
+          color: var(--sage);
+        }
+      </style>
+
+      <div id="root" data-composition-id="scene-cta" data-width="1080" data-height="1920">
+        <div class="bg" data-layout-allow-overflow="true">
+          <video
+            id="cta-video"
+            src="assets/clips/clip-filmacion.mp4"
+            muted
+            playsinline
+            data-start="0"
+            data-duration="4"
+            data-media-start="1.2"
+            data-track-index="0"
+          ></video>
+        </div>
+        <div class="scrim"></div>
+
+        <div class="center">
+          <img class="logo" id="cta-logo" src="assets/logo_abyss_256.png" alt="Abyss Tattoo Studio" />
+          <div class="kicker" id="cta-kicker">Abyss Tattoo Studio</div>
+
+          <div class="h">
+            <span class="dim" id="cta-l1">Tu idea</span>
+            <span id="cta-l2">merece piel</span>
+          </div>
+
+          <div class="rule" id="cta-rule"></div>
+          <div class="cta" id="cta-btn">Agenda tu hora</div>
+          <div class="handle" id="cta-handle"><span class="sage">@abyss_tattoo_studio</span> · abysstattoo.cl</div>
+        </div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+
+        tl.fromTo("#cta-video", { scale: 1.16 }, { scale: 1.04, duration: 4, ease: "sine.out" }, 0);
+
+        tl.fromTo("#cta-logo", { autoAlpha: 0, scale: 0.82, rotate: -6 }, { autoAlpha: 0.92, scale: 1, rotate: 0, duration: 0.8, ease: "power3.out" }, 0.12);
+        tl.fromTo("#cta-kicker", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.55, ease: "power3.out" }, 0.3);
+        tl.fromTo("#cta-l1", { y: 44, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: "power4.out" }, 0.45);
+        tl.fromTo("#cta-l2", { y: 44, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: "power4.out" }, 0.6);
+        tl.fromTo("#cta-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power3.inOut" }, 0.95);
+        tl.fromTo("#cta-btn", { y: 24, autoAlpha: 0, scale: 0.96 }, { y: 0, autoAlpha: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 1.15);
+        tl.fromTo("#cta-handle", { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.55, ease: "power3.out" }, 1.45);
+
+        window.__timelines["scene-cta"] = tl;
+        tl.seek(0);
+      </script>
+    </template>
+  </body>
+</html>

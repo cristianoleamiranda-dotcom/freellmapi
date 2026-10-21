@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ABYSS — Galería</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Cinzel";
+          src: url("assets/fonts/cinzel-latin-700-normal.woff2") format("woff2");
+          font-weight: 700;
+          font-display: block;
+        }
+        @font-face {
+          font-family: "Montserrat";
+          src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2");
+          font-weight: 600;
+          font-display: block;
+        }
+
+        #root {
+          --ink: #14100d;
+          --cream: #eae3dd;
+          --cream-dim: #c6b7ab;
+          --sage: #9ec4ba;
+          --serif: "Cinzel", serif;
+          --sans: "Montserrat", sans-serif;
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ink);
+          color: var(--cream);
+          font-family: var(--sans);
+        }
+
+        .ph {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ink);
+        }
+        .kb {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          will-change: transform;
+        }
+        .scrim {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(20, 16, 13, 0.62) 0%,
+            rgba(20, 16, 13, 0.08) 30%,
+            rgba(20, 16, 13, 0.1) 58%,
+            rgba(20, 16, 13, 0.9) 100%
+          );
+        }
+
+        .label {
+          position: absolute;
+          left: 96px;
+          bottom: 208px;
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+        .tag {
+          font-size: 20px;
+          font-weight: 600;
+          letter-spacing: 0.44em;
+          text-transform: uppercase;
+          color: var(--sage);
+        }
+        .title {
+          font-family: var(--serif);
+          font-weight: 700;
+          font-size: 96px;
+          line-height: 0.95;
+          letter-spacing: 0.03em;
+          text-transform: uppercase;
+          color: var(--cream);
+        }
+        .meta {
+          font-size: 22px;
+          font-weight: 600;
+          letter-spacing: 0.24em;
+          text-transform: uppercase;
+          color: var(--cream-dim);
+        }
+
+        .counter {
+          position: absolute;
+          right: 96px;
+          bottom: 208px;
+          font-family: var(--serif);
+          font-size: 34px;
+          letter-spacing: 0.16em;
+          color: rgba(198, 183, 171, 0.7);
+        }
+      </style>
+
+      <div id="root" data-composition-id="scene-gallery" data-width="1080" data-height="1920">
+        <!-- 1 · LOBO -->
+        <div class="ph clip" data-layout-allow-overflow="true" id="ph-1" data-start="0" data-duration="2.4" data-track-index="0">
+          <img class="kb" data-layout-allow-overflow="true" id="kb-1" src="assets/photos/lobo.jpg" alt="" />
+          <div class="scrim"></div>
+          <div class="label">
+            <div class="tag" id="tag-1">Realismo</div>
+            <div class="title" id="title-1">Lobo</div>
+            <div class="meta" id="meta-1">Brazo · Negro y gris</div>
+          </div>
+          <div class="counter" id="cnt-1">01</div>
+        </div>
+
+        <!-- 2 · CRISTO -->
+        <div class="ph clip" data-layout-allow-overflow="true" id="ph-2" data-start="2.4" data-duration="2.3" data-track-index="1">
+          <img class="kb" data-layout-allow-overflow="true" id="kb-2" src="assets/photos/cristo2.jpg" alt="" />
+          <div class="scrim"></div>
+          <div class="label">
+            <div class="tag" id="tag-2">Manga</div>
+            <div class="title" id="title-2">Cristo</div>
+            <div class="meta" id="meta-2">Brazo completo</div>
+          </div>
+          <div class="counter" id="cnt-2">02</div>
+        </div>
+
+        <!-- 3 · CRÁNEO -->
+        <div class="ph clip" data-layout-allow-overflow="true" id="ph-3" data-start="4.7" data-duration="2.3" data-track-index="2">
+          <img class="kb" data-layout-allow-overflow="true" id="kb-3" src="assets/photos/craneo.jpg" alt="" />
+          <div class="scrim"></div>
+          <div class="label">
+            <div class="tag" id="tag-3">Blackwork</div>
+            <div class="title" id="title-3">Cráneo</div>
+            <div class="meta" id="meta-3">Antebrazo</div>
+          </div>
+          <div class="counter" id="cnt-3">03</div>
+        </div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+
+        /* ---- shot 1 · Lobo (0 → 2.4) ---- */
+        tl.fromTo("#kb-1", { scale: 1.05, xPercent: -1.5, yPercent: 1.5 }, { scale: 1.2, xPercent: 1.5, yPercent: -1, duration: 2.5, ease: "none" }, 0);
+        tl.fromTo("#tag-1", { x: -30, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.5, ease: "power3.out" }, 0.15);
+        tl.fromTo("#title-1", { y: 48, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: "power4.out" }, 0.25);
+        tl.fromTo("#meta-1", { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, ease: "power3.out" }, 0.42);
+        tl.fromTo("#cnt-1", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4 }, 0.3);
+        tl.to(["#tag-1", "#title-1", "#meta-1", "#cnt-1"], { autoAlpha: 0, y: -24, duration: 0.32, stagger: 0.03, ease: "power2.in" }, 2.02);
+
+        /* ---- shot 2 · Cristo (2.4 → 4.7) ---- */
+        tl.fromTo("#kb-2", { scale: 1.22, xPercent: 2, yPercent: -1.5 }, { scale: 1.06, xPercent: -1, yPercent: 1, duration: 2.4, ease: "none" }, 2.4);
+        tl.fromTo("#tag-2", { x: -30, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.5, ease: "power3.out" }, 2.55);
+        tl.fromTo("#title-2", { y: 48, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: "power4.out" }, 2.65);
+        tl.fromTo("#meta-2", { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, ease: "power3.out" }, 2.82);
+        tl.fromTo("#cnt-2", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4 }, 2.7);
+        tl.to(["#tag-2", "#title-2", "#meta-2", "#cnt-2"], { autoAlpha: 0, y: -24, duration: 0.3, stagger: 0.03, ease: "power2.in" }, 4.36);
+
+        /* ---- shot 3 · Cráneo (4.7 → 7) ---- */
+        tl.fromTo("#kb-3", { scale: 1.04, xPercent: -1, yPercent: -1 }, { scale: 1.19, xPercent: 1.5, yPercent: 1.5, duration: 2.4, ease: "none" }, 4.7);
+        tl.fromTo("#tag-3", { x: -30, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.5, ease: "power3.out" }, 4.85);
+        tl.fromTo("#title-3", { y: 48, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: "power4.out" }, 4.95);
+        tl.fromTo("#meta-3", { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, ease: "power3.out" }, 5.12);
+        tl.fromTo("#cnt-3", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4 }, 5.0);
+        tl.to(["#tag-3", "#title-3", "#meta-3", "#cnt-3"], { autoAlpha: 0, y: -24, duration: 0.3, stagger: 0.03, ease: "power2.in" }, 6.6);
+
+        window.__timelines["scene-gallery"] = tl;
+        tl.seek(0);
+      </script>
+    </template>
+  </body>
+</html>
