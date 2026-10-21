@@ -23,6 +23,21 @@ repo: otro guion, otros planos, otro audio.
 | `storyboard.jpg` | Hoja de contacto de 12 momentos |
 | `manifest.json` | Peso y SHA-256 de cada archivo |
 
+## Verlo en el navegador
+
+```bash
+python3 preview/serve.py --port 8000
+# http://localhost:8000/preview/
+```
+
+El visor incluye reproductor con seek, escaleta clicable, descargas y storyboard. El
+servidor soporta peticiones `Range` (sin eso la barra de progreso no funciona con
+`python -m http.server`) y sirve las tipografías de la marca en local, sin CDN.
+
+Si se levanta dentro de Arena, la preview del puerto 8000 queda visible en el panel.
+Para un enlace público y permanente, publica la carpeta `out/` en GitHub Pages, Vercel o
+Cloudflare Pages: son 5 archivos estáticos.
+
 ## Documentación
 
 - [`research/MOTION-DESIGN.md`](research/MOTION-DESIGN.md) — investigación aplicada: qué se
@@ -32,6 +47,10 @@ repo: otro guion, otros planos, otro audio.
   verificados con sus fuentes.
 - [`research/FUENTES.md`](research/FUENTES.md) — de dónde sale cada foto, cada video y cada
   dato de contacto.
+- [`research/REPOS-MOTION-GRAPHICS.md`](research/REPOS-MOTION-GRAPHICS.md) — repositorios de
+  motion graphics verificados (estrellas, licencia, último commit) y cuál conviene en cada caso.
+- [`research/MINIMAX-DESIGN.md`](research/MINIMAX-DESIGN.md) — qué existe realmente del
+  «repositorio de MiniMax Design» y qué es oficial.
 
 ## Cómo se reconstruye
 
@@ -54,7 +73,8 @@ abyss-historia-15s/
 │   ├── media.py      # lectura de material, cámara virtual afín, etalonaje, grano
 │   ├── audio.py      # banda sonora sintetizada a 100 BPM
 │   └── render.py     # composición frame a frame + mux + piezas
-├── research/         # investigación, guion y fuentes
+├── preview/          # visor local con soporte de Range + tipografías
+├── research/         # investigación, guion, fuentes y repos
 ├── work/             # contact sheets y previews de control
 └── out/              # entregables
 ```
