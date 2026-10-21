@@ -64,7 +64,6 @@ intenta publicarlo como release. En este sandbox esa subida está bloqueada, por
 se entrega como archivo local.
 
 ## Documentación
-## Documentación
 
 - [`research/MOTION-DESIGN.md`](research/MOTION-DESIGN.md) — investigación aplicada: qué se
   está viendo en 2026, los cuatro actos, rejilla musical, personalidad de movimiento,
@@ -77,6 +76,31 @@ se entrega como archivo local.
   motion graphics verificados (estrellas, licencia, último commit) y cuál conviene en cada caso.
 - [`research/MINIMAX-DESIGN.md`](research/MINIMAX-DESIGN.md) — qué existe realmente del
   «repositorio de MiniMax Design» y qué es oficial.
+
+## Del research a la pieza
+
+Cada hallazgo terminó en un parámetro concreto del render. Esta tabla es la trazabilidad.
+
+| Hallazgo | Dónde está en la pieza |
+|---|---|
+| Cámara whip-pan continua 57 % / cortes en negras 43 % (tendencias 2026) | Cortes secos en 1.8 · 3.6 · 5.4 · 7.2 s, justo en negras de 100 BPM; el mosaico final acelera con micro-cortes de 0.45 s en 10.05 · 10.5 · 10.95 s |
+| Tipografía cinética de palabra única controla la velocidad de lectura | Un concepto por bloque y dos líneas como máximo (`ES UNA FIRMA` + `REALISMO BLACK & GREY`) |
+| «Diseñar para el primer segundo» | P1 abre con el macro de aguja (0–1.8 s); la primera línea entra en 0.12 s y la segunda en 0.34 s |
+| Texto +30–40 % para vertical | Cinzel 800 a 76–104 px en los titulares y Montserrat 500/600 a 26–34 px en los apoyos, con tracking de 1.5 a 6.0 |
+| Grano analógico sobre la hiperrealidad | Banco de grano propio en `media.grain_bank` + viñeta por plano |
+| Easing de `anime.js` / GSAP (curvas custom en vez de `ease-in-out`) | `brand.ease_out_expo` y `ease_in_out_cubic` en todas las entradas de texto |
+| Stagger de 1–3 frames de `mojs` / Motion | Las dos líneas de cada bloque entran escalonadas (≈0.18 s de diferencia), nunca a la vez |
+| Rejilla de 0.6 s de Motion Canvas aplicada a edición | Timeline completa montada en múltiplos de 0.6 s; 25 negras exactas |
+
+**MiniMax Design** no se usó para renderizar: es un producto propietario (video, voz y música)
+y el único repo oficial es un plugin de ComfyUI con licencia GPL-3, sin modelos incluidos. No
+aportaba nada a una pieza de 15 s renderizada con Pillow y OpenCV. Lo que sí se tomó de su
+ecosistema fue el criterio de `MiniMax-AI/skills` (`motion-recipes.md`): movimientos cortos,
+una idea por plano, sin rebotes ni física decorativa.
+
+Los repos de motion graphics se usaron como **criterio**, no como dependencia: la pieza se
+renderizó offline para controlar cada frame. `Remotion` queda como la vía natural si más
+adelante quieres variantes 4:5 y 1:1 desde el mismo código.
 
 ## Cómo se reconstruye
 
