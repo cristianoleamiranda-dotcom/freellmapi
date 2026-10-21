@@ -29,3 +29,6 @@
 # Windows-only scripts are fine either way, but keep them LF for consistency
 # with the rest of the tree; PowerShell reads LF without complaint.
 *.ps1           text eol=lf
+
+# Entregables de video del proyecto Abyss (evitar diffs binarios gigantes)
+abyss-historia-15s/out/*.mp4 -diff

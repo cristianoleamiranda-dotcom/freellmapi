@@ -36,10 +36,10 @@
   <section class="stage" aria-label="Reproductor">
     <div class="phone">
       <video id="player" class="player"
-             src="../out/abyss_historia_15s_1080x1920_60fps.mp4"
+             src="../out/abyss_historia_15s_720x1280_preview.mp4"
              poster="../out/cover_hook.jpg"
-             controls playsinline preload="metadata" loop>
-        Tu navegador no reproduce H.264.
+             controls playsinline preload="auto" loop>
+        Tu navegador no reproduce H.264. Descarga el archivo desde la sección «Descargar».
       </video>
       <div class="phone__bar">
         <span id="timecode" class="mono">00:00.00</span>
@@ -50,11 +50,15 @@
     <div class="controls">
       <button id="play" class="primary" type="button">▶ Reproducir con sonido</button>
       <label class="switch">
-        <input id="quality" type="checkbox">
-        <span>Versión liviana (30 fps · 17 MB)</span>
+        <span>Calidad</span>
+        <select id="quality">
+          <option value="../out/abyss_historia_15s_720x1280_preview.mp4" selected>Previa · 3 MB</option>
+          <option value="../out/abyss_historia_15s_1080x1920_30fps.mp4">1080p · 30 fps · 17 MB</option>
+          <option value="../out/abyss_historia_15s_1080x1920_60fps.mp4">1080p · 60 fps · 30 MB</option>
+        </select>
       </label>
     </div>
-    <p class="hint">El audio es una banda sintetizada a 100 BPM: si no lo escuchas, revisa el volumen del reproductor.</p>
+    <p class="hint" id="hint">El audio es una banda sintetizada a 100 BPM: si no lo escuchas, revisa el volumen del reproductor. Si la previa va lenta, cambia a «Previa · 3 MB».</p>
   </section>
 
   <section class="side">
@@ -73,11 +77,12 @@
   </section>
 </main>
 
-<section class="wrap assets">
+<section class="wrap assets" id="descargar">
   <h2>Descargar</h2>
   <ul class="files">
     <li><a href="../out/abyss_historia_15s_1080x1920_60fps.mp4" download><strong>Máster 60 fps</strong><span>1080×1920 · 15.00 s · 30 MB · para publicar</span></a></li>
     <li><a href="../out/abyss_historia_15s_1080x1920_30fps.mp4" download><strong>Versión web 30 fps</strong><span>1080×1920 · 17 MB · WhatsApp y web</span></a></li>
+    <li><a href="../out/abyss_historia_15s_720x1280_preview.mp4" download><strong>Previa ligera</strong><span>720×1280 · 3 MB · para compartir rápido</span></a></li>
     <li><a href="../out/cover_hook.jpg" download><strong>Portada</strong><span>JPG 1080×1920 · frame 1.30 s</span></a></li>
     <li><a href="../out/poster_cta.jpg" download><strong>Póster CTA</strong><span>JPG 1080×1920 · frame 13.60 s</span></a></li>
     <li><a href="../out/storyboard.jpg" download><strong>Storyboard</strong><span>JPG 2160×1388 · 12 momentos</span></a></li>
@@ -105,6 +110,7 @@
   const fsBtn = document.getElementById('fs');
   const quality = document.getElementById('quality');
   const scenes = [...document.querySelectorAll('#scenes button')];
+  const hint = document.getElementById('hint');
 
   const fmt = (s) => {
     const m = Math.floor(s / 60).toString().padStart(2, '0');
@@ -156,12 +162,18 @@
   quality.addEventListener('change', () => {
     const t = player.currentTime;
     const wasPlaying = !player.paused;
-    player.src = quality.checked
-      ? '../out/abyss_historia_15s_1080x1920_30fps.mp4'
-      : '../out/abyss_historia_15s_1080x1920_60fps.mp4';
+    player.src = quality.value;
     player.load();
-    player.currentTime = t;
-    if (wasPlaying) player.play();
+    player.addEventListener('loadedmetadata', () => {
+      player.currentTime = t;
+      if (wasPlaying) player.play();
+    }, { once: true });
+  });
+
+  player.addEventListener('error', () => {
+    hint.innerHTML = 'No se pudo cargar el video desde la ruta local. ' +
+      'Descarga el archivo en la sección <a href="#descargar">Descargar</a> y ábrelo con tu reproductor.';
+    hint.hidden = false;
   });
 </script>
 </body>

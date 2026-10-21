@@ -18,6 +18,8 @@ repo: otro guion, otros planos, otro audio.
 |---|---|
 | `abyss_historia_15s_1080x1920_60fps.mp4` | Máster para publicar (Reels, TikTok, Meta Ads) |
 | `abyss_historia_15s_1080x1920_30fps.mp4` | Versión liviana para web y WhatsApp |
+| `abyss_historia_15s_720x1280_preview.mp4` | Previa de 3 MB: abre rápido en cualquier navegador |
+| `abyss_historia_15s_visor.html` | Visor autónomo: el video de 3 MB va dentro del HTML |
 | `cover_hook.jpg` | Portada del Reel (frame 1.30 s) |
 | `poster_cta.jpg` | Historia estática de refuerzo (frame 13.60 s) |
 | `storyboard.jpg` | Hoja de contacto de 12 momentos |
@@ -25,19 +27,43 @@ repo: otro guion, otros planos, otro audio.
 
 ## Verlo en el navegador
 
+Hay tres caminos, del más simple al más completo.
+
+**1. Un solo archivo, sin servidor.** Descarga `visor/index.html` (5 MB) y ábrelo con doble
+clic. El video de 720×1280 va dentro del HTML en base64, así que funciona sin internet y se
+puede enviar por correo o WhatsApp. Es la vía recomendada para mostrar la pieza.
+
+```bash
+python3 src/standalone.py     # regenera out/abyss_historia_15s_visor.html
+```
+
+**2. Servidor local** (viewport real, todas las calidades, descargas):
+
 ```bash
 python3 preview/serve.py --port 8000
 # http://localhost:8000/preview/
 ```
 
-El visor incluye reproductor con seek, escaleta clicable, descargas y storyboard. El
-servidor soporta peticiones `Range` (sin eso la barra de progreso no funciona con
-`python -m http.server`) y sirve las tipografías de la marca en local, sin CDN.
+El visor incluye reproductor con seek, escaleta clicable, selector de calidad (previa de
+3 MB / 1080p 30 / 1080p 60) y storyboard. El servidor soporta `Range` (necesario para el seek
+en mp4), sirve las tipografías en local y tolera cortes de conexión a mitad de descarga.
+También responde `/health` para comprobar que está vivo.
 
-Si se levanta dentro de Arena, la preview del puerto 8000 queda visible en el panel.
-Para un enlace público y permanente, publica la carpeta `out/` en GitHub Pages, Vercel o
-Cloudflare Pages: son 5 archivos estáticos.
+**3. GitHub Pages** (enlace público propio, un ajuste manual):
 
+1. En el repo, **Settings → Pages**.
+2. *Source*: **Deploy from a branch**; *Branch*: `arena/a95742be-freellmapi`, carpeta **`/`**.
+3. En 1–2 minutos queda en `https://cristianoleamiranda-dotcom.github.io/freellmapi/abyss-historia-15s/`.
+
+La portada `index.html` de esta carpeta redirige a `preview/`, así que la URL de la carpeta
+ya funciona sola.
+
+**4. Kit para descargar.** `scripts/publicar.sh` arma `dist/abyss-historia-15s-kit.zip` (visor
++ los tres mp4 + portadas + README) y, si el entorno tiene acceso a `uploads.github.com`,
+intenta publicarlo como release. En este sandbox esa subida está bloqueada, por eso el zip
+se entrega como archivo local.
+
+## Documentación
 ## Documentación
 
 - [`research/MOTION-DESIGN.md`](research/MOTION-DESIGN.md) — investigación aplicada: qué se

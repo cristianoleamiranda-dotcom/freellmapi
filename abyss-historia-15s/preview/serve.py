@@ -14,6 +14,8 @@ from __future__ import annotations
 import argparse
 import os
 import re
+import shutil
+import socket
 import sys
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -48,6 +50,14 @@ class Handler(SimpleHTTPRequestHandler):
 
     # -- rutas ---------------------------------------------------------------
     def do_GET(self):  # noqa: N802
+        if self.path == "/health":
+            body = b'{"ok":true}'
+            self.send_response(HTTPStatus.OK)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
         if self.path in ("/", "/index.html"):
             self.send_response(HTTPStatus.FOUND)
             self.send_header("Location", "/preview/")
@@ -75,6 +85,24 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_header("Cache-Control", "no-store")
         self.send_header("Access-Control-Allow-Origin", "*")
         super().end_headers()
+
+    # -- transferencia robusta ------------------------------------------------
+    def copyfile(self, source, outputfile):
+        """Copia con bloques pequeños y tolera que el cliente corte la conexión.
+
+        El proxy de preview corta la conexión a mitad de un mp4 grande; sin este
+        manejo, el servidor imprime un traceback por cada corte.
+        """
+        try:
+            shutil.copyfileobj(source, outputfile, length=64 * 1024)
+        except (BrokenPipeError, ConnectionResetError, socket.timeout):
+            self.close_connection = True
+
+    def handle_one_request(self):
+        try:
+            super().handle_one_request()
+        except (BrokenPipeError, ConnectionResetError, socket.timeout):
+            self.close_connection = True
 
     # -- Range ---------------------------------------------------------------
     def send_head(self):
