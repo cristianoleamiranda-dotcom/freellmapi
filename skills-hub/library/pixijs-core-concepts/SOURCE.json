@@ -1,0 +1,26 @@
+{
+  "slug": "pixijs-core-concepts",
+  "name": "pixijs-core-concepts",
+  "description": "Use this skill when understanding how PixiJS v8 renders frames: the systems-and-pipes renderer, the render loop, and how the library adapts to different environments. Covers WebGLRenderer/WebGPURenderer/CanvasRenderer selection, renderer.render() pipeline, environment detection, rendering into RenderTextures and RenderTargets (flipY, mipLevel, layer, bind/push/pop, copyDepthTexture), WebGL context loss and WebGPU device loss recovery, and pointers to per-topic deep dives. Triggers on: renderer, WebGL, WebGPU, Canvas, render loop, render pipeline, systems, environments, autoDetectRenderer, RenderTexture, RenderTarget, render to texture, flipY, mipLevel, layer, 3D texture, depth slice, renderTarget.bind, copyToTexture, copyDepthTexture, depth-only, WebGLLoader, WebGPULoader, CanvasLoader, RendererLoader, lazy-load renderer systems, code splitting, context lost, webglcontextlost, device lost, GPUDevice.lost.\"",
+  "license": "MIT",
+  "category": "pixijs",
+  "tags": [
+    "pixijs",
+    "webgl",
+    "webgpu",
+    "canvas"
+  ],
+  "status": "ok",
+  "originalName": "pixijs-core-concepts",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/pixijs-core-concepts/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-core-concepts/SKILL.md"
+  },
+  "notes": [],
+  "skippedAssets": [],
+  "files": 3,
+  "bytes": 25694,
+  "importedAt": "2026-10-21T20:39:18.310Z"
+}

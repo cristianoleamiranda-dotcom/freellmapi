@@ -1,0 +1,29 @@
+{
+  "slug": "sender-motion-scroll",
+  "name": "sender-motion-scroll",
+  "description": "Reglas de motion scroll-driven para sitios Sender: todo movimiento nace del scroll (scrub), lerp propio para video, un movimiento firma por sitio, rAF solo cuando el elemento es visible y apagado total con reduced-motion. Úsala al implementar o revisar animaciones ligadas al scroll.",
+  "license": null,
+  "category": "motion",
+  "tags": [
+    "scroll",
+    "scrub",
+    "lerp",
+    "reduced-motion"
+  ],
+  "status": "fixed",
+  "originalName": null,
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/sender-design-ops",
+    "path": "sender-design-ops/skills/SKILL-motion.md",
+    "commit": "639aed9b21eb54a0c8a1a007d0d21d1a6512bd91",
+    "url": "https://github.com/cristianoleamiranda-dotcom/sender-design-ops/tree/639aed9b21eb54a0c8a1a007d0d21d1a6512bd91/sender-design-ops/skills/SKILL-motion.md"
+  },
+  "notes": [
+    "sin frontmatter en el origen: se generó",
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 1123,
+  "importedAt": "2026-10-21T20:39:17.909Z"
+}

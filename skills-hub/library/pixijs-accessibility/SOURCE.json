@@ -1,0 +1,26 @@
+{
+  "slug": "pixijs-accessibility",
+  "name": "pixijs-accessibility",
+  "description": "Use this skill when adding screen reader and keyboard navigation to PixiJS v8 apps. Covers AccessibilitySystem options (enabledByDefault, debug, activateOnTab, deactivateOnMouseMove), per-container accessibility properties, shadow DOM overlay, mobile touch-hook activation. Triggers on: accessibility, a11y, screen reader, ARIA, keyboard navigation, tab order, AccessibilitySystem, accessibleTitle, accessibleHint, tabIndex, accessibleChildren.\"",
+  "license": "MIT",
+  "category": "pixijs",
+  "tags": [
+    "pixijs",
+    "webgl",
+    "webgpu",
+    "canvas"
+  ],
+  "status": "ok",
+  "originalName": "pixijs-accessibility",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/pixijs-accessibility/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-accessibility/SKILL.md"
+  },
+  "notes": [],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 8337,
+  "importedAt": "2026-10-21T20:39:18.299Z"
+}

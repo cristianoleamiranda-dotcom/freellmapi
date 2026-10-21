@@ -1,0 +1,10 @@
+# Solo se sube lo que se sirve. El código fuente, el research y los
+# intermedios de render se quedan fuera del deploy.
+src/
+scripts/
+work/
+render/
+research/
+*.md
+__pycache__/
+*.pyc

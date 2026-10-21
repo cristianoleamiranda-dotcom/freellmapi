@@ -1,0 +1,26 @@
+{
+  "slug": "pixijs-filters",
+  "name": "pixijs-filters",
+  "description": "Use this skill when applying visual effects to PixiJS v8 containers via the filter pipeline. Covers built-in filters (AlphaFilter, BlurFilter, ColorMatrixFilter, DisplacementFilter, NoiseFilter), custom Filter.from() with GLSL/WGSL, options (resolution, padding, antialias, blendRequired), filterArea optimization, pixi-filters community package. Triggers on: filters, BlurFilter, ColorMatrixFilter, DisplacementFilter, NoiseFilter, Filter.from, GLSL filter, pixi-filters, filterArea.\"",
+  "license": "MIT",
+  "category": "pixijs",
+  "tags": [
+    "pixijs",
+    "webgl",
+    "webgpu",
+    "canvas"
+  ],
+  "status": "ok",
+  "originalName": "pixijs-filters",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/pixijs-filters/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-filters/SKILL.md"
+  },
+  "notes": [],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 10074,
+  "importedAt": "2026-10-21T20:39:18.316Z"
+}

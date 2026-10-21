@@ -1,0 +1,29 @@
+{
+  "slug": "scrollcraft-arena",
+  "name": "scrollcraft-arena",
+  "description": "Flujo ScrollCraft-Arena para construir landings premium scroll-driven/3D: entrevista obligatoria antes de codificar, principios anti-template, scroll como interfaz, assets reales, verificación previa a entregar y feedback por rondas. Úsala al iniciar un sitio nuevo o un rediseño inmersivo.",
+  "license": null,
+  "category": "diseno-web",
+  "tags": [
+    "scrollcraft",
+    "entrevista",
+    "landing",
+    "scroll"
+  ],
+  "status": "fixed",
+  "originalName": null,
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/sender-design-ops",
+    "path": "AGENTS.md",
+    "commit": "639aed9b21eb54a0c8a1a007d0d21d1a6512bd91",
+    "url": "https://github.com/cristianoleamiranda-dotcom/sender-design-ops/tree/639aed9b21eb54a0c8a1a007d0d21d1a6512bd91/AGENTS.md"
+  },
+  "notes": [
+    "sin frontmatter en el origen: se generó",
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 3154,
+  "importedAt": "2026-10-21T20:39:17.912Z"
+}

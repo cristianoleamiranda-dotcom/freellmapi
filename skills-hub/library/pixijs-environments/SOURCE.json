@@ -1,0 +1,26 @@
+{
+  "slug": "pixijs-environments",
+  "name": "pixijs-environments",
+  "description": "Use this skill when running PixiJS v8 outside a standard browser: Web Workers, OffscreenCanvas, Node/SSR, or CSP-restricted contexts. Covers DOMAdapter.set, BrowserAdapter, WebWorkerAdapter, custom Adapter interface, pixi.js/unsafe-eval for strict CSP. Triggers on: DOMAdapter, BrowserAdapter, WebWorkerAdapter, Web Worker, OffscreenCanvas, Node, headless, SSR, CSP, unsafe-eval, Adapter.\"",
+  "license": "MIT",
+  "category": "pixijs",
+  "tags": [
+    "pixijs",
+    "webgl",
+    "webgpu",
+    "canvas"
+  ],
+  "status": "ok",
+  "originalName": "pixijs-environments",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/pixijs-environments/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-environments/SKILL.md"
+  },
+  "notes": [],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 8704,
+  "importedAt": "2026-10-21T20:39:18.314Z"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "pixijs-scene-container",
+  "name": "pixijs-scene-container",
+  "description": "Use this skill when grouping, positioning, or transforming display objects in PixiJS v8. Covers Container constructor options (isRenderGroup, sortableChildren, boundsArea), addChild/removeChild/addChildAt/swapChildren/setChildIndex, position/scale/rotation/pivot/skew/alpha/tint, getBounds/getGlobalPosition/toLocal/toGlobal, zIndex sorting, cullable, onRender per-frame callback, destroy. Triggers on: Container, addChild, removeChild, addChildAt, swapChildren, sortableChildren, zIndex, position, scale, rotation, pivot, getBounds, toGlobal, toLocal, onRender, destroy, constructor options, ContainerOptions.\"",
+  "license": "MIT",
+  "category": "pixijs",
+  "tags": [
+    "pixijs",
+    "webgl",
+    "webgpu",
+    "canvas"
+  ],
+  "status": "ok",
+  "originalName": "pixijs-scene-container",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/pixijs-scene-container/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-scene-container/SKILL.md"
+  },
+  "notes": [],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 16025,
+  "importedAt": "2026-10-21T20:39:18.322Z"
+}

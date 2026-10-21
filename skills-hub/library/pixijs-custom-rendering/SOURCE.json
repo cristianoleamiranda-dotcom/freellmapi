@@ -1,0 +1,28 @@
+{
+  "slug": "pixijs-custom-rendering",
+  "name": "pixijs-custom-rendering",
+  "description": "Use this skill when writing custom shaders, uniforms, filters, batchers, or low-level draw code in PixiJS v8. Covers Shader.from({gl, gpu, resources}), GlProgram/GpuProgram, UniformGroup with typed uniforms (f32, vec2, mat4x4), UBO mode, textures as resources, TextureView for depth sampling, 3D and array textures (depth, arrayLayerCount, sampler3D, texture_3d), WebGPU storage textures (storage: true), WGSL override constants, custom bind group layouts (gpuLayout), partial buffer updates (Buffer.update), Geometry.vertexCount/indexCount, TexturePool scratch textures, State winding and culling (clockwiseFrontFace, cullMode), WebGPU render bundles, custom Filter via Filter.from, GLSL ES 3.0 conventions (finalColor), uBackTexture sampling, pixi.js/unsafe-eval for strict CSP, custom Batcher and InstructionPipe.destroyInstructionSet via extensions. Triggers on: Shader, GLSL, WGSL, uniform, custom shader, blendRequired, ShaderOverrides, bind group layout, depth texture, 3D texture, sampler3D, texture_3d …",
+  "license": "MIT",
+  "category": "pixijs",
+  "tags": [
+    "pixijs",
+    "webgl",
+    "webgpu",
+    "canvas"
+  ],
+  "status": "fixed",
+  "originalName": "pixijs-custom-rendering",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/pixijs-custom-rendering/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-custom-rendering/SKILL.md"
+  },
+  "notes": [
+    "description recortada a 1024 caracteres"
+  ],
+  "skippedAssets": [],
+  "files": 3,
+  "bytes": 32983,
+  "importedAt": "2026-10-21T20:39:18.313Z"
+}

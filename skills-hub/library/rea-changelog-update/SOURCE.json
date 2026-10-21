@@ -1,0 +1,27 @@
+{
+  "slug": "rea-changelog-update",
+  "name": "rea-changelog-update",
+  "description": "Prepare or rewrite REA release changelogs and GitHub release notes from pinned Git history, with verified contributor thanks and Release Please synchronization.",
+  "license": null,
+  "category": "reverse-engineering",
+  "tags": [
+    "rea",
+    "reverse-engineering",
+    "evidencia"
+  ],
+  "status": "ok",
+  "originalName": "rea-changelog-update",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/rea-changelog-update/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/rea-changelog-update/SKILL.md"
+  },
+  "notes": [
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 7779,
+  "importedAt": "2026-10-21T20:39:18.342Z"
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "sender-design-system",
+  "name": "sender-design-system",
+  "description": "Sistema de diseño «Broadcast Editorial» para landings premium: tokens antes que componentes, ritmo de actos papel/oscuro, hairlines en vez de sombras, mono para metadatos y paleta innegociable. Úsala al definir o auditar la capa visual de un sitio Sender.",
+  "license": null,
+  "category": "diseno-web",
+  "tags": [
+    "design-system",
+    "tokens",
+    "editorial"
+  ],
+  "status": "fixed",
+  "originalName": null,
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/sender-design-ops",
+    "path": "sender-design-ops/skills/SKILL-design-system.md",
+    "commit": "639aed9b21eb54a0c8a1a007d0d21d1a6512bd91",
+    "url": "https://github.com/cristianoleamiranda-dotcom/sender-design-ops/tree/639aed9b21eb54a0c8a1a007d0d21d1a6512bd91/sender-design-ops/skills/SKILL-design-system.md"
+  },
+  "notes": [
+    "sin frontmatter en el origen: se generó",
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 1136,
+  "importedAt": "2026-10-21T20:39:17.909Z"
+}

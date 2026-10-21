@@ -1,0 +1,26 @@
+{
+  "slug": "pixijs-create",
+  "name": "pixijs-create",
+  "description": "Use this skill when scaffolding a new PixiJS v8 project with the create-pixi CLI or adding PixiJS to an existing project. Covers npm/yarn/pnpm/bun create commands, interactive vs non-interactive flows, bundler vs creation template categories, available template presets (bundler-vite, bundler-webpack, bundler-esbuild, bundler-import-map, creation-web, framework-react, extension-default), Node version requirements, `npm install pixi.js` for existing projects, TypeScript 5/6/7 tsconfig setup (moduleResolution, @webgpu/types, @types/web), post-scaffold dev flow, and the Vite top-level-await production-build gotcha. Triggers on: create pixi.js, npm create, npm install pixi.js, scaffold, template, bundler-vite, bundler-webpack, creation-web, framework-react, new project, existing project, getting started, quick start, TypeScript, tsconfig, moduleResolution, @webgpu/types, @types/web, Cannot find name GPUTextureUsage.\"",
+  "license": "MIT",
+  "category": "pixijs",
+  "tags": [
+    "pixijs",
+    "webgl",
+    "webgpu",
+    "canvas"
+  ],
+  "status": "ok",
+  "originalName": "pixijs-create",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/pixijs-create/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/pixijs-create/SKILL.md"
+  },
+  "notes": [],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 12522,
+  "importedAt": "2026-10-21T20:39:18.311Z"
+}

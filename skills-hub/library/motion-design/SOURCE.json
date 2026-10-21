@@ -1,0 +1,25 @@
+{
+  "slug": "motion-design",
+  "name": "motion-design",
+  "description": "Applies motion design principles to create emotionally-driven, technically sound animations and transitions. Provides timing, easing, choreography, and Disney animation principles adapted for UI. Use when creating animations, transitions, micro-interactions, loading states, page transitions, scroll-triggered effects, or any motion work. Works with CSS, Framer Motion, GSAP, Lottie, Spring, or any animation system.",
+  "license": "MIT",
+  "category": "motion",
+  "tags": [
+    "motion",
+    "ui",
+    "animacion"
+  ],
+  "status": "ok",
+  "originalName": "motion-design",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/Rae",
+    "path": "agent/skills/motion-design/SKILL.md",
+    "commit": "4269e1758c39a5f4431ce47092e09bf555595cc5",
+    "url": "https://github.com/cristianoleamiranda-dotcom/Rae/tree/4269e1758c39a5f4431ce47092e09bf555595cc5/agent/skills/motion-design/SKILL.md"
+  },
+  "notes": [],
+  "skippedAssets": [],
+  "files": 17,
+  "bytes": 56710,
+  "importedAt": "2026-10-21T20:39:18.298Z"
+}

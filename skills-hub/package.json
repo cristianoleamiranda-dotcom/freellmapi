@@ -1,0 +1,18 @@
+{
+  "name": "@cristianoleamiranda/skills-hub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Hub personal de skills: importa, normaliza, valida, instala y empaqueta las skills de los repos de cristianoleamiranda-dotcom.",
+  "scripts": {
+    "sync": "node src/sync.mjs",
+    "validate": "node src/validate.mjs",
+    "install": "node src/install.mjs",
+    "report": "node src/report.mjs",
+    "pack": "node src/pack.mjs",
+    "all": "node src/sync.mjs && node src/validate.mjs && node src/pack.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

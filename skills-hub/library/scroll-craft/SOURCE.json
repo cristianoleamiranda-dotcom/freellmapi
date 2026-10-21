@@ -1,0 +1,27 @@
+{
+  "slug": "scroll-craft",
+  "name": "scroll-craft",
+  "description": "Método y stack del sitio SENDER scroll-driven de scroll-craft (React 19 + Vite + GSAP + Lenis + Three.js): una sola narrativa, el scroll como cámara, WebGL solo en escritorio con puntero fino, datos reales sin inventar, i18n ES/EN completo y verificación con npm run build y npm run qa. Úsala como referencia al construir o auditar un sitio inmersivo con este stack.",
+  "license": "MIT",
+  "category": "diseno-web",
+  "tags": [
+    "scroll",
+    "gsap",
+    "lenis",
+    "threejs",
+    "i18n"
+  ],
+  "status": "generated",
+  "originalName": "scroll-craft",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/scroll-craft",
+    "path": "curated/scroll-craft",
+    "commit": "b9c8e5b6c5da42c6c95dd96cb3b557850b80d3e9",
+    "url": "https://github.com/cristianoleamiranda-dotcom/scroll-craft/tree/b9c8e5b6c5da42c6c95dd96cb3b557850b80d3e9/"
+  },
+  "notes": [],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 3924,
+  "importedAt": "2026-10-21T20:39:19.761Z"
+}

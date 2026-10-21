@@ -1,0 +1,29 @@
+{
+  "slug": "ultimate-web-designer",
+  "name": "ultimate-web-designer",
+  "description": "Reglas maestras de diseño UI/UX para crear sitios web premium con React y Tailwind CSS.",
+  "license": null,
+  "category": "diseno-web",
+  "tags": [
+    "ui",
+    "ux",
+    "tailwind",
+    "react"
+  ],
+  "status": "fixed",
+  "originalName": "Ultimate Web Designer",
+  "source": {
+    "repo": "cristianoleamiranda-dotcom/webopen",
+    "path": ".opencode/skills/ultimate-web-designer/SKILL.md",
+    "commit": "a2a87e5e5e2546f3f0462c0b8bcaac41c9cb3bcf",
+    "url": "https://github.com/cristianoleamiranda-dotcom/webopen/tree/a2a87e5e5e2546f3f0462c0b8bcaac41c9cb3bcf/.opencode/skills/ultimate-web-designer/SKILL.md"
+  },
+  "notes": [
+    "renombrada de «Ultimate Web Designer» a «ultimate-web-designer»",
+    "sin licencia declarada"
+  ],
+  "skippedAssets": [],
+  "files": 1,
+  "bytes": 2348,
+  "importedAt": "2026-10-21T20:39:19.208Z"
+}
