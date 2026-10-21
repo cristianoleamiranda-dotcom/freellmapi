@@ -1,0 +1,33 @@
+{
+  "project": "Abyss Tattoo Studio · historia 15 s",
+  "generated": "2026-10-21T21:16:07+0000",
+  "duration": 15.0,
+  "fps": 60,
+  "size": [
+    1080,
+    1920
+  ],
+  "beat": 0.6,
+  "files": {
+    "abyss_historia_15s_1080x1920_30fps.mp4": {
+      "bytes": 17685191,
+      "sha256": "1abdd9eff6bb7383299482fe23b2543da33e903cb0ebc0a890b8f8b5a5958444"
+    },
+    "abyss_historia_15s_1080x1920_60fps.mp4": {
+      "bytes": 31069545,
+      "sha256": "d386030aa66340eb311852cdf018b0e51391e403aec7fa7e6906817843b15cb7"
+    },
+    "cover_hook.jpg": {
+      "bytes": 688102,
+      "sha256": "b21b4a0b0084897131293c0e82c9cb594f3c599ce5b5ad10e68f5bc99f26f204"
+    },
+    "poster_cta.jpg": {
+      "bytes": 222902,
+      "sha256": "2eef3226795c24e7ed151236a554d569238b5ccb472557c58f4f8497f1f705e7"
+    },
+    "storyboard.jpg": {
+      "bytes": 861193,
+      "sha256": "65eade3fa7a2afb2f8ce11a507f99480c578b7a981039ba6e141b8852a880417"
+    }
+  }
+}

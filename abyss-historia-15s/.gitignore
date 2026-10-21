@@ -1,0 +1,5 @@
+# Intermedios de render (se regeneran con python3 src/render.py)
+render/*.wav
+work/
+__pycache__/
+*.pyc
