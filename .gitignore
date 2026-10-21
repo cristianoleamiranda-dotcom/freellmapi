@@ -25,3 +25,7 @@ update-hermes.sh
 
 # Monetization planning — private, never committed
 monetization/
+
+# HyperFrames runtime artifacts (thumbnails, preview state, history)
+repo-assets/abyss-reel/.hyperframes/
+repo-assets/abyss-reel/.thumbnails/

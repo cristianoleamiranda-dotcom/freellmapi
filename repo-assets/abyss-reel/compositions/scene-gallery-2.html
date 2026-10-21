@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ABYSS — Galería 2</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Cinzel";
+          src: url("assets/fonts/cinzel-latin-700-normal.woff2") format("woff2");
+          font-weight: 700;
+          font-display: block;
+        }
+        @font-face {
+          font-family: "Montserrat";
+          src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2");
+          font-weight: 600;
+          font-display: block;
+        }
+
+        #root {
+          --ink: #14100d;
+          --cream: #eae3dd;
+          --cream-dim: #c6b7ab;
+          --sage: #9ec4ba;
+          --serif: "Cinzel", serif;
+          --sans: "Montserrat", sans-serif;
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ink);
+          color: var(--cream);
+          font-family: var(--sans);
+        }
+
+        .ph {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .kb {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          will-change: transform;
+        }
+        .scrim {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(20, 16, 13, 0.58) 0%,
+            rgba(20, 16, 13, 0.06) 32%,
+            rgba(20, 16, 13, 0.14) 58%,
+            rgba(20, 16, 13, 0.92) 100%
+          );
+        }
+
+        .tag-dark {
+          color: #12312c;
+          text-shadow: 0 1px 14px rgba(234, 227, 221, 0.55);
+        }
+        .tag {
+          position: absolute;
+          left: 96px;
+          top: 232px;
+          font-size: 20px;
+          font-weight: 600;
+          letter-spacing: 0.44em;
+          text-transform: uppercase;
+          color: var(--sage);
+        }
+        .title-dark {
+          color: #14100d;
+          text-shadow: 0 2px 22px rgba(234, 227, 221, 0.5);
+        }
+        .title {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          left: 96px;
+          bottom: 208px;
+          font-family: var(--serif);
+          font-weight: 700;
+          font-size: 96px;
+          line-height: 0.95;
+          letter-spacing: 0.03em;
+          text-transform: uppercase;
+          color: var(--cream);
+        }
+        .num-dark {
+          color: rgba(20, 16, 13, 0.75);
+        }
+        .num {
+          position: absolute;
+          right: 96px;
+          bottom: 208px;
+          font-family: var(--serif);
+          font-size: 34px;
+          letter-spacing: 0.16em;
+          color: rgba(198, 183, 171, 0.7);
+        }
+      </style>
+
+      <div id="root" data-composition-id="scene-gallery-2" data-width="1080" data-height="1920">
+        <div class="ph clip" id="ph-a" data-start="0" data-duration="1.9" data-track-index="0" data-layout-allow-occlusion="true">
+          <img class="kb" data-layout-allow-overflow="true" id="kb-a" src="assets/photos/samurai.jpg" alt="" />
+          <div class="scrim"></div>
+          <div class="tag" id="tag-a">Neotradicional</div>
+          <div class="title" id="title-a"><span>Lobo</span><span>samurái</span></div>
+          <div class="num" id="num-a">04</div>
+        </div>
+
+        <div class="ph clip" id="ph-b" data-start="1.9" data-duration="1.7" data-track-index="1" data-layout-allow-occlusion="true">
+          <img class="kb" data-layout-allow-overflow="true" id="kb-b" src="assets/photos/septum.jpg" alt="" />
+          <div class="scrim"></div>
+          <div class="tag tag-dark" id="tag-b">Piercing</div>
+          <div class="title title-dark" id="title-b">Septum</div>
+          <div class="num num-dark" id="num-b">05</div>
+        </div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+
+        /* shot A (0 → 1.9) */
+        tl.fromTo("#kb-a", { scale: 1.24, yPercent: -2 }, { scale: 1.06, yPercent: 1, duration: 2, ease: "none" }, 0);
+        tl.fromTo("#tag-a", { autoAlpha: 0, x: -26 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: "power3.out" }, 0.1);
+        tl.fromTo("#title-a", { y: 52, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, ease: "power4.out" }, 0.18);
+        tl.fromTo("#num-a", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35 }, 0.24);
+        tl.to(["#tag-a", "#title-a", "#num-a"], { autoAlpha: 0, y: -20, duration: 0.26, stagger: 0.025, ease: "power2.in" }, 1.5);
+
+        /* shot B (1.9 → 3.6) */
+        tl.fromTo("#kb-b", { scale: 1.14, yPercent: -1.5 }, { scale: 1.02, yPercent: 1.5, duration: 1.9, ease: "none" }, 1.86);
+        tl.fromTo("#tag-b", { autoAlpha: 0, x: -26 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: "power3.out" }, 1.95);
+        tl.fromTo("#title-b", { y: 52, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, ease: "power4.out" }, 2.03);
+        tl.fromTo("#num-b", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35 }, 2.1);
+        
+
+        window.__timelines["scene-gallery-2"] = tl;
+        tl.seek(0);
+      </script>
+    </template>
+  </body>
+</html>

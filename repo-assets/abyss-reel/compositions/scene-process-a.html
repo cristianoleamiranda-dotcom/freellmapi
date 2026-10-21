@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ABYSS — Proceso A</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Cinzel";
+          src: url("assets/fonts/cinzel-latin-700-normal.woff2") format("woff2");
+          font-weight: 700;
+          font-display: block;
+        }
+        @font-face {
+          font-family: "Montserrat";
+          src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2");
+          font-weight: 600;
+          font-display: block;
+        }
+
+        #root {
+          --ink: #14100d;
+          --cream: #eae3dd;
+          --cream-dim: #c6b7ab;
+          --sage: #9ec4ba;
+          --serif: "Cinzel", serif;
+          --sans: "Montserrat", sans-serif;
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ink);
+          color: var(--cream);
+          font-family: var(--sans);
+        }
+
+        .shot {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .shot video {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .scrim {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(20, 16, 13, 0.9) 0%,
+            rgba(20, 16, 13, 0.62) 30%,
+            rgba(20, 16, 13, 0.5) 60%,
+            rgba(20, 16, 13, 0.96) 100%
+          );
+        }
+
+        .headline {
+          position: absolute;
+          left: 96px;
+          right: 96px;
+          top: 232px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .kicker {
+          font-size: 20px;
+          font-weight: 600;
+          letter-spacing: 0.44em;
+          text-transform: uppercase;
+          color: #bcdcd4;
+        }
+        .h {
+          display: flex;
+          flex-direction: column;
+          font-family: var(--serif);
+          font-weight: 700;
+          font-size: 104px;
+          line-height: 1.0;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+          color: var(--cream);
+        }
+        .h .dim {
+          color: rgba(234, 227, 221, 0.6);
+        }
+
+        .foot {
+          position: absolute;
+          left: 96px;
+          right: 96px;
+          bottom: 208px;
+          display: flex;
+          align-items: center;
+          gap: 18px;
+        }
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: var(--sage);
+        }
+        .foot-text {
+          font-size: 21px;
+          font-weight: 600;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          color: var(--cream-dim);
+        }
+
+        .stamp {
+          position: absolute;
+          right: 96px;
+          bottom: 208px;
+          font-family: var(--serif);
+          font-size: 30px;
+          letter-spacing: 0.18em;
+          color: rgba(158, 196, 186, 0.85);
+        }
+      </style>
+
+      <div id="root" data-composition-id="scene-process-a" data-width="1080" data-height="1920">
+        <div class="shot">
+          <video
+            id="proc-video-1"
+            src="assets/clips/clip-detalle.mp4"
+            muted
+            playsinline
+            data-start="0"
+            data-duration="2.8"
+            data-track-index="0"
+          ></video>
+          <div class="scrim"></div>
+        </div>
+
+        <div class="headline">
+          <div class="kicker" id="proc-kicker">El proceso</div>
+          <div class="h">
+            <span class="dim" id="proc-l1">Del trazo</span>
+            <span id="proc-l2">a la piel</span>
+          </div>
+        </div>
+
+        <div class="foot" id="proc-foot">
+          <span class="dot"></span>
+          <span class="foot-text">Diseño único · Sesión privada</span>
+        </div>
+        <div class="stamp" id="proc-stamp">01 / 02</div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+
+        tl.fromTo("#proc-video-1", { scale: 1.14 }, { scale: 1.02, duration: 2.85, ease: "sine.out" }, 0);
+        tl.fromTo("#proc-kicker", { y: 22, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.55, ease: "power3.out" }, 0.12);
+        tl.fromTo("#proc-l1", { x: -34, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.75, ease: "power4.out" }, 0.24);
+        tl.fromTo("#proc-l2", { x: 34, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.75, ease: "power4.out" }, 0.38);
+        tl.fromTo("#proc-foot", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, ease: "power3.out" }, 0.7);
+        tl.fromTo("#proc-stamp", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5 }, 0.8);
+
+        tl.to(["#proc-kicker", "#proc-l1", "#proc-l2", "#proc-foot", "#proc-stamp"], {
+          autoAlpha: 0,
+          y: -22,
+          duration: 0.32,
+          stagger: 0.03,
+          ease: "power2.in",
+        }, 2.5);
+
+
+        window.__timelines["scene-process-a"] = tl;
+        tl.seek(0);
+      </script>
+    </template>
+  </body>
+</html>

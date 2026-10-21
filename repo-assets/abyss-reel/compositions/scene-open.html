@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ABYSS — Open</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Cinzel";
+          src: url("assets/fonts/cinzel-latin-700-normal.woff2") format("woff2");
+          font-weight: 700;
+          font-display: block;
+        }
+        @font-face {
+          font-family: "Cinzel";
+          src: url("assets/fonts/cinzel-latin-400-normal.woff2") format("woff2");
+          font-weight: 400;
+          font-display: block;
+        }
+        @font-face {
+          font-family: "Montserrat";
+          src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2");
+          font-weight: 600;
+          font-display: block;
+        }
+
+        #root {
+          --ink: #14100d;
+          --cream: #eae3dd;
+          --cream-dim: #c6b7ab;
+          --sage: #9ec4ba;
+          --serif: "Cinzel", serif;
+          --sans: "Montserrat", sans-serif;
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ink);
+          color: var(--cream);
+          font-family: var(--sans);
+        }
+
+        .media {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .media video {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .scrim {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(20, 16, 13, 0.72) 0%,
+            rgba(20, 16, 13, 0.24) 34%,
+            rgba(20, 16, 13, 0.42) 62%,
+            rgba(20, 16, 13, 0.94) 100%
+          );
+        }
+
+        .content {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 0 96px 196px;
+          gap: 22px;
+        }
+
+        .eyebrow {
+          font-size: 22px;
+          font-weight: 600;
+          letter-spacing: 0.44em;
+          text-transform: uppercase;
+          color: var(--sage);
+        }
+
+        .brand {
+          transform-origin: left center;
+          font-family: var(--serif);
+          font-weight: 700;
+          font-size: 168px;
+          line-height: 0.92;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+          color: var(--cream);
+        }
+
+        .rule {
+          width: 190px;
+          height: 2px;
+          background: var(--sage);
+          transform-origin: left center;
+        }
+
+        .sub {
+          font-size: 27px;
+          font-weight: 600;
+          letter-spacing: 0.32em;
+          text-transform: uppercase;
+          color: var(--cream-dim);
+        }
+      </style>
+
+      <div id="root" data-composition-id="scene-open" data-width="1080" data-height="1920">
+        <div class="media" id="open-media" data-layout-allow-overflow="true">
+          <video
+            id="open-video"
+            src="assets/clips/clip-hero.mp4"
+            muted
+            playsinline
+            data-start="0"
+            data-duration="4"
+            data-track-index="0"
+          ></video>
+        </div>
+        <div class="scrim"></div>
+
+        <div class="content">
+          <div class="eyebrow" id="open-eyebrow">Tattoo Studio · Santiago</div>
+          <div class="brand" id="open-brand">Abyss</div>
+          <div class="rule" id="open-rule"></div>
+          <div class="sub" id="open-sub">Tinta a mano · Desde cero</div>
+        </div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+
+        tl.fromTo("#open-media", { scale: 1.16 }, { scale: 1, duration: 4, ease: "sine.out" }, 0);
+        tl.fromTo("#open-eyebrow", { y: 26, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: "power3.out" }, 0.15);
+        tl.fromTo(
+          "#open-brand",
+          { yPercent: 26, autoAlpha: 0, scale: 1.06 },
+          { yPercent: 0, autoAlpha: 1, scale: 1, duration: 1.1, ease: "power4.out" },
+          0.28
+        );
+        tl.fromTo("#open-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power3.inOut" }, 0.95);
+        tl.fromTo("#open-sub", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: "power3.out" }, 1.1);
+
+        /* exit */
+        tl.to(
+          ["#open-eyebrow", "#open-brand", "#open-rule", "#open-sub"],
+          { y: -26, autoAlpha: 0, duration: 0.4, stagger: 0.04, ease: "power2.in" },
+          3.42
+        );
+        tl.to("#open-media", { autoAlpha: 0, duration: 0.3, ease: "none" }, 3.66);
+
+        window.__timelines["scene-open"] = tl;
+        tl.seek(0);
+      </script>
+    </template>
+  </body>
+</html>
