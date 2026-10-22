@@ -5,38 +5,38 @@
   "files": [
     {
       "file": "abyss_marca_18s_1080x1920_60fps.mp4",
-      "bytes": 29949612,
-      "sha256": "c678eb7d9dea26f8fe7125ab98983586cef4944d938bed1fc521fc8d9acab2c9"
+      "bytes": 29567464,
+      "sha256": "934ff541ec9d582e2f1506ee2ec8688cde867d94395098271d67c1bd2838d144"
     },
     {
       "file": "abyss_marca_18s_1080x1920_30fps.mp4",
-      "bytes": 17549377,
-      "sha256": "7e1fec039e9982a49b5fbd8cd3d5cd025667eab17e8dad32bd4fc41392eaec05"
+      "bytes": 17316290,
+      "sha256": "8675e549fe22a11aefbac410b1dcdfef020b89dca00c644ccd8ef8a9566f7dc9"
     },
     {
       "file": "abyss_marca_18s_720x1280_preview.mp4",
-      "bytes": 2925262,
-      "sha256": "3e3232b57e4e8a586821b937901564fc374a0592efb80f842fdcfe6d3347b916"
+      "bytes": 2725065,
+      "sha256": "810995781fc2ccdc008656687a6c5ea2f4714cc5f4eeba3eb1b9bed5f61bc704"
     },
     {
       "file": "abyss_marca_18s_visor.html",
-      "bytes": 4622069,
-      "sha256": "d1d54dd6a61665421c9cff057168de9bfb7b225d4ffc6518cfe417d260385854"
+      "bytes": 4358529,
+      "sha256": "6cc1c90b27c0a7d2a6a19b99d1b39158db9f3db3950c28271cd57d09e0ef02b0"
     },
     {
       "file": "cover_emblema_18s.jpg",
-      "bytes": 533134,
-      "sha256": "6e891b959a7b381c0347327e5dcad6473582bb24ef0f9d02fc07ab37fc3cf71d"
+      "bytes": 535680,
+      "sha256": "584b10496499c3dd6d6fd652f4334d567a6cc8980d7886a73dc33aa43d833117"
     },
     {
       "file": "poster_cta_18s.jpg",
-      "bytes": 529835,
-      "sha256": "ec98af4b0fa4152fd08115eb624b01bc65e10d31736d642dd0f478d1fb9baea1"
+      "bytes": 528087,
+      "sha256": "e15e03c95ea75d600be3f03a8ec6a28d20caeef048cb0e17b5a8b4f546e92420"
     },
     {
       "file": "storyboard_18s.jpg",
-      "bytes": 365621,
-      "sha256": "3073044e72d69b7f9fbaa37877f495061ca574e20f4285136adeb768ce96ca0f"
+      "bytes": 355382,
+      "sha256": "3bc1333c713231fd1f28251525c5fdb7b383a34822ed33450e04cb36be62d347"
     }
   ]
 }

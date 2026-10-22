@@ -41,7 +41,7 @@ bash scripts/kit.sh --long              # dist/abyss-marca-18s-kit.zip
 |---|---|---|---|---|
 | S1 | 0.00–1.80 | `film/hero_film.mp4` 0.12 s · 0.55× | push-in 1.06 → 1.19 | **HECHO** / **A MANO** |
 | S2 | 1.80–3.00 | `film/hero_film.mp4` 2.45 s · 0.60× | pull-back 1.16 → 1.03 | PUNTO POR PUNTO |
-| S3 | 3.00–4.20 | `film/proceso_detalle.mp4` 1.20 s | push-in 1.10 → 1.02 | — |
+| S3 | 3.00–4.20 | `film/proceso_pierna.mp4` 1.60 s | push-in 1.05 → 1.14 | — |
 | S4 | 4.20–5.40 | `film/proceso_filmacion.mp4` 2.60 s | push-in 1.04 → 1.15 | — |
 | S5 | 5.40–6.30 | `trabajos/trabajo_hombro_real.jpg` | pull-back 1.20 → 1.07 | **REALISMO** / BLACK & GREY |
 | S6 | 6.30–7.20 | `trabajos/trabajo_cristo_manga.jpg` | pan vertical 1.14 → 1.04 | — |
@@ -61,6 +61,7 @@ Cambios respecto a la de 15 s; el resto de planos y textos es idéntico.
 | # | In–Out | Material | Cámara | Texto |
 |---|---|---|---|---|
 | S5 | 5.40–7.20 | `film/proceso_pierna.mp4` 0.90 s · 0.78× | push-in 1.05 → 1.16 | **TRAZO A TRAZO** / SESIÓN EN CURSO |
+| S3 (18 s) | 3.00–4.20 | `film/proceso_pierna.mp4` 4.20 s | push-in 1.05 → 1.14 | — |
 | S6–S9 | 7.20–10.80 | hombro, manga, lobo, septum | igual que 15 s | REALISMO / BLACK & GREY |
 | S10 | 10.80–12.00 | fachada (paneo más largo) | 0.20 → 0.50 | SAN BERNARDO / JOSÉ JOAQUÍN PÉREZ 528 |
 | S11–S12 | 12.00–13.20 | vitrina, mural | igual que 15 s | — |
@@ -80,8 +81,13 @@ Cortes: 1.8 · 3.0 · 4.2 · 5.4 · 7.2 · 8.1 · 9.0 · 9.9 · 10.8 · 12.0 · 
 - **La fachada se panea, no se recorta**: se carga a altura fija (`load_plate_height`) para
   conservar todo el ancho y recorrer el mural con la cámara en vez de encajonar un 9:16
   sobre una foto apaisada.
-- **Etalonaje único**: LUT propia (contraste 1.10, sombras salvia, altas cálidas),
-  saturación 0.86, viñeta y banco de grano. Cada plano sólo corrige exposición.
+- **Etalonaje único y contenido**: LUT propia (contraste 1.03, sombras salvia, altas cálidas
+  suaves), saturación 0.86, **rodilla de altas luces** que sólo comprime los blancos, viñeta y
+  banco de grano. Cada plano sólo corrige exposición.
+- **Nada de blancos reventados**: la nitidez se aplica únicamente en luminancia (aplicarla a los
+  tres canales creaba halos rojo/cian sobre los blancos) y ningún plano entrega más de 0.5 % de
+  píxeles a 250+. El plano de `proceso_detalle.mp4` se descartó: ese clip trae el 36 % de los
+  píxeles ya saturados de cámara, no hay rango que recuperar.
 - **Banda de lectura automática**: se oscurece únicamente la franja que ocupan los textos
   visibles, no todo el cuadro.
 - **Cero datos sin fuente**: sólo dirección, WhatsApp e Instagram (verificados en
@@ -122,7 +128,11 @@ En `out/`:
 - **idempotencia**: renderizar un `t` aislado debe dar el mismo frame que renderizarlo después
   de una secuencia.
 
-Dos errores reales que esta QA encontró y que ya están corregidos:
+Un cuarto chequeo, añadido a raíz de una revisión del máster: **altas luces por plano**. Decodifica
+el punto medio de cada plano y falla si más del 0.5 % de los píxeles llega a 250. En el primer
+máster fallaba `S3` con 6.3 %.
+
+Tres errores reales que esta QA encontró y que ya están corregidos:
 
 1. **Rojo y azul intercambiados en el MP4.** Las capas se componen en BGR (OpenCV) y se
    escribían tal cual en el pipe RGB de ffmpeg. El storyboard, generado en memoria, se veía
@@ -131,6 +141,13 @@ Dos errores reales que esta QA encontró y que ya están corregidos:
    `text_bitmap`, que está en `lru_cache`: el primer frame atenuaba el texto del resto del video.
    Sólo se notaba en el render secuencial (en frames sueltos salía perfecto). Fix: copiar antes
    de tocar el alfa, más el test de idempotencia para que no vuelva.
+3. **Brillo reventado en tres planos.** El plano de `proceso_detalle.mp4` (3.0–4.2 s) ya venía
+   quemado de cámara —36 % de píxeles saturados en la fuente— y el etalonaje sumaba clipping en
+   S4 (1.0 % → 1.7 %) y S5 (5.0 % → 7.1 %). Fix: rodilla de altas luces después de la LUT,
+   LUT más contenida (contraste 1.03, altas cálidas 0.020, lift 0.002), nitidez sólo en
+   luminancia y 0.18 → 0.10, flash de corte 16 → 8 de alfa, y el plano quemado sustituido por
+   `proceso_pierna.mp4` bien expuesto. Resultado medido: **0.00 % de píxeles ≥250 en los trece
+   planos**, con el tono medio intacto (S3 y S4 quedan ambos en ~95 de media).
 
 ## Cómo se reconstruye
 

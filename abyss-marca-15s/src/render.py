@@ -269,12 +269,12 @@ def render_frame(t: float, res: Resources, grain_index: int) -> np.ndarray:
     # impacto en los cortes: un frame de luz muy contenido
     for cut in [s.start for s in SHOTS]:
         if 0.0 < t - cut < 1.0 / FPS:
-            img = Image.alpha_composite(img, Image.new("RGBA", (W, H), (246, 241, 237, 16)))
+            img = Image.alpha_composite(img, Image.new("RGBA", (W, H), (246, 241, 237, 8)))
             break
 
     rgb = np.array(img.convert("RGB"))
     bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
-    return finish(bgr, grain_index, grain=1.0, sharpen=0.18)
+    return finish(bgr, grain_index, grain=1.0, sharpen=0.10)
 
 
 # ---------------------------------------------------------------------------
