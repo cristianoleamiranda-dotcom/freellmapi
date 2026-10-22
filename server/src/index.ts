@@ -13,6 +13,7 @@ import { installProcessSafetyNet } from './lib/process-safety-net.js';
 import { NodeScheduler } from './lib/scheduler.js';
 import { loadConfig } from './lib/config.js';
 import { applyDeclarativeConfigFromEnv } from './services/declarative-config.js';
+import { seedGitHubTokenFromEnv } from './services/github-token.js';
 import { restoreDbBackupIfNeeded, startDbBackupPump } from './lib/db-backup.js';
 import { startBackupScheduler } from './services/backups.js';
 import { userCount } from './services/auth.js';
@@ -47,6 +48,9 @@ async function main() {
   }
   initDb(config.dbPath ?? undefined);
   applyDeclarativeConfigFromEnv();
+  // After the declarative config: an explicit `keys` entry for github wins, and
+  // an existing row (enabled or not) is never touched. See services/github-token.ts.
+  seedGitHubTokenFromEnv();
   // After initDb: the unknown-model half of this check reads the catalog.
   warnOnRoutingOverrideDrift();
 

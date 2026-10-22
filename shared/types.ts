@@ -129,6 +129,10 @@ export type Platform =
   | 'radeon'
   | 'nvidia'
   | 'mistral'
+  // GitHub Models — OpenAI-compatible inference behind a GitHub token (PAT,
+  // GitHub App token, or the GITHUB_TOKEN of an Actions workflow). Validation
+  // goes to api.github.com, not the inference host; see providers/github.ts.
+  | 'github'
   | 'sambanova'
   | 'openrouter'
   | 'cohere'

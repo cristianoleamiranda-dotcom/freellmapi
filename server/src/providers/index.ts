@@ -41,6 +41,7 @@ import { BeatApiProvider } from './beatapi.js';
 import { ApinexProvider } from './apinex.js';
 import { OnomeoProvider } from './onomeo.js';
 import { SerpSearchProvider } from './serpsearch.js';
+import { GitHubProvider } from './github.js';
 
 const providers = new Map<Platform, BaseProvider>();
 
@@ -202,10 +203,21 @@ register(new OpenAICompatProvider({
   },
 }));
 
-// GitHub Models was retired upstream on 30 July 2026 (#549): models.github.ai
-// now answers every request with 200 "OK" in plain text, so a registered
-// adapter only produced fake-healthy keys and broken streams (#1557). The
-// provider is gone; migration 20261017_000002 removes leftover rows.
+// GitHub Models — OpenAI-compatible inference authenticated with a GitHub
+// token: a personal access token, a GitHub App token, or the GITHUB_TOKEN that
+// GitHub Actions provides to its own workflows. GitHub retired the service on
+// 30 July 2026 (#549) and answered every path with 200 "OK" in plain text,
+// which made a status-code-only adapter report dead keys as healthy (#1557);
+// 20261017_000002 removed the leftover rows for exactly that reason.
+//
+// The adapter is back because the credential path is real and useful again —
+// a token can be validated against api.github.com (`GET /user`), and the
+// retirement banner is detected instead of trusted. What this does NOT do is
+// pretend the inference host is up: if models.github.ai is still answering
+// "OK", every call fails with an explicit error and the fallback chain moves
+// on (see providers/github.ts). Point GITHUB_MODELS_BASE_URL at another host
+// to use the adapter against an endpoint that still serves the API.
+register(new GitHubProvider());
 
 // Cohere - OpenAI-compatible via Cohere compatibility endpoint
 register(new CohereProvider());

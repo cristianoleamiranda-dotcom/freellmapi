@@ -16,6 +16,7 @@ The authoritative sources are [`shared/types.ts`](../../../shared/types.ts) (the
 | [02-quotas-and-cooldowns.md](02-quotas-and-cooldowns.md) | RPM/RPD and TPM/TPD window accounting, concurrency leases and opt-in caps, the cooldown ladder and its provenance classes, probe-based early recovery, back-off parsed from `Retry-After` headers and error bodies (#798), and why health checks must not burn metered quota (#882). |
 | [03-adding-a-new-provider.md](03-adding-a-new-provider.md) | Contributor walkthrough: extending the `Platform` union, choosing an adapter, registration options (timeouts, keyless, extra headers), key-validation semantics, catalog seeding policy, and the tests a new provider is expected to ship. |
 | [04-recurring-credit-gateways.md](04-recurring-credit-gateways.md) | ElectronHub and Experiential Labs: shared credits, key validation, adapter behavior, and billing limits. |
+| [05-github-models.md](05-github-models.md) | GitHub Models: the token is a GitHub REST credential (fine-grained PAT, classic PAT, GitHub App, or the Actions `GITHUB_TOKEN`), validation against `api.github.com`, SSO and permission failures, the Actions env import, and the retired-inference-host guard. |
 
 ## Conventions
 

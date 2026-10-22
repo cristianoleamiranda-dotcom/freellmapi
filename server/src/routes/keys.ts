@@ -49,8 +49,11 @@ const UNLISTED_PLATFORMS = new Set<string>();
 // Moonshot and MiniMax direct integrations were dropped in V4. HuggingFace
 // was dropped in V4 and re-added in V13 via the router.huggingface.co route.
 // SambaNova was dropped in V23 (free tier permanently retired). GitHub Models
-// was dropped after its retirement on 30 July 2026 (#1557). Auray was removed
-// at the provider's request after it started charging for API access (#1583).
+// was dropped after its retirement on 30 July 2026 and re-listed with the
+// token-authenticated adapter (#1557 follow-up): validation now uses the real
+// REST API (`GET /user`), and the retired inference host fails loudly instead
+// of looking healthy. Auray was removed at the provider's request after it
+// started charging for API access (#1583).
 const PLATFORMS = [
   'aclide',
   'speka',
@@ -69,6 +72,7 @@ const PLATFORMS = [
   'freeai',
   'google', 'groq', 'cerebras', 'sail', 'electronhub', 'experiential', 'router9', 'septor', 'clod', 'speechify', 'blaze', 'lucidity', 'airforce', 'dreamprompting', 'waterfall', 'logfare', 'bai', 'radeon', 'nvidia', 'mistral',
   'openrouter', 'cohere', 'tavily', 'exa', 'firecrawl', 'linkup', 'parallel', 'cloudflare', 'zhipu', 'ollama',
+  'github',
   'kilo', 'pollinations', 'llm7', 'huggingface', 'opencode', 'ovh', 'agnes', 'reka', 'siliconflow',
   'routeway', 'bazaarlink', 'ainative', 'aion', 'anyapi', 'requesty', 'navy', 'nara', 'sealion', 'orcarouter', 'unorouter', 'xkiro', 'modelscope',
   'qianfan', 'volcengine', 'longcat', 'xfyun', 'aihorde', 'custom',

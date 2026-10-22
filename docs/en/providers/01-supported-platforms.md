@@ -2,13 +2,13 @@
 
 # Supported platforms
 
-The `Platform` union in [`shared/types.ts` (line 59)](../../../shared/types.ts) is the single source of truth for platform identity; the runtime registry in [`server/src/providers/index.ts`](../../../server/src/providers/index.ts) must match it. The union currently declares **45 members**:
+The `Platform` union in [`shared/types.ts` (line 59)](../../../shared/types.ts) is the single source of truth for platform identity; the runtime registry in [`server/src/providers/index.ts`](../../../server/src/providers/index.ts) must match it. The union currently declares **46 members**:
 
-- **43 built-in platforms** registered as adapters at startup,
-- plus the **`custom`** placeholder (a real OpenAI-compatible adapter built per API key, since its base URL is user-supplied), giving **44 entries** in the registry map,
+- **44 built-in platforms** registered as adapters at startup,
+- plus the **`custom`** placeholder (a real OpenAI-compatible adapter built per API key, since its base URL is user-supplied), giving **45 entries** in the registry map,
 - plus **`sambanova`**, retained in the type union but no longer registered — it was dropped in V23 (June 2026) when its free tier was permanently retired (every chat call returns 402 "payment method required" once the one-time $5 trial credit lapses).
 
-Of the 43 built-in platforms, **10 use dedicated adapters** and **33 ride `OpenAICompatProvider`** directly against a provider-specific base URL. Three platforms are registered keyless (`kilo`, `ovh`, and `aihorde`, which auto-configures with its documented anonymous sentinel key). The public catalog headline is smaller than the union because several registered gateways keep their free rosters in the hosted catalog rather than shipping them to every binary.
+Of the 44 built-in platforms, **11 use dedicated adapters** and **33 ride `OpenAICompatProvider`** directly against a provider-specific base URL. Three platforms are registered keyless (`kilo`, `ovh`, and `aihorde`, which auto-configures with its documented anonymous sentinel key). The public catalog headline is smaller than the union because several registered gateways keep their free rosters in the hosted catalog rather than shipping them to every binary.
 
 ## Catalog
 
@@ -25,6 +25,7 @@ Of the 43 built-in platforms, **10 use dedicated adapters** and **33 ride `OpenA
 | `radeon` | AMD Radeon Cloud TokenFactory | Keyed | OpenAI-compat | Shared Model API at `developer.amd.com.cn/radeon/api/v1`; public models are free without consuming instance credits and use a rotating experimental roster. Current per-account limits are read from response headers rather than hard-coded. Parallel tool calls are disabled and the adapter allows the documented ten-minute generation window. |
 | `nvidia` | NVIDIA NIM | Keyed | OpenAI-compat | `parallel_tool_calls` pinned false (#255); 180s timeout doubles as streaming first-byte grace (#584). |
 | `mistral` | Mistral | Keyed | OpenAI-compat | `api.mistral.ai/v1`. |
+| `github` | GitHub Models | Keyed (GitHub token: fine-grained/classic PAT, GitHub App, or Actions `GITHUB_TOKEN`) | OpenAI-compat subclass (`GitHubProvider`) | Validates against `api.github.com/user` instead of the inference host, so a bad token is a real 401 and a permission gap is not mistaken for one; SSO `403`s surface the authorization URL, and the retired host's `200 "OK"` placeholder fails the request instead of looking healthy (#1557). Actions workflows can import the built-in token from the environment. [Token guide](05-github-models.md). |
 | `sambanova` | SambaNova | Retired (V23) | Not registered | Free tier permanently gone; kept in the type union for historical key rows. |
 | `openrouter` | OpenRouter | Keyed | OpenAI-compat | Sends `HTTP-Referer`/`X-Title` headers; `:free` model suffix marks zero-cost routes. |
 | `cohere` | Cohere | Keyed | Native (`CohereProvider`) | Uses Cohere's OpenAI-compatible endpoint. |
@@ -72,3 +73,4 @@ Custom endpoints can be filed under a **group** you name (#1176): set it in the 
 - Moonshot direct integration and MiniMax direct were dropped in `migrateModelsV4` (paid-only / superseded by the OpenRouter route).
 - Hugging Face was dropped in V4 ("tool-call format issues") and re-added in V13 through the Inference Providers meta-router.
 - Chutes was evaluated for V11 and dropped: every model returned 402 requiring a non-zero balance, conflicting with the project's no-card criterion.
+- GitHub Models was retired upstream on 2026-07-30 (every path answered `200 "OK"`), removed in migration `20261017_000002`, and re-registered as `GitHubProvider` on 2026-10-22 with real credential validation against the REST API; migration `20261022_000001` gives back the encrypted `github` keys the removal deleted. Only keys are restored — the dead model, chain and profile rows stay deleted so nothing routes to the retired host.
