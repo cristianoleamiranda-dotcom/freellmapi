@@ -99,9 +99,12 @@ SHOTS: list[Shot] = [
          keys=[Key(0.0, 1.16, 0.50, 0.44), Key(1.2, 1.03, 0.50, 0.46)]),
 
     # ---- ACTO 2 · proceso (3.0-5.4): guantes, tinta, filmación
-    Shot("video", P("film/proceso_detalle.mp4"), 3.0, 4.2, src_start=1.20, src_speed=0.85,
-         label="S3 detalle guantes", exposure=0.94,
-         keys=[Key(0.0, 1.10, 0.50, 0.54), Key(1.2, 1.02, 0.50, 0.52)]),
+    # proceso_detalle.mp4 trae el 36 % de los píxeles ya saturados en la fuente
+    # (guante blanco con flash): no hay nada que recuperar con etalonaje, así que
+    # este hueco lo ocupa el resultado sobre el brazo.
+    Shot("video", P("film/proceso_pierna.mp4"), 3.0, 4.2, src_start=1.60, src_speed=0.80,
+         label="S3 sesion en curso",
+         keys=[Key(0.0, 1.05, 0.50, 0.44), Key(1.2, 1.14, 0.52, 0.46)]),
     Shot("video", P("film/proceso_filmacion.mp4"), 4.2, 5.4, src_start=2.60, src_speed=0.80,
          label="S4 registro en estudio",
          keys=[Key(0.0, 1.04, 0.50, 0.46), Key(1.2, 1.15, 0.52, 0.48)]),

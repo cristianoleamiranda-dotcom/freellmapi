@@ -41,6 +41,7 @@ DERIVADAS = [
 ]
 CHECK_TIMES = [round(EXPECTED * f, 2) for f in (0.08, 0.32, 0.51, 0.83, 0.95)]
 MAX_DIFF = 12.0           # diferencia media admitida frente al render fresco
+MAX_HIGHLIGHT = 0.50      # % de píxeles con algún canal >= 250 admitido por plano
 MAX_CHANNEL_SHIFT = 6.0   # |media(canal) archivo − render fresco| máximo
 
 
@@ -127,6 +128,23 @@ def main() -> int:
         ok &= bool(good)
     finally:
         res.close()
+
+    # altas luces: ningún plano debe entregar blancos reventados. Mide el máster
+    # publicado en el punto medio de cada plano (donde el encuadre ya está quieto).
+    import render as R
+    shots = R.SHOTS
+    worst_name, worst_pct = "", 0.0
+    for shot in shots:
+        name = shot.label or f"{shot.start:.1f}s"
+        t = round((shot.start + shot.end) / 2, 2)
+        frame = frame_from(OUT / MASTER, t).astype(np.uint8)
+        pct = 100.0 * float((frame.max(axis=2) >= 250).mean())
+        if pct > worst_pct:
+            worst_name, worst_pct = name, pct
+    good = worst_pct <= MAX_HIGHLIGHT
+    print(f"  altas luces: peor plano «{worst_name}» con {worst_pct:.2f}% de píxeles >=250 "
+          f"(límite {MAX_HIGHLIGHT}%) → {'ok' if good else 'REVISAR'}")
+    ok &= bool(good)
 
     # idempotencia: un frame no puede depender de qué frames se renderizaron antes
     from render import Resources as R2, frame_at as fa2

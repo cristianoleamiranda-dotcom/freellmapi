@@ -177,7 +177,7 @@ def camera_frame(
 # Etalonaje
 # ---------------------------------------------------------------------------
 
-def build_lut(contrast: float = 1.10, teal_shadows: float = 0.045, warm_highs: float = 0.035, lift: float = 0.004) -> np.ndarray:
+def build_lut(contrast: float = 1.03, teal_shadows: float = 0.040, warm_highs: float = 0.020, lift: float = 0.002) -> np.ndarray:
     x = np.arange(256, dtype=np.float32) / 255.0
     base = np.clip((x - 0.5) * contrast + 0.5 + lift, 0, 1)
     shadow = (1 - base) ** 2
@@ -189,13 +189,27 @@ def build_lut(contrast: float = 1.10, teal_shadows: float = 0.045, warm_highs: f
     return (lut * 255).round().astype(np.uint8).reshape(256, 1, 3)
 
 
-def grade(frame: np.ndarray, lut: np.ndarray, saturation: float = 0.88) -> np.ndarray:
+def highlight_shoulder(frame: np.ndarray, start: float = 0.80, strength: float = 0.75) -> np.ndarray:
+    """Comprime sólo las altas luces. No sube nada: mata el clipping sin aplanar el tono medio.
+
+    Para x > `start` la curva resta strength * (x-start)^2 / (1-start), de modo que
+    x=start queda igual y x=1 acaba en 1 - strength*(1-start).
+    """
+    if strength <= 0:
+        return frame
+    x = frame.astype(np.float32) / 255.0
+    over = np.clip(x - start, 0.0, None)
+    y = x - strength * over * over / (1.0 - start)
+    return np.clip(y * 255.0, 0, 255).astype(np.uint8)
+
+
+def grade(frame: np.ndarray, lut: np.ndarray, saturation: float = 0.86) -> np.ndarray:
     out = cv2.LUT(frame, lut)
     if abs(saturation - 1.0) > 0.005:
         gray = cv2.cvtColor(out, cv2.COLOR_BGR2GRAY)
         gray3 = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
         out = cv2.addWeighted(out, saturation, gray3, 1 - saturation, 0)
-    return out
+    return highlight_shoulder(out)
 
 
 @lru_cache(maxsize=1)
@@ -215,8 +229,13 @@ def grain_bank(count: int = 10) -> tuple[np.ndarray, ...]:
 
 def finish(frame: np.ndarray, grain_index: int, grain: float = 1.0, sharpen: float = 0.0) -> np.ndarray:
     if sharpen:
-        blur = cv2.GaussianBlur(frame, (0, 0), 1.2)
-        frame = cv2.addWeighted(frame, 1 + sharpen, blur, -sharpen, 0)
+        # Nitidez en Y solamente: aplicarla a los tres canales creaba halos de color
+        # (bordes rojo/cian) sobre los blancos, que es justo donde se notaba el brillo.
+        ycrcb = cv2.cvtColor(frame, cv2.COLOR_BGR2YCrCb)
+        y, cr, cb = cv2.split(ycrcb)
+        blur = cv2.GaussianBlur(y, (0, 0), 1.2)
+        y = cv2.addWeighted(y, 1 + sharpen, blur, -sharpen, 0)
+        frame = cv2.cvtColor(cv2.merge([y, cr, cb]), cv2.COLOR_YCrCb2BGR)
     f = frame.astype(np.float32) * vignette_mask()
     f += grain_bank()[grain_index % len(grain_bank())] * grain
     return np.clip(f, 0, 255).astype(np.uint8)
