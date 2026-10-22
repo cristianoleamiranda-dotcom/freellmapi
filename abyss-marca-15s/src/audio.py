@@ -11,7 +11,12 @@ from pathlib import Path
 
 import numpy as np
 
-from timeline import ACCENTS, BEAT, BELL, CUTS, EMBLEM_IN, KICKS, RISER, TOTAL
+import importlib
+import os
+
+_TL = importlib.import_module(os.environ.get("ABYSS_TIMELINE", "timeline"))
+ACCENTS, BEAT, BELL, CUTS = _TL.ACCENTS, _TL.BEAT, _TL.BELL, _TL.CUTS
+EMBLEM_IN, KICKS, RISER, TOTAL = _TL.EMBLEM_IN, _TL.KICKS, _TL.RISER, _TL.TOTAL
 
 SR = 48000
 N = int(SR * TOTAL)

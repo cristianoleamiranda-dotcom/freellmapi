@@ -7,6 +7,7 @@ del repo `cristianoleamiranda-dotcom/abysstattoo`.
 from __future__ import annotations
 
 import math
+import os
 from functools import lru_cache
 from pathlib import Path
 
@@ -15,7 +16,9 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 1080, 1920
 FPS = 60
-DURATION = 15.0
+# La duración se elige por entorno para poder montar varias versiones (15 s, 18 s)
+# desde el mismo código: ABYSS_DURATION=18 python3 src/render.py
+DURATION = float(os.environ.get("ABYSS_DURATION", "15.0"))
 FRAMES = int(round(FPS * DURATION))
 
 # Paleta oficial

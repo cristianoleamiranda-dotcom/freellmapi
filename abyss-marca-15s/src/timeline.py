@@ -153,6 +153,27 @@ TEXTS: list[Text] = [
     Text("@abyss_tattoo_studio", MONTSERRAT_500, 28, HUESO, 540, 1498, 12.80, 15.05, tracking=2.6, mode="fade", anchor="center", exit=0.14),
 ]
 
-# Barrido especular sobre el emblema, relativo a EMBLEM_IN
+# Barrido especular sobre el emblema
 SHIMMER_AT = 12.55
 SHIMMER_DUR = 0.85
+
+# Piezas fijas que se extraen del render
+STORY_TIMES = [0.9, 2.4, 3.6, 4.8, 5.8, 6.7, 7.6, 8.5, 9.4, 10.3, 11.1, 12.1, 13.0, 14.2]
+COVER_TIME = 1.25
+POSTER_TIME = 13.90
+
+# Escaleta para el visor autónomo: (inicio, fin, nombre, texto)
+SCENES = [
+    ("0.0", "1.8", "Manos · el artista trabajando", "HECHO A MANO"),
+    ("1.8", "3.0", "Macro de aguja", "PUNTO POR PUNTO"),
+    ("3.0", "4.2", "Detalle · guantes y tinta", ""),
+    ("4.2", "5.4", "Registro en el estudio", ""),
+    ("5.4", "6.3", "Realismo · hombro", "REALISMO / BLACK & GREY"),
+    ("6.3", "7.2", "Manga · cristo", ""),
+    ("7.2", "8.1", "Lobo", ""),
+    ("8.1", "9.0", "Piercing · septum", ""),
+    ("9.0", "9.9", "El lugar · fachada 528", "SAN BERNARDO"),
+    ("9.9", "10.8", "Vitrina", ""),
+    ("10.8", "11.4", "Mural", ""),
+    ("11.4", "15.0", "Cierre · emblema y CTA", "AGENDA TU HORA"),
+]

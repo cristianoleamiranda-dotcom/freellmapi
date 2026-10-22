@@ -11,40 +11,34 @@ ningún hosting. Uso:
 from __future__ import annotations
 
 import base64
+import importlib
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "out"
-VIDEO = OUT / "abyss_marca_15s_720x1280_preview.mp4"
-POSTER = OUT / "cover_emblema.jpg"
-TARGET = OUT / "abyss_marca_15s_visor.html"
 
-TAG = "abyss-marca-15s"
+TL = importlib.import_module(os.environ.get("ABYSS_TIMELINE", "timeline"))
+SLUG = os.environ.get("ABYSS_SLUG", "abyss_marca_15s")
+VERSION_TAG = "" if int(round(TL.TOTAL)) == 15 else f"_{int(round(TL.TOTAL))}s"
+
+VIDEO = OUT / f"{SLUG}_720x1280_preview.mp4"
+POSTER = OUT / f"cover_emblema{VERSION_TAG}.jpg"
+TARGET = OUT / f"{SLUG}_visor.html"
+
+TAG = SLUG.replace("_", "-")
 REPO = "cristianoleamiranda-dotcom/freellmapi"
 RELEASE = f"https://github.com/{REPO}/releases/tag/{TAG}"
 
-SCENES = [
-    ("0.0", "1.8", "Manos · el artista trabajando", "HECHO A MANO"),
-    ("1.8", "3.0", "Macro de aguja", "PUNTO POR PUNTO"),
-    ("3.0", "4.2", "Detalle · guantes y tinta", ""),
-    ("4.2", "5.4", "Registro en el estudio", ""),
-    ("5.4", "6.3", "Realismo · hombro", "REALISMO / BLACK & GREY"),
-    ("6.3", "7.2", "Manga · cristo", ""),
-    ("7.2", "8.1", "Lobo", ""),
-    ("8.1", "9.0", "Piercing · septum", ""),
-    ("9.0", "9.9", "El lugar · fachada 528", "SAN BERNARDO"),
-    ("9.9", "10.8", "Vitrina", ""),
-    ("10.8", "11.4", "Mural", ""),
-    ("11.4", "15.0", "Cierre · emblema y CTA", "AGENDA TU HORA"),
-]
+SCENES = TL.SCENES
 
 TEMPLATE = """<!doctype html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Abyss Tattoo Studio · pieza de marca 15 s</title>
-<meta name="description" content="Pieza de marca vertical de 15 segundos para Abyss Tattoo Studio. Archivo autónomo: el video viaja dentro del HTML.">
+<title>Abyss Tattoo Studio · pieza de marca {__DUR__} s</title>
+<meta name="description" content="Pieza de marca vertical de {__DUR__} segundos para Abyss Tattoo Studio. Archivo autónomo: el video viaja dentro del HTML.">
 <style>
   :root { --obsidian:#14100d; --line:#2c2521; --hueso:#b5a295; --cream:#eae3dd; --sage:#556c65; --teal:#9ec4ba; }
   * { box-sizing: border-box; }
@@ -202,6 +196,7 @@ def main() -> int:
 
     html = (
         TEMPLATE.replace("__SCENES__", scenes_html)
+        .replace("__DUR__", f"{TL.TOTAL:.0f}")
         .replace("__REPO__", REPO)
         .replace("__RELEASE__", RELEASE)
         .replace("__POSTER__", f"data:image/jpeg;base64,{poster_b64}")

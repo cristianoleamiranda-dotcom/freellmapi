@@ -49,26 +49,35 @@ from brand import (
 from media import (
     VideoReader, build_lut, camera_frame, finish, grade, load_plate, load_plate_height, sample_keys,
 )
-from timeline import (
-    RING_R,
-    EMBLEM_CY,
-    EMBLEM_IN,
-    EMBLEM_SIZE,
-    SHIMMER_AT,
-    SHIMMER_DUR,
-    SHOTS,
-    TEXTS,
-    TOTAL,
-)
+import importlib
+import os
+
+# El montaje vive en un módulo de timeline. Por defecto el de 15 s; con
+# ABYSS_TIMELINE=timeline_largo se renderiza la versión de 18 s.
+TL = importlib.import_module(os.environ.get("ABYSS_TIMELINE", "timeline"))
+RING_R = TL.RING_R
+EMBLEM_CY = TL.EMBLEM_CY
+EMBLEM_IN = TL.EMBLEM_IN
+EMBLEM_SIZE = TL.EMBLEM_SIZE
+SHIMMER_AT = TL.SHIMMER_AT
+SHIMMER_DUR = TL.SHIMMER_DUR
+SHOTS = TL.SHOTS
+TEXTS = TL.TEXTS
+TOTAL = TL.TOTAL
+STORY_TIMES = TL.STORY_TIMES
+COVER_TIME = TL.COVER_TIME
+POSTER_TIME = TL.POSTER_TIME
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "out"
 WORK = ROOT / "work"
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 
-STORY_TIMES = [0.9, 2.4, 3.6, 4.8, 5.8, 6.7, 7.6, 8.5, 9.4, 10.3, 11.1, 12.1, 13.0, 14.2]
-COVER_TIME = 1.25
-POSTER_TIME = 13.90
+# Nombres de archivo por versión: abyss_marca_15s_… / abyss_marca_18s_…
+SLUG = os.environ.get("ABYSS_SLUG", f"abyss_marca_{int(round(TOTAL))}s")
+DUR_TAG = f"{TOTAL:.2f}"
+# Las piezas de 15 s conservan sus nombres; las demás llevan sufijo de versión.
+SUFFIX = "" if int(round(TOTAL)) == 15 else f"_{int(round(TOTAL))}s"
 
 
 def log(msg: str) -> None:
@@ -302,25 +311,26 @@ def frame_at(t: float, res: Resources) -> np.ndarray:
 
 
 def derive(master: Path, wav: Path) -> None:
-    d30 = OUT / "abyss_marca_15s_1080x1920_30fps.mp4"
-    prev = OUT / "abyss_marca_15s_720x1280_preview.mp4"
+    d30 = OUT / f"{SLUG}_1080x1920_30fps.mp4"
+    prev = OUT / f"{SLUG}_720x1280_preview.mp4"
     subprocess.run([FF, "-y", "-hide_banner", "-loglevel", "error", "-i", str(master),
-                    "-t", "15", "-r", "30", "-c:v", "libx264", "-preset", "medium", "-crf", "21",
+                    "-t", DUR_TAG, "-r", "30", "-c:v", "libx264", "-preset", "medium", "-crf", "21",
                     "-pix_fmt", "yuv420p", "-c:a", "copy", "-movflags", "+faststart", str(d30)], check=True)
     subprocess.run([FF, "-y", "-hide_banner", "-loglevel", "error", "-i", str(master),
-                    "-t", "15", "-vf", "scale=720:1280:flags=lanczos", "-c:v", "libx264", "-preset", "medium",
+                    "-t", DUR_TAG, "-vf", "scale=720:1280:flags=lanczos", "-c:v", "libx264", "-preset", "medium",
                     "-crf", "27", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "96k",
                     "-movflags", "+faststart", str(prev)], check=True)
 
 
 def pieces(res: Resources) -> None:
     cover = Image.fromarray(cv2.cvtColor(frame_at(COVER_TIME, res), cv2.COLOR_BGR2RGB))
-    cover.save(OUT / "cover_emblema.jpg", quality=92)
+    cover.save(OUT / f"cover_emblema{SUFFIX}.jpg", quality=92)
     poster = Image.fromarray(cv2.cvtColor(frame_at(POSTER_TIME, res), cv2.COLOR_BGR2RGB))
-    poster.save(OUT / "poster_cta.jpg", quality=92)
+    poster.save(OUT / f"poster_cta{SUFFIX}.jpg", quality=92)
 
     tw, th = 216, 384
-    cols, rows = 7, 2
+    cols = 7
+    rows = max(2, math.ceil(len(STORY_TIMES) / cols))
     sheet = Image.new("RGB", (cols * (tw + 10) + 10, rows * (th + 34) + 10), (20, 18, 16))
     d = ImageDraw.Draw(sheet)
     for i, t in enumerate(STORY_TIMES):
@@ -329,7 +339,7 @@ def pieces(res: Resources) -> None:
         y = 10 + (i // cols) * (th + 34)
         sheet.paste(img, (x, y))
         d.text((x + 2, y + th + 8), f"{t:.1f}s", fill=(190, 185, 175))
-    sheet.save(OUT / "storyboard.jpg", quality=90)
+    sheet.save(OUT / f"storyboard{SUFFIX}.jpg", quality=90)
 
 
 def main() -> int:
@@ -342,7 +352,7 @@ def main() -> int:
         build_audio(wav)
 
     log(f"render · {FRAMES} frames a {FPS} fps")
-    master = OUT / "abyss_marca_15s_1080x1920_60fps.mp4"
+    master = OUT / f"{SLUG}_1080x1920_60fps.mp4"
 
     def frames():
         for i in range(FRAMES):

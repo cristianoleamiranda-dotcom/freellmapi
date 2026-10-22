@@ -1,4 +1,4 @@
-# Abyss · pieza de marca 15 s (9:16)
+# Abyss · pieza de marca 9:16 (15 s y 18 s)
 
 Pieza de marca para **Abyss Tattoo Studio** hecha con el material real del estudio:
 el emblema como referencia visual, planos de tatuador, proceso, trabajos, piercing y
@@ -7,13 +7,35 @@ local. Render offline, reproducible, sin material de terceros.
 | | |
 |---|---|
 | Formato | 1080 × 1920 (9:16), 60 fps, H.264 High 4.2, BT.709, AAC 48 kHz |
-| Duración | 15.00 s exactos (900 frames) |
+| Duración | **15.00 s** (900 frames) y **18.00 s** (1080 frames) |
 | Rejilla | 100 BPM · 0.6 s por negra · 25 negras |
 | Tipografía | Cinzel 700/800 + Montserrat 500/600 |
 | Paleta | Obsidiana `#14100D` · Hueso `#B5A295` · Crema `#EAE3DD` · Salvia `#556C65` · Teal `#9EC4BA` |
 | Material | repo [`abysstattoo`](https://github.com/cristianoleamiranda-dotcom/abysstattoo) (23 archivos, 14.2 MB) |
 
-## Escaleta
+## Dos versiones
+
+| | 15 s | 18 s |
+|---|---|---|
+| Rejilla | 25 negras | 30 negras |
+| Bloques | 12 planos | 13 planos |
+| Proceso | 3 planos (3.0–5.4) | **4 planos** (3.0–7.2), +1.8 s de sesión real |
+| Lugar | 0.9 s de fachada | 1.2 s de fachada |
+| Cierre | 3.6 s | 4.8 s |
+| Uso | Reels/TikTok (límite corto) | YouTube Shorts, landing, presentación al cliente, descarga |
+
+La versión de 18 s no es la de 15 estirada: añade material nuevo
+(`film/proceso_pierna.mp4`, el tatuador trabajando) con su propio texto
+(**TRAZO A TRAZO** / SESIÓN EN CURSO) y da más aire al emblema y al CTA.
+
+```bash
+bash scripts/build.sh --no-fetch        # 15 s
+bash scripts/build.sh --no-fetch --long # 18 s (timeline_largo.py)
+bash scripts/kit.sh                     # dist/abyss-marca-15s-kit.zip
+bash scripts/kit.sh --long              # dist/abyss-marca-18s-kit.zip
+```
+
+## Escaleta (15 s)
 
 | # | In–Out | Material | Cámara | Texto |
 |---|---|---|---|---|
@@ -31,6 +53,20 @@ local. Render offline, reproducible, sin material de terceros.
 | S12 | 11.40–15.00 | `reel_plates/emblema_abyss_alpha.png` | settle 0.86 → 1.00, −7° → 0° | **AGENDA TU HORA** · WhatsApp · @abyss_tattoo_studio |
 
 Los cortes caen en negras: 1.8 · 3.0 · 4.2 · 5.4 · 6.3 · 7.2 · 8.1 · 9.0 · 9.9 · 10.8 · 11.4.
+
+### Escaleta (18 s)
+
+Cambios respecto a la de 15 s; el resto de planos y textos es idéntico.
+
+| # | In–Out | Material | Cámara | Texto |
+|---|---|---|---|---|
+| S5 | 5.40–7.20 | `film/proceso_pierna.mp4` 0.90 s · 0.78× | push-in 1.05 → 1.16 | **TRAZO A TRAZO** / SESIÓN EN CURSO |
+| S6–S9 | 7.20–10.80 | hombro, manga, lobo, septum | igual que 15 s | REALISMO / BLACK & GREY |
+| S10 | 10.80–12.00 | fachada (paneo más largo) | 0.20 → 0.50 | SAN BERNARDO / JOSÉ JOAQUÍN PÉREZ 528 |
+| S11–S12 | 12.00–13.20 | vitrina, mural | igual que 15 s | — |
+| S13 | 13.20–18.00 | emblema | settle + brillo a 14.45 | AGENDA TU HORA (desde 14.20) |
+
+Cortes: 1.8 · 3.0 · 4.2 · 5.4 · 7.2 · 8.1 · 9.0 · 9.9 · 10.8 · 12.0 · 12.6 · 13.2.
 
 ## Decisiones de montaje
 
@@ -53,18 +89,27 @@ Los cortes caen en negras: 1.8 · 3.0 · 4.2 · 5.4 · 6.3 · 7.2 · 8.1 · 9.0 
 - **Audio sintetizado**: kick en negra con ducking del pad, hats a contratiempo, riser de
   10.8 a 11.4 y sub-boom + campana en el revelado del emblema. Sin samples de terceros.
 
-## Entregables (`out/`)
+## Entregables
+
+Kit descargable (ZIP con LEEME y verificación de hashes):
+`dist/abyss-marca-15s-kit.zip` (46 MB) y `dist/abyss-marca-18s-kit.zip` (53 MB).
+
+En `out/`:
 
 | Archivo | Uso |
 |---|---|
-| `abyss_marca_15s_1080x1920_60fps.mp4` | máster para publicar |
-| `abyss_marca_15s_1080x1920_30fps.mp4` | versión liviana para web y WhatsApp |
-| `abyss_marca_15s_720x1280_preview.mp4` | previa que abre rápido en el navegador |
-| `abyss_marca_15s_visor.html` | visor autónomo (el mp4 va dentro del HTML en base64) |
-| `cover_emblema.jpg` | portada del Reel (frame 1.25 s) |
-| `poster_cta.jpg` | pieza estática de refuerzo (frame 13.60 s) |
-| `storyboard.jpg` | hoja de contacto de 14 momentos |
-| `manifest.json` | peso y SHA-256 de cada archivo |
+| `abyss_marca_15s_1080x1920_60fps.mp4` | máster 15 s (900 frames, 25 MB) |
+| `abyss_marca_15s_1080x1920_30fps.mp4` | derivada 15 s a 30 fps (15 MB) |
+| `abyss_marca_15s_720x1280_preview.mp4` | previa 15 s (2.5 MB) |
+| `abyss_marca_15s_visor.html` | visor autónomo 15 s |
+| `abyss_marca_18s_1080x1920_60fps.mp4` | **máster 18 s (1080 frames, 30 MB)** |
+| `abyss_marca_18s_1080x1920_30fps.mp4` | derivada 18 s a 30 fps (17.5 MB) |
+| `abyss_marca_18s_720x1280_preview.mp4` | previa 18 s (2.9 MB) |
+| `abyss_marca_18s_visor.html` | visor autónomo 18 s |
+| `cover_emblema.jpg` · `cover_emblema_18s.jpg` | portada del Reel (frame 1.25 s) |
+| `poster_cta.jpg` · `poster_cta_18s.jpg` | pieza estática de refuerzo |
+| `storyboard.jpg` · `storyboard_18s.jpg` | hoja de contacto |
+| `manifest.json` · `manifest_18s.json` | peso y SHA-256 de cada archivo |
 
 ## QA de los entregables
 
@@ -99,6 +144,14 @@ python3 src/manifest.py         # out/manifest.json (pesos + SHA-256)
 python3 src/verify.py           # QA de los mp4 publicados
 ```
 
+Para la versión larga, las mismas tres órdenes con prefijo:
+
+```bash
+export ABYSS_TIMELINE=timeline_largo ABYSS_DURATION=18 ABYSS_SLUG=abyss_marca_18s
+python3 src/audio.py && python3 src/render.py && python3 src/standalone.py
+python3 src/manifest.py && python3 src/verify.py
+```
+
 O todo en un paso: `bash scripts/build.sh` (sin `--no-fetch` vuelve a bajar el material).
 
 `material/` no se versiona (14 MB de binarios que viven en `abysstattoo`); se reconstruye
@@ -122,8 +175,8 @@ salida, keyframes de cámara y textos. `render.py` no sabe de contenido.
 - Revisar el corte con el estudio (nombres, tono, si quieren mostrar más piercing).
 - Decidir el CTA final: ahora WhatsApp, alternativa DM de Instagram.
 - Etiquetar `@abyss_tattoo_studio` si se publica como colaboración.
-- Versión de 18 s: la rejilla de 100 BPM llega a 30 negras; sirve para añadir 3 s de
-  proceso real entre S4 y S5 (el material da para 2 planos más de 1.5 s).
+- Versión de 18 s: ya está hecha (`timeline_largo.py`). Si se quiere una de 21 s, la rejilla
+  llega a 35 negras y el material da para otros dos planos de proceso de 1.5 s.
 - Variante 4:5 (1080 × 1350) para feed: el máster se reencuadra sin perder bloques de texto
   porque todo el texto vive dentro de x = 108…972.
 
