@@ -1,0 +1,12 @@
+# material/ son binarios del repo abysstattoo (14 MB); se reconstruyen con src/fetch_material.py
+material/
+# intermedios de render
+render/
+work/
+# kits descargables (se regeneran con scripts/kit.sh)
+dist/
+
+
+# bytecode de Python
+__pycache__/
+*.pyc

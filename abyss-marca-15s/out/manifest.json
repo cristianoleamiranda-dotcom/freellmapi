@@ -1,0 +1,42 @@
+{
+  "piece": "abyss-marca-15s",
+  "format": "1080x1920 · 60 fps · H.264 High 4.2 · AAC 48 kHz · BT.709",
+  "duration_s": 15.0,
+  "files": [
+    {
+      "file": "abyss_marca_15s_1080x1920_30fps.mp4",
+      "bytes": 14992247,
+      "sha256": "ae0901a64679e87b3c968f89f32345db28b9dfa47fa5f3f162f962d273fc8d62"
+    },
+    {
+      "file": "abyss_marca_15s_1080x1920_60fps.mp4",
+      "bytes": 25304209,
+      "sha256": "3e47e72e879689cb9b4c9ca3b07067bace36fa8f1435866b269994c2f69073a1"
+    },
+    {
+      "file": "abyss_marca_15s_720x1280_preview.mp4",
+      "bytes": 2520571,
+      "sha256": "87e4152286f1f736c518b8d0163bebe7d3f74a1c2da5c6f5268dfa78fb3287d1"
+    },
+    {
+      "file": "abyss_marca_15s_visor.html",
+      "bytes": 4082289,
+      "sha256": "1dd7eec91ec45163a7135deb26009d30fbf17bb132a10ea57270ad56c7ddac03"
+    },
+    {
+      "file": "cover_emblema.jpg",
+      "bytes": 533134,
+      "sha256": "6e891b959a7b381c0347327e5dcad6473582bb24ef0f9d02fc07ab37fc3cf71d"
+    },
+    {
+      "file": "poster_cta.jpg",
+      "bytes": 529635,
+      "sha256": "16960cb424f97d3462c690b613b0cc4171dc8dfa1055d18feb5ac90e43405bbf"
+    },
+    {
+      "file": "storyboard.jpg",
+      "bytes": 357762,
+      "sha256": "488ff3e8290edc7bb64c3a6eb13b3b0011674e14483863c65538d83182ee2e30"
+    }
+  ]
+}
