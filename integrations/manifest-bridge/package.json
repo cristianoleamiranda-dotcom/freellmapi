@@ -1,0 +1,14 @@
+{
+  "name": "@cristianoleamiranda/manifest-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A small server-side bridge from trusted apps to Manifest LLM Gateway.",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check server.mjs"
+  },
+  "engines": {
+    "node": ">=20.18.0"
+  }
+}
