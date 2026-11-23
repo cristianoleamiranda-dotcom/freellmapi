@@ -31,5 +31,14 @@
     "video": "h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709/unknown/unknown, progressive), 1080x1920, 13052 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
     "expect_s": 6.0,
     "pass": true
+  },
+  {
+    "file": "reel_black_friday_abyss_15s_1080x1920_30fps.mp4",
+    "size_mb": 26.3,
+    "duration": " 00:00:15.00",
+    "video": "h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709/unknown/unknown, progressive), 1080x1920, 13825 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+    "audio": "aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 189 kb/s (default)",
+    "expect_s": 15.0,
+    "pass": true
   }
 ]

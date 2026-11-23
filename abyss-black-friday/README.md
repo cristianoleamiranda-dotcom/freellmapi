@@ -81,6 +81,10 @@ Render completo:
 PYTHONPATH=src python3 src/render.py all      # reel + 3 historias + posters + manifest
 PYTHONPATH=src python3 src/render.py reel     # sólo el reel
 PYTHONPATH=src python3 src/smoke.py reel      # revisión visual sin encodear
+
+# duración ajustable (la escaleta es data-driven: se re-escalan claves y cortes)
+PYTHONPATH=src python3 src/render.py reel --reel-dur 15      # → out/reel_black_friday_abyss_15s_…mp4
+PYTHONPATH=src python3 src/render.py stories --story-dur 8   # historias de 8 s
 ```
 
 El material fuente vive en `material/` y `../dropbox/` y está excluido de Git

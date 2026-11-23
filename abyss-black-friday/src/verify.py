@@ -14,6 +14,7 @@ EXPECT = {
     "story_1_pre_black_friday_1080x1920_30fps.mp4": (6.0, False),
     "story_2_categorias_1080x1920_30fps.mp4": (6.0, False),
     "story_3_black_friday_cta_1080x1920_30fps.mp4": (6.0, False),
+    "reel_black_friday_abyss_15s_1080x1920_30fps.mp4": (15.0, True),
 }
 
 

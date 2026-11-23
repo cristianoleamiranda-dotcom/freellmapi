@@ -213,34 +213,132 @@ POSTERS = {
 }
 
 
-def main(which: str = "all") -> None:
+def scale_piece(scenes, transitions, base_dur: float, new_dur: float):
+    """Duración ajustable: re-escala proporcionalmente claves, cortes y whips.
+
+    La escaleta es data-driven (claves en segundos absolutos), así que un factor
+    f = nueva/base conserva ritmos, easings y rejilla de cortes. Permite cumplir
+    «duración ajustable / podrás variar la cantidad de segundos» sin re-editar.
+    """
+    f = new_dur / base_dur
+
+    def sk(keys):
+        for k in keys or []:
+            k["t"] = round(k["t"] * f, 4)
+
+    for sc in scenes:
+        sc["t0"] = round(sc["t0"] * f, 4)
+        sc["t1"] = round(sc["t1"] * f, 4)
+        for ly in sc["layers"]:
+            for key in ("in", "out"):
+                if key in ly:
+                    ly[key] = round(ly[key] * f, 4)
+            sk(ly.get("keys"))
+            sk(ly.get("cam"))
+    for tr in transitions:
+        tr["at"] = round(tr["at"] * f, 4)
+        if "dur" in tr:
+            tr["dur"] = round(tr["dur"] * f, 4)
+    return scenes, transitions, new_dur
+
+
+def main(argv: list[str]) -> None:
+    which = argv[0] if argv else "all"
+    reel_dur = 18.0
+    story_dur = 6.0
+    if "--reel-dur" in argv:
+        reel_dur = float(argv[argv.index("--reel-dur") + 1])
+    if "--story-dur" in argv:
+        story_dur = float(argv[argv.index("--story-dur") + 1])
     plates = build_plates()
     results = []
     pieces = []
     if which in ("all", "reel"):
         scenes, tr, dur = T.reel_scenes()
-        pieces.append(("reel_black_friday_abyss", scenes, tr, dur,
-                       {"beats": [3.0, 7.2, 13.2], "whips": [3.0, 13.2], "bpm": 120}))
+        base = dur
+        scenes, tr, dur = scale_piece(scenes, tr, base, reel_dur)
+        f = reel_dur / base
+        POSTERS["reel_black_friday_abyss"] = {k: round(v * f, 3) for k, v in
+                                              POSTERS["reel_black_friday_abyss"].items()}
+        name = "reel_black_friday_abyss" if reel_dur == base else f"reel_black_friday_abyss_{reel_dur:g}s"
+        if name != "reel_black_friday_abyss":
+            POSTERS[name] = POSTERS["reel_black_friday_abyss"]
+        pieces.append((name, scenes, tr, dur,
+                       {"beats": [3.0 * f, 7.2 * f, 13.2 * f], "whips": [3.0 * f, 13.2 * f], "bpm": 120}))
     if which in ("all", "stories"):
         for nm, fn in (("story_1_pre_black_friday", T.story1),
                        ("story_2_categorias", T.story2),
                        ("story_3_black_friday_cta", T.story3)):
             scenes, tr, dur = fn()
+            base = dur
+            scenes, tr, dur = scale_piece(scenes, tr, base, story_dur)
+            f = story_dur / base
+            if f != 1.0:
+                nm = f"{nm}_{story_dur:g}s"
             pieces.append((nm, scenes, tr, dur, None))
     for nm, scenes, tr, dur, au in pieces:
         print(f"== {nm} ({dur}s · {int(dur * FPS)} frames)")
         results.append(render_piece(nm, scenes, tr, dur, plates, au))
+    write_manifest(results, merge=True)
+
+
+def write_manifest(results: list[dict], merge: bool = True) -> dict:
+    prev = {}
+    if merge and (OUT / "manifest.json").exists():
+        prev = {pc["name"]: pc for pc in json.loads((OUT / "manifest.json").read_text()).get("pieces", [])}
+    for pc in results:
+        prev[pc["name"]] = pc
     manifest = {
         "campaign": "BLACK FRIDAY ABYSS TATTOO STUDIO",
         "brand_line": "ABYSS TATTOO Y PIERCING ♦ San Bernardo",
         "format": f"{W}x{H} @ {FPS}fps · H.264 High 4.2 · BT.709",
         "reference": "dropbox/type_01_pindown.io_1795195281.mp4 (gramática replicada)",
         "grade": "hiperrealista + duotono metálico cálido + film grain + viñeta + halación",
-        "pieces": results,
+        "duration_note": "duración ajustable: src/render.py reel --reel-dur S / stories --story-dur S",
+        "pieces": list(prev.values()),
     }
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False))
-    print(json.dumps(manifest, indent=2, ensure_ascii=False))
+    return manifest
+
+
+def rebuild_manifest() -> None:
+    """Reconstruye el manifest desde out/ (sin re-renderizar)."""
+    import hashlib
+    results = []
+    for mp4 in sorted(OUT.glob("*_1080x1920_30fps.mp4")):
+        name = mp4.name.replace("_1080x1920_30fps.mp4", "")
+        posters = {}
+        for tag in ("cover_hook", "poster_cta", "poster_pre", "cover"):
+            jp = OUT / f"{name}_{tag}.jpg"
+            if jp.exists():
+                posters[tag] = jp.name
+        sb = OUT / f"{name}_storyboard.jpg"
+        results.append({
+            "name": name, "file": mp4.name,
+            "duration": round(int(round(_probe_dur(mp4) * FPS)) / FPS, 2),
+            "fps": FPS, "frames": int(round(_probe_dur(mp4) * FPS)),
+            "size_mb": round(mp4.stat().st_size / 1e6, 2),
+            "sha256_16": hashlib.sha256(mp4.read_bytes()).hexdigest()[:16],
+            "posters": posters,
+            "storyboard": sb.name if sb.exists() else None,
+        })
+    m = write_manifest(results, merge=False)
+    print(json.dumps(m, indent=2, ensure_ascii=False))
+
+
+def _probe_dur(path: Path) -> float:
+    r = subprocess.run([str(ROOT / "bin" / "ffmpeg"), "-hide_banner", "-i", str(path)],
+                       capture_output=True, text=True)
+    for line in r.stderr.splitlines():
+        if line.strip().startswith("Duration"):
+            hh, mm, ss = line.split(",")[0].split(":")[1:]
+            return int(hh) * 3600 + int(mm) * 60 + float(ss)
+    return 0.0
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "all")
+    args = [a for a in sys.argv[1:]]
+    if args and args[0] == "manifest":
+        rebuild_manifest()
+    else:
+        main(args)

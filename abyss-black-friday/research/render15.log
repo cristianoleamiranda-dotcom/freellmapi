@@ -1,0 +1,35 @@
+== reel_black_friday_abyss_15s (15.0s · 450 frames)
+  [reel_black_friday_abyss_15s]    0/450    1.0s  ( 0.0 fps)
+  [reel_black_friday_abyss_15s]   60/450   20.2s  ( 3.0 fps)
+  [reel_black_friday_abyss_15s]  120/450   44.2s  ( 2.7 fps)
+  [reel_black_friday_abyss_15s]  180/450   77.0s  ( 2.3 fps)
+  [reel_black_friday_abyss_15s]  240/450   97.7s  ( 2.5 fps)
+  [reel_black_friday_abyss_15s]  300/450  121.7s  ( 2.5 fps)
+  [reel_black_friday_abyss_15s]  360/450  155.7s  ( 2.3 fps)
+  [reel_black_friday_abyss_15s]  420/450  179.1s  ( 2.3 fps)
+{
+  "campaign": "BLACK FRIDAY ABYSS TATTOO STUDIO",
+  "brand_line": "ABYSS TATTOO Y PIERCING ♦ San Bernardo",
+  "format": "1080x1920 @ 30fps · H.264 High 4.2 · BT.709",
+  "reference": "dropbox/type_01_pindown.io_1795195281.mp4 (gramática replicada)",
+  "grade": "hiperrealista + duotono metálico cálido + film grain + viñeta + halación",
+  "pieces": [
+    {
+      "name": "reel_black_friday_abyss_15s",
+      "file": "reel_black_friday_abyss_15s_1080x1920_30fps.mp4",
+      "duration": 15.0,
+      "fps": 30,
+      "frames": 450,
+      "size_mb": 54.84,
+      "sha256_16": "02c505263c64b1e0",
+      "encode_s": 197.3,
+      "audio": "reel_black_friday_abyss_15s_bed.wav",
+      "posters": {
+        "cover_hook": "reel_black_friday_abyss_15s_cover_hook.jpg",
+        "poster_cta": "reel_black_friday_abyss_15s_poster_cta.jpg",
+        "poster_pre": "reel_black_friday_abyss_15s_poster_pre.jpg"
+      },
+      "storyboard": "reel_black_friday_abyss_15s_storyboard.jpg"
+    }
+  ]
+}
