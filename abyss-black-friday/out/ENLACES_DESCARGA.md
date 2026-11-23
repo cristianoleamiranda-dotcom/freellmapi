@@ -2,7 +2,7 @@
 Generado 2026-11-23 · Auditoría: APROBADO (research/AUDITORIA_2026-11-23.md)
 
 ## 1) Paquete completo (recomendado)
-ZIP 89,8 MB (31 archivos) — videos/ 5 piezas · posters/ 12 · storyboards/ 5 · docs/ 7 + LEEME.txt + SHA256SUMS.txt
+ZIP ~90 MB (33 archivos) — videos/ 5 piezas · posters/ 12 · storyboards/ 5 · docs/ 9 + LEEME.txt + SHA256SUMS.txt
 - Dropbox (carpeta de la entrega completa, 29 archivos):
   https://www.dropbox.com/scl/fo/0crptvwdfh2nyvga0stzg/ALpOzAsAdB1My1DH7QH0Kjw?rlkey=28bxlxuab57zr8bhx1tphtchy&dl=0
 - ZIP en Dropbox (descarga directa: cambia dl=0 por dl=1):
@@ -27,6 +27,6 @@ Especificaciones: 1080×1920 · 30 fps · H.264 High@4.2 · yuv420p · BT.709 ·
 CTAs: @abyss_tattoo_studio (https://www.instagram.com/abyss_tattoo_studio) · https://wa.me/56947786839
 
 ## 4) Integridad verificada (content_hash estilo Dropbox, validado contra el servidor)
-Paquete ZIP: `bbfea8d63299b6c549ef471537268b22b40679146e1a2571d7082346129f4553` · 94.138.187 bytes · 31 archivos
+Paquete ZIP: ver out/INTEGRIDAD_hashes.txt (se regenera en cada rebuild del paquete)
 Recalcula en cualquier momento: `python3 scripts/dropbox_content_hash.py out/*.mp4 out/*.zip`
 Los 6 valores coinciden byte a byte con los reportados por Dropbox (ver out/INTEGRIDAD_hashes.txt).
