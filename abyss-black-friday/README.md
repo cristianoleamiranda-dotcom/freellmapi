@@ -32,7 +32,7 @@ contorneado», diagonal −9°).
 - `PRE BLACK FRIDAY ABYSS: 26/11. INSCRIPCIÓN POR DM. ELIGE QUE PROMOCIÓN QUIERES.`
 - `TATUAJE · JOYERÍA · PERFORACIONES · MÁQUINAS DE TATUAJE`
 - `BLACK FRIDAY ABYSS: 27/11`
-- CTA: `@abyss_tattoo_studio` (DM Instagram) y `wa.me/56947786839` (WhatsApp)
+- CTA: `@abyss_tattoo_studio` (DM Instagram, https://www.instagram.com/abyss_tattoo_studio) y `wa.me/56947786839` (WhatsApp)
 
 ## Material y edición (NO TRANSABLE)
 

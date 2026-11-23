@@ -295,6 +295,11 @@ def write_manifest(results: list[dict], merge: bool = True) -> dict:
         "reference": "dropbox/type_01_pindown.io_1795195281.mp4 (gramática replicada)",
         "grade": "hiperrealista + duotono metálico cálido + film grain + viñeta + halación",
         "duration_note": "duración ajustable: src/render.py reel --reel-dur S / stories --story-dur S",
+        "cta": {
+            "instagram": "https://www.instagram.com/abyss_tattoo_studio",
+            "instagram_handle": "@abyss_tattoo_studio",
+            "whatsapp": "https://wa.me/56947786839",
+        },
         "pieces": list(prev.values()),
     }
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False))

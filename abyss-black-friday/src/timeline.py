@@ -71,11 +71,11 @@ def reel_scenes():
                                 K(3.0, s=1.09, a=1.0)]),
         # etiqueta superior derecha (sistema SPATIAL de la referencia)
         L("label", z=30, text="BLACK FRIDAY", font=MON7, size=52, color=CREAM, track=2,
-          anchor="left", x=560, y=296, keys=[K(0.3, a=0.0, y=284), K(0.85, a=1.0, y=296, ease="o"), K(3.0, a=1.0)]),
-        micro_lines(562, 366, ["CAMPAÑA NOVIEMBRE 2026", "SAN BERNARDO · CHILE",
+          anchor="left", x=545, y=296, keys=[K(0.3, a=0.0, y=284), K(0.85, a=1.0, y=296, ease="o"), K(3.0, a=1.0)]),
+        micro_lines(535, 366, ["CAMPAÑA NOVIEMBRE 2026", "SAN BERNARDO · CHILE",
                               "INK. METAL. SKIN."], size=24, track=5, z=30),
         # rombo de marca + regla cobre
-        L("rule", z=31, w=210, h=4, color=COPPER, anchor="left", x=562, y=492,
+        L("rule", z=31, w=210, h=4, color=COPPER, anchor="left", x=535, y=492,
           keys=[K(0.5, s=0.0, a=0.0), K(1.1, s=1.0, a=1.0, ease="ox")]),
         # identificación de estudio, abajo-izquierda (zona segura)
         L("para", z=32, lines=("ABYSS TATTOO Y PIERCING", "♦ San Bernardo"), font=MON6,
@@ -104,14 +104,14 @@ def reel_scenes():
           keys=[K(3.55, s=0.9, a=0.0), K(4.05, s=1.0, a=1.0, ease="ob"), K(7.2, s=1.05, a=1.0)]),
         # copy esencial (zona segura central)
         L("para", z=40, lines=("PRE BLACK FRIDAY ABYSS:", "26/11."), font=ANTON, size=88,
-          color=CREAM, track=2, lead=10, x=640, y=880,
-          keys=[K(4.0, a=0.0, x=610), K(4.5, a=1.0, x=640, ease="o"), K(7.2, a=1.0)]),
+          color=CREAM, track=2, lead=10, x=540, y=880,
+          keys=[K(4.0, a=0.0, x=510), K(4.5, a=1.0, x=540, ease="o"), K(7.2, a=1.0)]),
         L("para", z=40, lines=("INSCRIPCIÓN POR DM.", "ELIGE QUE PROMOCIÓN", "QUIERES."),
-          font=MON6, size=44, color=CHAMP, track=4, lead=14, x=640, y=1080,
-          keys=[K(4.35, a=0.0, x=616), K(4.9, a=1.0, x=640, ease="o"), K(7.2, a=1.0)]),
-        L("rule", z=41, w=150, h=4, color=COPPER, x=640, y=1010,
+          font=MON6, size=44, color=CHAMP, track=4, lead=14, x=540, y=1080,
+          keys=[K(4.35, a=0.0, x=516), K(4.9, a=1.0, x=540, ease="o"), K(7.2, a=1.0)]),
+        L("rule", z=41, w=150, h=4, color=COPPER, x=540, y=1010,
           keys=[K(4.2, s=0.0, a=0.0), K(4.7, s=1.0, a=1.0, ease="ox")]),
-        micro_lines(640, 1330, ["ABYSS TATTOO Y PIERCING ♦ SAN BERNARDO"], size=26,
+        micro_lines(540, 1330, ["ABYSS TATTOO Y PIERCING ♦ SAN BERNARDO"], size=26,
                     track=5, z=40, align="c"),
         # barrido de glifos: "26/11" gigante cruzando (como el sweep de la ref.)
         L("type", z=60, text="26/11", font=ANTON, size=560, color=COPPER,
@@ -160,7 +160,7 @@ def reel_scenes():
                       K(t1, s=1.05, a=0.0, x=tpos["x"], y=tpos["y"] + wsize * 0.62 + 96)],
                 **{"in": t0, "out": t1})] if sub else [])
     layers += [
-        L("label", z=35, text="ELIGE QUE PROMOCIÓN QUIERES", font=MON6, size=34,
+        L("label", z=35, text="ELIGE QUE PROMOCIÓN QUIERES.", font=MON6, size=34,
           color=CHAMP, track=6, x=540, y=1600,
           keys=[K(7.4, a=0.0), K(7.9, a=1.0, ease="o"), K(13.0, a=1.0), K(13.2, a=0.0)]),
         roundel(930, 330, 130, 7.4, 13.2),
@@ -196,7 +196,7 @@ def reel_scenes():
         L("label", z=42, text="WHATSAPP  wa.me/56947786839", font=MON6, size=36, color=CHAMP,
           track=3, x=540, y=1626, keys=[K(15.05, a=0.0), K(15.45, a=1.0, ease="o"), K(18.4, a=1.0)]),
         roundel(540, 430, 210, 14.2, 18.4),
-        micro_lines(540, 1664, ["ABYSS TATTOO Y PIERCING ♦ SAN BERNARDO"], size=24,
+        micro_lines(540, 1654, ["ABYSS TATTOO Y PIERCING ♦ SAN BERNARDO"], size=24,
                     track=6, z=40, align="c"),
     ]}
     scenes.append(s4)
@@ -285,7 +285,7 @@ def story2():
         L("label", z=35, text="BLACK FRIDAY ABYSS · PROMOS", font=MON7, size=40,
           color=CREAM, track=5, x=540, y=300,
           keys=[K(0.2, a=0.0), K(0.7, a=1.0, ease="o"), K(6.0, a=1.0), K(6.2, a=0.0)]),
-        L("label", z=35, text="ELIGE QUE PROMOCIÓN QUIERES", font=MON6, size=34,
+        L("label", z=35, text="ELIGE QUE PROMOCIÓN QUIERES.", font=MON6, size=34,
           color=CHAMP, track=6, x=540, y=1648,
           keys=[K(0.4, a=0.0), K(0.9, a=1.0, ease="o"), K(6.0, a=1.0), K(6.2, a=0.0)]),
         roundel(950, 430, 104, 0.5, 6.2),
@@ -306,7 +306,7 @@ def story3():
           x=330, y=1400, keys=[K(0.55, s=1.3, a=0.0), K(1.05, s=1.0, a=1.0, ease="ob"),
                                  K(2.8, s=1.04, a=1.0)]),
         L("label", z=32, text="ABYSS TATTOO Y PIERCING ♦ SAN BERNARDO", font=MON6, size=32,
-          color=BONE, track=5, x=540, y=330,
+          color=BONE, track=3, x=540, y=330,
           keys=[K(0.4, a=0.0), K(0.9, a=1.0, ease="o"), K(2.8, a=1.0)]),
         roundel(880, 480, 140, 0.6, 2.8),
     ]}

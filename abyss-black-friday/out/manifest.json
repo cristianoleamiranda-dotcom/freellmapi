@@ -5,6 +5,11 @@
   "reference": "dropbox/type_01_pindown.io_1795195281.mp4 (gramática replicada)",
   "grade": "hiperrealista + duotono metálico cálido + film grain + viñeta + halación",
   "duration_note": "duración ajustable: src/render.py reel --reel-dur S / stories --story-dur S",
+  "cta": {
+    "instagram": "https://www.instagram.com/abyss_tattoo_studio",
+    "instagram_handle": "@abyss_tattoo_studio",
+    "whatsapp": "https://wa.me/56947786839"
+  },
   "pieces": [
     {
       "name": "reel_black_friday_abyss",
@@ -12,8 +17,8 @@
       "duration": 18.0,
       "fps": 30,
       "frames": 540,
-      "size_mb": 31.56,
-      "sha256_16": "03a9ca92bc20f357",
+      "size_mb": 31.59,
+      "sha256_16": "8b3d448bbf9bb783",
       "posters": {
         "cover_hook": "reel_black_friday_abyss_cover_hook.jpg",
         "poster_cta": "reel_black_friday_abyss_poster_cta.jpg",
@@ -27,8 +32,8 @@
       "duration": 15.0,
       "fps": 30,
       "frames": 450,
-      "size_mb": 26.3,
-      "sha256_16": "7984ef5c9215d947",
+      "size_mb": 26.42,
+      "sha256_16": "05b9ac0415eb913d",
       "posters": {
         "cover_hook": "reel_black_friday_abyss_15s_cover_hook.jpg",
         "poster_cta": "reel_black_friday_abyss_15s_poster_cta.jpg",
@@ -42,8 +47,8 @@
       "duration": 6.0,
       "fps": 30,
       "frames": 180,
-      "size_mb": 10.51,
-      "sha256_16": "47189bee24d8e663",
+      "size_mb": 10.44,
+      "sha256_16": "1f2ac7481e288a03",
       "posters": {
         "poster_cta": "story_1_pre_black_friday_poster_cta.jpg",
         "cover": "story_1_pre_black_friday_cover.jpg"
@@ -56,8 +61,8 @@
       "duration": 6.0,
       "fps": 30,
       "frames": 180,
-      "size_mb": 9.99,
-      "sha256_16": "d5257beed26dcb8e",
+      "size_mb": 10.01,
+      "sha256_16": "533a32c65f099425",
       "posters": {
         "poster_cta": "story_2_categorias_poster_cta.jpg",
         "cover": "story_2_categorias_cover.jpg"
@@ -70,8 +75,8 @@
       "duration": 6.0,
       "fps": 30,
       "frames": 180,
-      "size_mb": 9.79,
-      "sha256_16": "518331b8c809acf1",
+      "size_mb": 9.75,
+      "sha256_16": "fa0d41a00df6cda0",
       "posters": {
         "poster_cta": "story_3_black_friday_cta_poster_cta.jpg",
         "cover": "story_3_black_friday_cta_cover.jpg"
