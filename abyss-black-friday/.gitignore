@@ -19,3 +19,6 @@ research/qc/
 research/render.log
 research/qc_reel_encode.jpg
 research/qc_15s.jpg
+__pycache__/
+*.pyc
+research/render*.log
