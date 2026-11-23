@@ -1,0 +1,55 @@
+##### SPECS #####
+FAIL  reel_black_friday_abyss: 1080x1920 30.0fps h264/High yuv420p(tv, bt709, progressive) dur=18.0s frames=540 faststart=True rot=ausente GOP=3.6s audio=aac (LC) (mp4a / 0x6134706D)
+      átomos=['ftyp', 'moov', 'free', 'mdat'] · errs decode=0 · 31,590,916 B · 13841 kb/s
+FAIL  reel_black_friday_abyss_15s: 1080x1920 30.0fps h264/High yuv420p(tv, bt709, progressive) dur=15.0s frames=450 faststart=True rot=ausente GOP=3.0s audio=aac (LC) (mp4a / 0x6134706D)
+      átomos=['ftyp', 'moov', 'free', 'mdat'] · errs decode=0 · 26,416,942 B · 13889 kb/s
+PASS  story_1_pre_black_friday: 1080x1920 30.0fps h264/High yuv420p(tv, bt709, progressive) dur=6.0s frames=180 faststart=True rot=ausente GOP=3.0s audio=None
+      átomos=['ftyp', 'moov', 'free', 'mdat'] · errs decode=0 · 10,441,172 B · 13917 kb/s
+PASS  story_2_categorias: 1080x1920 30.0fps h264/High yuv420p(tv, bt709, progressive) dur=6.0s frames=180 faststart=True rot=ausente GOP=3.0s audio=None
+      átomos=['ftyp', 'moov', 'free', 'mdat'] · errs decode=0 · 10,007,543 B · 13339 kb/s
+PASS  story_3_black_friday_cta: 1080x1920 30.0fps h264/High yuv420p(tv, bt709, progressive) dur=6.0s frames=180 faststart=True rot=ausente GOP=2.0s audio=None
+      átomos=['ftyp', 'moov', 'free', 'mdat'] · errs decode=0 · 9,747,782 B · 12992 kb/s
+
+VEREDICTO 4-specs: FAIL ['reel_black_friday_abyss', 'reel_black_friday_abyss_15s']
+
+##### GRADE v2 #####
+== PLACAS FUENTE SIN EDITAR (material crudo) ==
+  film/hero_film.mp4           grainσ= 1.943 negros_p1=   0.0 sat=96.894 lum_std=25.073
+  film/proceso_filmacion.mp4   grainσ= 1.928 negros_p1=  11.3 sat=64.686 lum_std=60.993
+  film/proceso_detalle.mp4     grainσ= 4.534 negros_p1= 7.375 sat=56.296 lum_std=71.169
+  film/proceso_pierna.mp4      grainσ= 4.127 negros_p1= 4.176 sat=61.257 lum_std=70.815
+  film/loop_film.mp4           grainσ= 3.079 negros_p1= 0.467 sat=69.195 lum_std=28.973
+
+== PIEZAS ENTREGADAS ==
+  reel_black_friday_abyss          grainσ min/med/max=0.928/4.729/6.628 CV=0.3 frames_con_grano=92.2%
+      negros_p1=2.711 blancos_p99=229.322 sat=109.564 lum_std=65.318 · cobre=98.851% crema=0.349% · PROHIBIDOS: amarillo=0.206% rojo=0.73% neón=0.109% magenta=0.0%
+  reel_black_friday_abyss_15s      grainσ min/med/max=0.931/4.723/6.703 CV=0.31 frames_con_grano=93.3%
+      negros_p1=2.613 blancos_p99=227.117 sat=109.853 lum_std=65.403 · cobre=98.438% crema=0.66% · PROHIBIDOS: amarillo=0.267% rojo=0.689% neón=0.288% magenta=0.0%
+  story_1_pre_black_friday         grainσ min/med/max=0.874/4.506/5.232 CV=0.278 frames_con_grano=90.0%
+      negros_p1=2.433 blancos_p99=216.567 sat=115.124 lum_std=50.029 · cobre=99.249% crema=0.019% · PROHIBIDOS: amarillo=0.0% rojo=0.745% neón=0.0% magenta=0.0%
+  story_2_categorias               grainσ min/med/max=0.805/4.348/5.04 CV=0.181 frames_con_grano=96.7%
+      negros_p1=2.433 blancos_p99=233.333 sat=116.213 lum_std=61.388 · cobre=94.238% crema=2.703% · PROHIBIDOS: amarillo=2.048% rojo=0.689% neón=2.143% magenta=0.0%
+  story_3_black_friday_cta         grainσ min/med/max=0.805/4.8/6.257 CV=0.288 frames_con_grano=90.0%
+      negros_p1=2.367 blancos_p99=224.1 sat=106.601 lum_std=61.561 · cobre=96.44% crema=0.432% · PROHIBIDOS: amarillo=0.0% rojo=0.063% neón=0.0% magenta=0.0%
+
+Δ crudo→entrega: negros p1 4.7→2.5 (-2.2) · saturación 69.7→111.5 (+41.8) · contraste lum_std 51.4→60.7 (+9.3)
+VEREDICTO 2: WARN (grano_min_σ=0.805, CV_max=0.31, tono_prohibido_max=2.143%, edición_negros_Δ=-2.2)
+report: /home/user/freellmapi/abyss-black-friday/research/audit_grade_v2_report.json
+
+##### PUSH-IN #####
+== PUSH-IN / PAN MEDIDO EN FRAMES (modelo afín del flujo, ventanas de 10 frames) ==
+referencia_type_01     zoom %/s mean=-7.312 max=+2.006 min=-26.994 · ventanas expansivas=50.0% · pan=30.32 px/s · residuo=35.45px
+reel18                 zoom %/s mean=+0.256 max=+1.012 min=-0.319 · ventanas expansivas=75.0% · pan=3.56 px/s · residuo=4.57px
+reel15                 zoom %/s mean=+0.325 max=+1.534 min=-0.299 · ventanas expansivas=50.0% · pan=7.31 px/s · residuo=6.71px
+story1                 zoom %/s mean=+0.515 max=+1.691 min=-0.431 · ventanas expansivas=87.5% · pan=3.0 px/s · residuo=3.23px
+story2                 zoom %/s mean=+0.267 max=+1.028 min=-0.885 · ventanas expansivas=75.0% · pan=2.63 px/s · residuo=4.63px
+story3                 zoom %/s mean=+0.492 max=+1.869 min=+0.038 · ventanas expansivas=100.0% · pan=1.15 px/s · residuo=2.86px
+
+== COMPARACIÓN DE PUSH-IN vs REFERENCIA ==
+  reel18   zoom +0.256 %/s vs ref -7.312 %/s → -0.04x · expansivas 75.0% (ref 50.0%)
+  reel15   zoom +0.325 %/s vs ref -7.312 %/s → -0.04x · expansivas 50.0% (ref 50.0%)
+  story1   zoom +0.515 %/s vs ref -7.312 %/s → -0.07x · expansivas 87.5% (ref 50.0%)
+  story2   zoom +0.267 %/s vs ref -7.312 %/s → -0.04x · expansivas 75.0% (ref 50.0%)
+  story3   zoom +0.492 %/s vs ref -7.312 %/s → -0.07x · expansivas 100.0% (ref 50.0%)
+report: /home/user/freellmapi/abyss-black-friday/research/audit_pushin_report.json
+##### FIN #####

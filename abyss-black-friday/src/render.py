@@ -220,6 +220,11 @@ def scale_piece(scenes, transitions, base_dur: float, new_dur: float):
     f = nueva/base conserva ritmos, easings y rejilla de cortes. Permite cumplir
     «duración ajustable / podrás variar la cantidad de segundos» sin re-editar.
     """
+    # deepcopy: scale_piece no debe mutar la escaleta del llamador. Sin esto, dos llamadas
+    # consecutivas sobre el mismo objeto (p. ej. generar varias variantes de duración en un
+    # mismo proceso) componen el factor f y corrompen los tiempos. Detectado en auditoría.
+    import copy
+    scenes, transitions = copy.deepcopy(scenes), copy.deepcopy(transitions)
     f = new_dur / base_dur
 
     def sk(keys):

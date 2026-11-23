@@ -1,0 +1,15 @@
+{
+  "identicos": 29,
+  "desactualizados": [
+    [
+      "docs/visor.html",
+      "out/visor.html",
+      7705
+    ],
+    [
+      "docs/AUDITORIA_2026-11-23.md",
+      "research/AUDITORIA_2026-11-23.md",
+      5371
+    ]
+  ]
+}

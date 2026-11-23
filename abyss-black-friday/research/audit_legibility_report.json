@@ -1,0 +1,300 @@
+{
+  "reel18": [
+    {
+      "text": "BLACK FRIDAY",
+      "kind": "label",
+      "size": 52,
+      "t": 0.81,
+      "cap_height_px": 38.0,
+      "contrast": 13.58,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "CAMPAÑA NOVIEMBRE 2026 / SAN BERNARDO · CHILE / INK. METAL. ",
+      "kind": "para",
+      "size": 24,
+      "t": 0.05,
+      "cap_height_px": 28.3,
+      "contrast": 2.21,
+      "need": 4.5,
+      "ok": false
+    },
+    {
+      "text": "ABYSS TATTOO Y PIERCING / ♦ San Bernardo",
+      "kind": "para",
+      "size": 44,
+      "t": 1.18,
+      "cap_height_px": 44.0,
+      "contrast": 11.71,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "PRE BLACK FRIDAY 26/11 · BLACK FRIDAY 27/11 / INSCRIPCIÓN PO",
+      "kind": "para",
+      "size": 26,
+      "t": 0.05,
+      "cap_height_px": 28.0,
+      "contrast": 3.76,
+      "need": 4.5,
+      "ok": false
+    },
+    {
+      "text": "PRE BLACK FRIDAY ABYSS: / 26/11.",
+      "kind": "para",
+      "size": 88,
+      "t": 4.42,
+      "cap_height_px": 105.0,
+      "contrast": 14.75,
+      "need": 3.0,
+      "ok": true
+    },
+    {
+      "text": "INSCRIPCIÓN POR DM. / ELIGE QUE PROMOCIÓN / QUIERES.",
+      "kind": "para",
+      "size": 44,
+      "t": 4.9,
+      "cap_height_px": 52.3,
+      "contrast": 10.83,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "ABYSS TATTOO Y PIERCING ♦ SAN BERNARDO",
+      "kind": "para",
+      "size": 26,
+      "t": 3.45,
+      "cap_height_px": 20.0,
+      "contrast": 6.24,
+      "need": 4.5,
+      "ok": false
+    },
+    {
+      "text": "01",
+      "kind": "label",
+      "size": 54,
+      "t": 7.76,
+      "cap_height_px": 40.0,
+      "contrast": 6.2,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "02",
+      "kind": "label",
+      "size": 54,
+      "t": 9.3,
+      "cap_height_px": 40.0,
+      "contrast": 6.38,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "DE TATUAJE",
+      "kind": "label",
+      "size": 120,
+      "t": 12.12,
+      "cap_height_px": 103.4,
+      "contrast": 7.7,
+      "need": 3.0,
+      "ok": true
+    },
+    {
+      "text": "ELIGE QUE PROMOCIÓN QUIERES.",
+      "kind": "label",
+      "size": 34,
+      "t": 8.02,
+      "cap_height_px": 37.0,
+      "contrast": 10.21,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "BLACK FRIDAY ABYSS: 27/11",
+      "kind": "para",
+      "size": 52,
+      "t": 14.96,
+      "cap_height_px": 50.0,
+      "contrast": 14.35,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "DM  @abyss_tattoo_studio",
+      "kind": "label",
+      "size": 40,
+      "t": 15.33,
+      "cap_height_px": 40.0,
+      "contrast": 13.62,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "WHATSAPP  wa.me/56947786839",
+      "kind": "label",
+      "size": 36,
+      "t": 15.52,
+      "cap_height_px": 35.0,
+      "contrast": 10.26,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "ABYSS TATTOO Y PIERCING ♦ SAN BERNARDO",
+      "kind": "para",
+      "size": 24,
+      "t": 13.65,
+      "cap_height_px": 18.0,
+      "contrast": 5.17,
+      "need": 4.5,
+      "ok": false
+    }
+  ],
+  "story1": [
+    {
+      "text": "BLACK FRIDAY ABYSS",
+      "kind": "label",
+      "size": 46,
+      "t": 0.81,
+      "cap_height_px": 34.0,
+      "contrast": 11.54,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "PRE BLACK FRIDAY / ABYSS: 26/11.",
+      "kind": "para",
+      "size": 104,
+      "t": 3.55,
+      "cap_height_px": 124.5,
+      "contrast": 15.96,
+      "need": 3.0,
+      "ok": true
+    },
+    {
+      "text": "INSCRIPCIÓN POR DM. / ELIGE QUE PROMOCIÓN QUIERES.",
+      "kind": "para",
+      "size": 46,
+      "t": 3.93,
+      "cap_height_px": 53.0,
+      "contrast": 10.54,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "ABYSS TATTOO Y PIERCING ♦ SAN BERNARDO",
+      "kind": "label",
+      "size": 30,
+      "t": 4.31,
+      "cap_height_px": 23.0,
+      "contrast": 6.65,
+      "need": 4.5,
+      "ok": false
+    }
+  ],
+  "story2": [
+    {
+      "text": "01",
+      "kind": "label",
+      "size": 50,
+      "t": 0.56,
+      "cap_height_px": 37.0,
+      "contrast": 6.39,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "04",
+      "kind": "label",
+      "size": 50,
+      "t": 4.92,
+      "cap_height_px": 37.0,
+      "contrast": 6.38,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "DE TATUAJE",
+      "kind": "label",
+      "size": 112,
+      "t": 4.92,
+      "cap_height_px": 96.8,
+      "contrast": 7.22,
+      "need": 3.0,
+      "ok": true
+    },
+    {
+      "text": "BLACK FRIDAY ABYSS · PROMOS",
+      "kind": "label",
+      "size": 40,
+      "t": 0.82,
+      "cap_height_px": 30.0,
+      "contrast": 13.48,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "ELIGE QUE PROMOCIÓN QUIERES.",
+      "kind": "label",
+      "size": 34,
+      "t": 0.82,
+      "cap_height_px": 37.0,
+      "contrast": 9.5,
+      "need": 4.5,
+      "ok": true
+    }
+  ],
+  "story3": [
+    {
+      "text": "ABYSS TATTOO Y PIERCING ♦ SAN BERNARDO",
+      "kind": "label",
+      "size": 32,
+      "t": 0.87,
+      "cap_height_px": 24.0,
+      "contrast": 6.91,
+      "need": 4.5,
+      "ok": false
+    },
+    {
+      "text": "BLACK FRIDAY / ABYSS: 27/11",
+      "kind": "para",
+      "size": 100,
+      "t": 3.39,
+      "cap_height_px": 119.5,
+      "contrast": 15.41,
+      "need": 3.0,
+      "ok": true
+    },
+    {
+      "text": "DM  @abyss_tattoo_studio",
+      "kind": "label",
+      "size": 40,
+      "t": 3.93,
+      "cap_height_px": 40.0,
+      "contrast": 14.72,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "WHATSAPP  wa.me/56947786839",
+      "kind": "label",
+      "size": 36,
+      "t": 4.2,
+      "cap_height_px": 35.0,
+      "contrast": 11.17,
+      "need": 4.5,
+      "ok": true
+    },
+    {
+      "text": "ABYSS TATTOO Y PIERCING ♦ SAN BERNARDO",
+      "kind": "label",
+      "size": 28,
+      "t": 4.47,
+      "cap_height_px": 21.0,
+      "contrast": 6.52,
+      "need": 4.5,
+      "ok": false
+    }
+  ]
+}
