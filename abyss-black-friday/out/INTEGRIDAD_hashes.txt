@@ -1,0 +1,6 @@
+bbfea8d63299b6c549ef471537268b22b40679146e1a2571d7082346129f4553    94,138,187  out/ABYSS_BLACK_FRIDAY_ENTREGA_FINAL_2026-11-23.zip
+59b06a98fec65e4322416157fdfc1fe0e1a482e314174150e8f80e7d868bb4bf    31,590,916  out/reel_black_friday_abyss_1080x1920_30fps.mp4
+b1b59b19b8c2fab1395d74a6bebdee5d9ed0856e0aa2739023447dd7100231a4    26,416,942  out/reel_black_friday_abyss_15s_1080x1920_30fps.mp4
+a6a8aff73a087b4a60b25df7894a119bfa5defb6c6bcef445873fedffaebce67    10,441,172  out/story_1_pre_black_friday_1080x1920_30fps.mp4
+9cc3f343f86fde97a633d9b9ffed2b746ab82b3b970abd566d69e0762852ca44    10,007,543  out/story_2_categorias_1080x1920_30fps.mp4
+cc0b26273960da3a2596abf3e1a1393f08a99cf47169cad41d3eb44bc95a555a     9,747,782  out/story_3_black_friday_cta_1080x1920_30fps.mp4

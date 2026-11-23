@@ -24,3 +24,6 @@ __pycache__/
 research/render*.log
 research/audit_frames_*/
 research/audit_grade_*.png
+
+# paquetes de descarga
+out/*.zip
