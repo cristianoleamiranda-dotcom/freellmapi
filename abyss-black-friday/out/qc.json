@@ -1,0 +1,35 @@
+[
+  {
+    "file": "reel_black_friday_abyss_1080x1920_30fps.mp4",
+    "size_mb": 31.56,
+    "duration": " 00:00:18.00",
+    "video": "h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709/unknown/unknown, progressive), 1080x1920, 13825 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+    "audio": "aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 189 kb/s (default)",
+    "expect_s": 18.0,
+    "pass": true
+  },
+  {
+    "file": "story_1_pre_black_friday_1080x1920_30fps.mp4",
+    "size_mb": 10.51,
+    "duration": " 00:00:06.00",
+    "video": "h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709/unknown/unknown, progressive), 1080x1920, 14008 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+    "expect_s": 6.0,
+    "pass": true
+  },
+  {
+    "file": "story_2_categorias_1080x1920_30fps.mp4",
+    "size_mb": 9.99,
+    "duration": " 00:00:06.00",
+    "video": "h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709/unknown/unknown, progressive), 1080x1920, 13319 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+    "expect_s": 6.0,
+    "pass": true
+  },
+  {
+    "file": "story_3_black_friday_cta_1080x1920_30fps.mp4",
+    "size_mb": 9.79,
+    "duration": " 00:00:06.00",
+    "video": "h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709/unknown/unknown, progressive), 1080x1920, 13052 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+    "expect_s": 6.0,
+    "pass": true
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "campaign": "BLACK FRIDAY ABYSS TATTOO STUDIO",
+  "brand_line": "ABYSS TATTOO Y PIERCING ♦ San Bernardo",
+  "format": "1080x1920 @ 30fps · H.264 High 4.2 · BT.709",
+  "reference": "dropbox/type_01_pindown.io_1795195281.mp4 (gramática replicada)",
+  "grade": "hiperrealista + duotono metálico cálido + film grain + viñeta + halación",
+  "pieces": [
+    {
+      "name": "reel_black_friday_abyss",
+      "file": "reel_black_friday_abyss_1080x1920_30fps.mp4",
+      "duration": 18.0,
+      "fps": 30,
+      "frames": 540,
+      "size_mb": 31.56,
+      "sha256_16": "03a9ca92bc20f357",
+      "encode_s": 226.2,
+      "audio": "reel_black_friday_abyss_bed.wav",
+      "posters": {
+        "cover_hook": "reel_black_friday_abyss_cover_hook.jpg",
+        "poster_cta": "reel_black_friday_abyss_poster_cta.jpg",
+        "poster_pre": "reel_black_friday_abyss_poster_pre.jpg"
+      },
+      "storyboard": "reel_black_friday_abyss_storyboard.jpg",
+      "master": "masters/reel_black_friday_abyss_1080x1920_30fps_master.mp4 (crf17, sin commit)",
+      "delivery": "reel_black_friday_abyss_1080x1920_30fps.mp4 (crf21 tune=film)"
+    },
+    {
+      "name": "story_1_pre_black_friday",
+      "file": "story_1_pre_black_friday_1080x1920_30fps.mp4",
+      "duration": 6.0,
+      "fps": 30,
+      "frames": 180,
+      "size_mb": 10.51,
+      "sha256_16": "47189bee24d8e663",
+      "encode_s": 65.6,
+      "posters": {
+        "cover": "story_1_pre_black_friday_cover.jpg",
+        "poster_cta": "story_1_pre_black_friday_poster_cta.jpg"
+      },
+      "storyboard": "story_1_pre_black_friday_storyboard.jpg",
+      "master": "masters/story_1_pre_black_friday_1080x1920_30fps_master.mp4 (crf17, sin commit)",
+      "delivery": "story_1_pre_black_friday_1080x1920_30fps.mp4 (crf21 tune=film)"
+    },
+    {
+      "name": "story_2_categorias",
+      "file": "story_2_categorias_1080x1920_30fps.mp4",
+      "duration": 6.0,
+      "fps": 30,
+      "frames": 180,
+      "size_mb": 9.99,
+      "sha256_16": "d5257beed26dcb8e",
+      "encode_s": 82.5,
+      "posters": {
+        "cover": "story_2_categorias_cover.jpg",
+        "poster_cta": "story_2_categorias_poster_cta.jpg"
+      },
+      "storyboard": "story_2_categorias_storyboard.jpg",
+      "master": "masters/story_2_categorias_1080x1920_30fps_master.mp4 (crf17, sin commit)",
+      "delivery": "story_2_categorias_1080x1920_30fps.mp4 (crf21 tune=film)"
+    },
+    {
+      "name": "story_3_black_friday_cta",
+      "file": "story_3_black_friday_cta_1080x1920_30fps.mp4",
+      "duration": 6.0,
+      "fps": 30,
+      "frames": 180,
+      "size_mb": 9.79,
+      "sha256_16": "518331b8c809acf1",
+      "encode_s": 64.3,
+      "posters": {
+        "cover": "story_3_black_friday_cta_cover.jpg",
+        "poster_cta": "story_3_black_friday_cta_poster_cta.jpg"
+      },
+      "storyboard": "story_3_black_friday_cta_storyboard.jpg",
+      "master": "masters/story_3_black_friday_cta_1080x1920_30fps_master.mp4 (crf17, sin commit)",
+      "delivery": "story_3_black_friday_cta_1080x1920_30fps.mp4 (crf21 tune=film)"
+    }
+  ],
+  "delivery_note": "Masters crf17 en out/masters/ (fuera de Git); entregas crf21 tune=film con grano preservado; reel con cama AAC 192k."
+}
