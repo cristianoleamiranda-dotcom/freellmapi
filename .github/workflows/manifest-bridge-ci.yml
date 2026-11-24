@@ -1,0 +1,29 @@
+name: Manifest bridge validation
+
+on:
+  pull_request:
+    paths:
+      - "integrations/manifest-bridge/**"
+      - "docs/integrations/manifest-gateway-architecture.md"
+      - ".github/workflows/manifest-bridge-ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "integrations/manifest-bridge/**"
+      - "docs/integrations/manifest-gateway-architecture.md"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check bridge JavaScript syntax
+        run: node --check integrations/manifest-bridge/server.mjs
+      - name: Validate package metadata
+        run: node -e "JSON.parse(require('node:fs').readFileSync('integrations/manifest-bridge/package.json', 'utf8'))"
