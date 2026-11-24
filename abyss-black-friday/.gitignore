@@ -1,0 +1,29 @@
+# material fuente (Dropbox / GitHub) — nunca a git
+material/
+bin/
+# análisis intermedio pesado
+research/frames_*/
+research/chk_*/
+*.wav
+out/*_bed.wav
+out/masters/
+*.wav
+# hojas de trabajo intermedias
+research/check*.jpg
+research/chk_*.jpg
+research/full_*.jpg
+research/smoke_*.jpg
+research/triptico.jpg
+research/contact_bxzz.jpg
+research/qc/
+research/render.log
+research/qc_reel_encode.jpg
+research/qc_15s.jpg
+__pycache__/
+*.pyc
+research/render*.log
+research/audit_frames_*/
+research/audit_grade_*.png
+
+# paquetes de descarga
+out/*.zip

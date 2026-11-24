@@ -1,0 +1,62 @@
+--- a/abyss-black-friday/src/kinetic.py
++++ b/abyss-black-friday/src/kinetic.py
+@@ -102,7 +102,7 @@
+ 
+ @lru_cache(maxsize=None)
+ def para_canvas(lines: tuple, font_path: str, size: int, color: tuple,
+-                tracking: int, lead: int, align: str) -> Image.Image:
++                tracking: int, lead: int, align: str, outline: int = 0) -> Image.Image:
+     fnt = B.font(font_path, size)
+     tmp = Image.new("L", (8, 8))
+     d = ImageDraw.Draw(tmp)
+@@ -124,7 +124,8 @@
+             x = 12 + tw - ws[i]
+         xx = x
+         for ch in ln:
+-            d.text((xx, 12 + i * lh), ch, font=fnt, fill=color + (255,))
++            d.text((xx, 12 + i * lh), ch, font=fnt, fill=color + (255,),
++                   stroke_width=outline, stroke_fill=(5, 4, 3, 255))
+             xx += d.textlength(ch, font=fnt) + tracking
+     return im
+ 
+--- a/abyss-black-friday/src/timeline.py
++++ b/abyss-black-friday/src/timeline.py
+@@ -36,11 +36,12 @@
+ # Bloques reutilizables
+ # ---------------------------------------------------------------------------
+ def micro_lines(x, y, lines, size=25, color=BONE, track=6, z=40, lead=10, align="l",
+-                in_=-9, out=99):
++                outline=2, in_=-9, out=99):
+     anchor = {"l": "left", "c": "center", "r": "right"}[align]
+     kw = {"in": in_, "out": out} if (in_ > -9 or out < 99) else {}
+     return L("para", z=z, lines=tuple(lines), font=MON5, size=size, color=color,
+-             track=track, lead=lead, align=align, anchor=anchor, x=x, y=y, **kw)
++             track=track, lead=lead, align=align, anchor=anchor, x=x, y=y,
++             outline=outline, **kw)
+ 
+ 
+ def roundel(x, y, size, in_, out, keys=None, z=45):
+@@ -72,8 +73,9 @@
+         # etiqueta superior derecha (sistema SPATIAL de la referencia)
+         L("label", z=30, text="BLACK FRIDAY", font=MON7, size=52, color=CREAM, track=2,
+           anchor="left", x=545, y=296, keys=[K(0.3, a=0.0, y=284), K(0.85, a=1.0, y=296, ease="o"), K(3.0, a=1.0)]),
+-        micro_lines(535, 366, ["CAMPAÑA NOVIEMBRE 2026", "SAN BERNARDO · CHILE",
+-                              "INK. METAL. SKIN."], size=24, track=5, z=30),
++        micro_lines(522, 366, ["CAMPAÑA NOVIEMBRE 2026", "SAN BERNARDO · CHILE",
++                              "INK. METAL. SKIN."], size=26, color=CREAM, track=4, z=30,
++                  outline=3),
+         # rombo de marca + regla cobre
+         L("rule", z=31, w=210, h=4, color=COPPER, anchor="left", x=535, y=492,
+           keys=[K(0.5, s=0.0, a=0.0), K(1.1, s=1.0, a=1.0, ease="ox")]),
+@@ -81,8 +83,9 @@
+         L("para", z=32, lines=("ABYSS TATTOO Y PIERCING", "♦ San Bernardo"), font=MON6,
+           size=44, color=CREAM, track=3, lead=14, anchor="left", x=96, y=1480,
+           keys=[K(0.6, a=0.0, y=1500), K(1.2, a=1.0, y=1480, ease="o"), K(3.0, a=1.0)]),
+-        micro_lines(96, 1620, ["PRE BLACK FRIDAY 26/11 · BLACK FRIDAY 27/11",
+-                               "INSCRIPCIÓN POR DM · ELIGE TU PROMOCIÓN"], size=26, track=4, z=32),
++        micro_lines(96, 1620, ["PRE BLACK FRIDAY ABYSS: 26/11.",
++                               "BLACK FRIDAY ABYSS: 27/11"],
++                  size=26, color=CREAM, track=4, z=32),
+         roundel(930, 640, 150, 0.9, 3.0),
+         # barrido especular cromo sobre el type gigante
+         L("sweep", z=50, w=760, h=240, color=CHROME, x=-300, y=880,

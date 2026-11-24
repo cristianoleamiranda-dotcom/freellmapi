@@ -29,3 +29,4 @@ monetization/
 # HyperFrames runtime artifacts (thumbnails, preview state, history)
 repo-assets/abyss-reel/.hyperframes/
 repo-assets/abyss-reel/.thumbnails/
+/dropbox/
