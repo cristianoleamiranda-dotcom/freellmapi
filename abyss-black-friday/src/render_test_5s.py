@@ -69,11 +69,14 @@ def scenes_5s():
         L("type", z=20, text="BLACK FRIDAY", font=ANTON, size=220, color=CREAM,
           x=540, y=790, keys=[K(4.0, s=1.22, a=0.0), K(4.22, s=1.0, a=1.0, ease="ob"),
                                K(5.0, s=1.04, a=1.0)]),
-        L("rule", z=30, w=330, h=4, color=COPPER, x=540, y=990,
+        L("label", z=29, text="·", font=MON7, size=54, color=COPPER,
+          track=0, x=540, y=970,
+          keys=[K(4.16, a=0.0), K(4.40, a=1.0, ease="o"), K(5.0, a=1.0)]),
+        L("rule", z=30, w=330, h=4, color=COPPER, x=540, y=1030,
           keys=[K(4.18, s=0.0, a=0.0), K(4.48, s=1.0, a=1.0, ease="ox")]),
         L("label", z=31, text="ABYSS TATTOO STUDIO", font=MON7, size=38,
-          color=BONE, track=5, x=540, y=1080,
-          keys=[K(4.30, a=0.0, y=1110), K(4.56, a=1.0, y=1080, ease="o"), K(5.0, a=1.0)]),
+          color=BONE, track=5, x=540, y=1120,
+          keys=[K(4.30, a=0.0, y=1150), K(4.56, a=1.0, y=1120, ease="o"), K(5.0, a=1.0)]),
     ]}
     return [intro, photos, end], [
         {"at": 2.00, "kind": "cut"},
